@@ -1,10 +1,10 @@
 // 匯入其他CSS
-@import '_01joint.scss';
+@import '_01joint/_01joint.scss';
 
 // 建立響應式斷點：媒體判斷 @madia
 // 超小裝置 <576px (max-width: 576px)最大寬度
 @media screen and (max-width: 576px) {
-    @import '_02SS/01index';    
+   @import '_02SS/_01index.scss';    
 }
 
 // 小裝置 >=576px (min-width: 576px)最小寬度

@@ -19,7 +19,7 @@ section{
     width: 100%;
 
     /* 高度的尺寸 絕對:px 相對: % (不會自動將高度展開) vh (裝置的高度，會自動展開)；這兩個單位不要混用*/
-    height: 100vh;
+    height: 100%;
     
     /* 背景顏色 background-color */
     background-color:cadetblue;
