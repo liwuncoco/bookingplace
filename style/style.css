@@ -15,10 +15,24 @@ body {
     height: 100%;
     background-color: cadetblue;
   }
-  footer > li {
+  section header {
+    height: 17.5%;
+    background-color: bisque;
+  }
+  section main {
+    height: 73.5%;
+    background-color: orangered;
+  }
+  section footer {
+    height: 6.5%;
+  }
+  section footer > li {
     color: brown;
     list-style-type: none;
     text-align: center;
     font-size: 0.85rem;
+  }
+  section footer > .mt {
+    padding-top: 4px;
   }
 }
