@@ -16,8 +16,28 @@ body {
     background-color: cadetblue;
   }
   section header {
-    height: 17.5%;
+    height: 22.5%;
     background-color: bisque;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  section header > li {
+    width: 15%;
+    background-color: burlywood;
+  }
+  section header > h1 {
+    width: 85%;
+  }
+  section header > h1 {
+    text-align: center;
+  }
+  section header .menu {
+    font-size: 4rem;
+    color: orange;
+    list-style-type: none;
   }
   section main {
     height: 73.5%;
