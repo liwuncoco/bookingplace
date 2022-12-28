@@ -26,7 +26,6 @@ body {
   }
   section header > li {
     width: 15%;
-    background-color: burlywood;
   }
   section header > h1 {
     width: 85%;
@@ -35,9 +34,12 @@ body {
     text-align: center;
   }
   section header .menu {
-    font-size: 4rem;
-    color: orange;
     list-style-type: none;
+    background-image: url(../../images/icons/list.svg);
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    background-position: center;
+    background-size: cover;
   }
   section main {
     height: 73.5%;

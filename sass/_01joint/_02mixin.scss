@@ -26,7 +26,6 @@
     $ColumnWidth: Var.$W10 * $Mul;
     > li {
         width: $ColumnWidth;
-        background-color: burlywood;
     }
     > h1 {
         width: Var.$W10 * 10% - $ColumnWidth;

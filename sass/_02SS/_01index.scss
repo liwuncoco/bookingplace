@@ -31,10 +31,23 @@ section{
         }
         .menu {
             // 文字尺寸： 絕對值單位：px (一般文字預設值 16px ) | 相對值單位： % em(子物件會被副父物件連動) rem( 1rem = 16px 不受父物件影響)
-            font-size: 4rem;
-            color: orange;
+            // font-size: 4rem;
+            // color: orange;
             // 隱藏項目符號
             list-style-type: none;
+
+            // 背景取代文字顯示
+            // 1. 讀取背景圖片 (相對路徑)
+            background-image: url(../../images/icons/list.svg);
+            // 2. 取消重複排列
+            background-repeat: no-repeat;
+            // 3. 將文字移置裝置之外，文字縮排
+            text-indent: -9999px;
+            // 4. 圖片水平垂直置中 (背景圖片的定位點)
+            background-position: center;
+            // 5. 背景圖片的尺寸 auto (預設值) | contain (內縮) | cover (覆蓋)
+            background-size: cover;
+
         }
     }
     main{
