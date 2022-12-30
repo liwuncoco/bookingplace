@@ -1,0 +1,26 @@
+@use '_01joint/02variable' as Var;
+#Index {
+    font-size: 1rem * 5;
+
+    // 直接設定 媒體判斷
+    @media screen and (max-width: Var.$WidthSmall) {
+        > div {
+            color: brown;
+            background-color: aqua;
+        }
+    }
+
+    @media screen and (min-width: Var.$WidthSmall) {
+        > div {
+            color: red;
+            background-color: burlywood;
+        }
+    }
+
+    @media screen and (min-width: Var.$WidthLitho) {
+        > div {
+            color: orchid;
+            background-color: blueviolet;
+        }        
+    }
+}

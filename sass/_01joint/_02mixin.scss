@@ -3,20 +3,25 @@
 @use '_00variable.scss' as Var;
 
 // 混用 mixin (自訂函式，可以輸入「參數」)
-@mixin calcH($Pre,$Mul) {
+@mixin calcH($Pre, $Mul) {
     // 計算高度的公式 寬度的基礎數值 * 百分比的值 * 倍數
     height: Var.$W10 * $Pre * $Mul;
 }
 
+// @mixin calcH1($Pre, $Mul){
+//     // header 總高度 / 3 (取3分之一的高)
+//     height: calc(((Var.$W10 * $Pre * $Mul) / 3) + 3%);
+// }
+
 // 計算 footer 高度 header 高度 + 增加高度
-@mixin calcFH($Pre,$Fh){
+@mixin calcFH($Pre, $Fh){
     $H: Var.$W10 * $Pre;
     height: $H + $Fh;
     // height: ($W10 * $Pre)) + $Fh;
 }
 
 // 計算 main 高度 100% - header高度 - footer高度
-@mixin calcMH($Pre,$Mul,$Fh) {
+@mixin calcMH($Pre, $Mul, $Fh) {
     height: 100% - ( Var.$W10 * $Pre * 4 )  - ((  Var.$W10 * $Pre ) + Var.$F );
     // height: 100% - ( $H * 4 )  - ( $H + $F );
 }
