@@ -84,10 +84,15 @@ section{
         @include Mixin.calcMH(0.5%,4.5,1.5%);
         background-color:orangered;
         > nav {
+            // 寬
             width: Var.$W10 * 9.5%;
+            // 高
             height: 100%;
+           // 隱藏項目符號
             list-style-type: none;
+            // 顯示方式
             display: flex;
+            // 換行
             flex-wrap: wrap;
             > li {
                 width: Var.$W10 * 5%;

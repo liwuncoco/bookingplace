@@ -1,0 +1,8 @@
+/* 原生變數寫法 定義在根偽類選擇器之下 (共用) */
+:root {
+    --w: 10%;
+    --ColorBrown: brown;
+    --ColorPurple: purple;
+    --FontSize: 1rem;
+    --FontSize2: calc(var(--FontSize) * 2);
+}
