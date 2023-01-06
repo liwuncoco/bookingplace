@@ -3,93 +3,31 @@
   padding: 0;
 }
 
-html,
-body {
-  width: 100%;
+html, body {
   height: 100%;
 }
 
-@media screen and (max-width: 576px) {
-  section {
-    width: 100%;
-    height: 100%;
-    background-color: cadetblue;
-  }
-  section header {
-    height: 22.5%;
-    background-color: bisque;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  section header > li {
-    width: 15%;
-  }
-  section header > h1 {
-    width: 85%;
-  }
-  section header .menu {
-    list-style-type: none;
-    background-image: url(../../images/icons/list.svg);
-    background-repeat: no-repeat;
-    text-indent: -9999px;
-    background-position: center;
-    background-size: cover;
-    background-color: chartreuse;
-  }
-  section header > h1 {
-    text-align: center;
-    font-size: 1.5rem;
-    background-color: orangered;
-  }
-  section header > h1 > li {
-    margin-top: 0.5882352941rem;
-    list-style-type: none;
-    background-color: aqua;
-  }
-  section header > ul {
-    width: 100%;
-    list-style-type: none;
-    background-color: yellowgreen;
-  }
-  section header > ul > li {
-    width: 90%;
-    text-align: right;
-    background-color: purple;
-  }
-  section header > ul > .WebName {
-    margin-top: 0.6rem;
-  }
-  section main {
-    height: 73.5%;
-    background-color: orangered;
-  }
-  section main > nav {
-    width: 95%;
-    height: 100%;
-    list-style-type: none;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  section main > nav > li {
-    width: 50%;
-    height: 30%;
-  }
-  section footer {
-    height: 6.5%;
-  }
-  section footer > li {
-    color: brown;
-    list-style-type: none;
-    text-align: center;
-    font-size: 0.85rem;
-  }
-  section footer > .mt {
-    padding-top: 4px;
-  }
+#bookingplace {
+  width: 100%;
+  height: 100%;
+  background-color: burlywood;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  list-style-type: none;
+}
+header #menu {
+  width: 15%;
+  color: rebeccapurple;
+}
+header h1 {
+  width: 85%;
+}
+header ul {
+  width: 100%;
 }

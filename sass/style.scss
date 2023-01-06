@@ -1,14 +1,23 @@
-// 匯入其他CSS
-@import '_01joint/_01joint.scss';
+// sass / scss 可幫助處理語法重複的部分，管理共同物件(文字、顏色或數值)，設計可以計算的混用語法或是方法，重複使用的資料
+// sass / scss 設計的資料為程式語法，程式的註記與一般的註記不同，轉譯之後不會將註記轉出；利用sass / scss 規則建立的檔案也不會直接得知路徑
+//設定變數、mixin(混用)、function(方法)、繼承
 
-// 建立響應式斷點：媒體判斷 @madia
-// 超小裝置 <576px (max-width: 576px)最大寬度
-@media screen and (max-width: 576px) {
-   @import '_02SS/_01index.scss';    
-}
+// styles.scss 在彙整所有的scss 原始檔案；匯入所有的檔案
 
-// 小裝置 >=576px (min-width: 576px)最小寬度
-@media screen and (min-width: 576px) {
+@import '_04joint.scss';
+@import '_05index.scss';
+
+// // 匯入其他CSS
+// @import '_01joint/_01joint.scss';
+
+// // 建立響應式斷點：媒體判斷 @madia
+// // 超小裝置 <576px (max-width: 576px)最大寬度
+// @media screen and (max-width: 576px) {
+//    @import '_02SS/_01index.scss';    
+// }
+
+// // 小裝置 >=576px (min-width: 576px)最小寬度
+// @media screen and (min-width: 576px) {
     
-}
+// }
 
