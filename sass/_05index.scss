@@ -20,12 +20,57 @@ header {
     list-style-type: none;
     #menu {
         width: Var.$Num10 * 1.5%;
+        height: 50px;
+        // 文字顏色
         color: rebeccapurple;
+        // 背景圖片取代文字顯示，背景圖片的對齊，可以輕易達到 水平垂直置中 的排列方式
+        // 1. 設定背景圖片連結 2. 背景圖片不重複顯示 3. 背景圖片的對齊(定位點 X Y - 水平垂直置中)
+        // 4. 位移文字(首行縮排 - 單行文字 或者 段落文字的第一行) 5. 圖片尺寸設定 (預設值：自動)
+        background-image: url(../../images/icons/list.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        // auto(預設值：自動) cover (滿版覆蓋框架尺寸) contain(滿版留白) | 個別設定 X Y 的值 (例如：background-size: 50% 30%) | 單位：px %
+        background-size: contain;
+        text-indent: -9999px;
+        background-color: cadetblue;
+        // sass 媒體判斷
+        @media screen and (min-width: Var.$Width-small) {
+            width: Var.$Num10 * 1.3%;
+            background-color: pink;
+        }
+        @media screen and (min-width: Var.$Width-medium) {
+            width: Var.$Num10 * 1.3%;
+            background-color: rgb(128, 249, 47);
+        }
     }
     h1 {
         width: Var.$Num10 * 8.5%;
+        background-color: rosybrown;
+        // sass 媒體判斷
+        @media screen and (min-width: Var.$Width-small) {
+            width: Var.$Num10 * 8.5%;
+            background-color: rgb(113, 11, 255);
+        }
     }
     ul {
         width: Var.$Num10 * 10%;
     }
 }
+
+// 原生 css 的媒體判斷
+// @media screen and (min-width: Var.$Width-small) {
+//     header {
+//         #menu {
+//             width: Var.$Num10 * 1.3%;
+//             background-color: pink;
+//         }
+//     }
+// }
+// @media screen and (min-width: Var.$Width-medium) {
+//     header {
+//         #menu {
+//             width: Var.$Num10 * 1.3%;
+//             background-color: rgb(128, 249, 47);
+//         }
+//     }
+// }

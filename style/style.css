@@ -23,10 +23,36 @@ header {
 }
 header #menu {
   width: 15%;
+  height: 50px;
   color: rebeccapurple;
+  background-image: url(../../images/icons/list.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  text-indent: -9999px;
+  background-color: cadetblue;
+}
+@media screen and (min-width: 576px) {
+  header #menu {
+    width: 13%;
+    background-color: pink;
+  }
+}
+@media screen and (min-width: 768px) {
+  header #menu {
+    width: 13%;
+    background-color: rgb(128, 249, 47);
+  }
 }
 header h1 {
   width: 85%;
+  background-color: rosybrown;
+}
+@media screen and (min-width: 576px) {
+  header h1 {
+    width: 85%;
+    background-color: rgb(113, 11, 255);
+  }
 }
 header ul {
   width: 100%;
