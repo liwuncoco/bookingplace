@@ -1,6 +1,6 @@
 // 讀取 變數 檔案 ；@use 區域性；一次性；規則 檔案要另給名稱；基於檔案的安全性；要放置在所有語法的最上層
 @use '_01variable/variable' as Var;
-
+@use '_02mixin/media' as Media;
 // 滿版設計 section id="bookingplace"；設定寬 100 高 100 背景顏色
 #bookingplace {
     width: Var.$Num10 * 10 * Var.$Per;
@@ -33,12 +33,30 @@ header {
         background-size: contain;
         text-indent: -9999px;
         background-color: cadetblue;
-        // sass 媒體判斷
-        @media screen and (min-width: Var.$Width-small) {
+
+    }    
+}
+// sass 媒體判斷
+// #{ } 格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」
+@include Media.Rwd(sm) {
+    header {
+        #menu {
             width: Var.$Num10 * 1.3%;
             background-color: pink;
         }
-        @media screen and (min-width: Var.$Width-medium) {
+    }
+    hi {
+        width: Var.$Num10 * 8.5%;
+        background-color: rgb(113, 11, 255);
+    }
+    ul {
+        width: Var.$Num10 * 10%;
+    }
+}
+
+@include Media.Rwd(md) {
+    header {
+        #menu {
             width: Var.$Num10 * 1.3%;
             background-color: rgb(128, 249, 47);
         }
@@ -46,11 +64,6 @@ header {
     h1 {
         width: Var.$Num10 * 8.5%;
         background-color: rosybrown;
-        // sass 媒體判斷
-        @media screen and (min-width: Var.$Width-small) {
-            width: Var.$Num10 * 8.5%;
-            background-color: rgb(113, 11, 255);
-        }
     }
     ul {
         width: Var.$Num10 * 10%;

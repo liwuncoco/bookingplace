@@ -32,10 +32,18 @@ header #menu {
   text-indent: -9999px;
   background-color: cadetblue;
 }
+
 @media screen and (min-width: 576px) {
   header #menu {
     width: 13%;
     background-color: pink;
+  }
+  hi {
+    width: 85%;
+    background-color: rgb(113, 11, 255);
+  }
+  ul {
+    width: 100%;
   }
 }
 @media screen and (min-width: 768px) {
@@ -43,17 +51,11 @@ header #menu {
     width: 13%;
     background-color: rgb(128, 249, 47);
   }
-}
-header h1 {
-  width: 85%;
-  background-color: rosybrown;
-}
-@media screen and (min-width: 576px) {
-  header h1 {
+  h1 {
     width: 85%;
-    background-color: rgb(113, 11, 255);
+    background-color: rosybrown;
   }
-}
-header ul {
-  width: 100%;
+  ul {
+    width: 100%;
+  }
 }
