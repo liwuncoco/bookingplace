@@ -27,9 +27,9 @@ html, body {
     height: 50px;
     color: rebeccapurple;
     background-image: url(../../images/icons/list.svg);
-    background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    background-repeat: no-repeat;
     text-indent: -9999px;
     background-color: cadetblue;
   }

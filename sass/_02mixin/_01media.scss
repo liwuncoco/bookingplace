@@ -18,4 +18,19 @@
             @content;                        
         } 
     }
+    @else if $width == lg {
+        @media screen and (min-width: var.$lg) {
+            @content;            
+        }
+    }
+    @else if $width == xl {
+        @media screen and (min-width: var.$xl) {
+            @content;                        
+        } 
+    }
+    @else if $width == xxl {
+        @media screen and (min-width: var.$xxl) {
+            @content;                        
+        } 
+    }
 }
