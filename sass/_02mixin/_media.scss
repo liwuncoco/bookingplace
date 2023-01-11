@@ -3,7 +3,12 @@
 
 // 媒體斷點判斷 @if @else if 
 @mixin Rwd($width) {
-    @if $width == sm {
+    @if $width == xs {
+        @media screen and (min-width: var.$xs) {
+            @content;            
+        }
+    }
+    @else if $width == sm {
         @media screen and (min-width: var.$sm) {
             @content;            
         }
