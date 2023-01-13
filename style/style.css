@@ -1,5 +1,5 @@
 * {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
 
@@ -44,7 +44,7 @@ html, body {
     background-color: pink;
   }
   header h1 {
-    width: 85%;
+    width: 87%;
     background-color: rgb(113, 11, 255);
   }
   header ul {
@@ -57,10 +57,33 @@ html, body {
     background-color: rgb(128, 249, 47);
   }
   header h1 {
-    width: 85%;
+    width: 87%;
     background-color: rgb(63, 5, 254);
   }
   header ul {
     width: 100%;
+  }
+}
+@media screen and (min-width: 992px) {
+  #bookingplace {
+    height: 100%;
+  }
+  header {
+    width: 40%;
+    float: left;
+    clear: both;
+    background-color: brown;
+  }
+  main, #main {
+    width: 60%;
+    height: 80%;
+    float: right;
+    background-color: olivedrab;
+  }
+  footer {
+    width: 60%;
+    height: 20%;
+    float: right;
+    background-color: goldenrod;
   }
 }

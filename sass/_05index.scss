@@ -51,7 +51,7 @@
             background-color: pink;
         }
         h1 {
-            width: Var.$Num10 * 8.5%;
+            width: Var.$Num10 * 8.7%;
             background-color: rgb(113, 11, 255);
         }
         ul {
@@ -59,7 +59,6 @@
         }
     }
 }
-
 @include Media.Rwd(md) {
     header {
         #menu {
@@ -67,7 +66,7 @@
             background-color: rgb(128, 249, 47);
         }
         h1 {
-            width: Var.$Num10 * 8.5%;
+            width: Var.$Num10 * 8.7%;
             background-color: rgb(63, 5, 254);
         }
         ul {
@@ -76,20 +75,65 @@
     }
 }
 
-// 原生 css 的媒體判斷
-// @media screen and (min-width: Var.$Width-small) {
-//     header {
-//         #menu {
-//             width: Var.$Num10 * 1.3%;
-//             background-color: pink;
-//         }
-//     }
-// }
-// @media screen and (min-width: Var.$Width-medium) {
-//     header {
-//         #menu {
-//             width: Var.$Num10 * 1.3%;
-//             background-color: rgb(128, 249, 47);
-//         }
-//     }
-// }
+@include Media.Rwd(lg) {
+    #bookingplace {
+        height: Var.$Num10 * 10%;
+    }
+    // 浮動語法 float ：會脫離原來的父框架
+    header {
+        width: Var.$Num10 * 4%;
+        // height: Var.$Num10 * 10%;
+        float: left;
+        // 清除全部的浮動效果
+        clear: both;
+        background-color: brown;
+    }
+    main, #main {
+        width: Var.$Num10 * 6%;
+        height: Var.$Num10 * 8%;
+        float: right;
+        background-color: olivedrab;
+    }
+    footer {
+        width: Var.$Num10 * 6%;
+        height: Var.$Num10 * 2%;
+        float: right;
+        background-color: goldenrod;
+    }
+    // #bookingplace {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    // }
+    // header {
+    //     width: Var.$Num10 * 4%;
+    //     height: Var.$Num10 * 10%;
+    //     background-color: brown;
+    // }
+    // main, #main {
+    //     width: Var.$Num10 * 6%;
+    //     height: Var.$Num10 * 8%;
+    //     background-color: olivedrab;
+
+    //     nav {
+    //         position: absolute;
+    //         top: 450px;
+    //         left: 0;
+    //         background-color: blueviolet;
+    //     }
+    // }
+    // footer {
+    //     width: Var.$Num10 * 6%;
+    //     height: Var.$Num10 * 2%;
+    //     // 左右的外間距為0
+    //     margin-left: 0;
+    //     margin-right: 0;
+    //     // 定位方式 絕對位置 依照body 為對齊原點
+    //     position:  absolute;
+    //     right: 0;
+    //     bottom: 0;
+    //     background-color: goldenrod;
+    // }
+    // ul {
+
+    // }
+}
