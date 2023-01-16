@@ -5,7 +5,7 @@
 // 滿版設計 section id="bookingplace"；設定寬 100 高 100 背景顏色
 #bookingplace {
     width: Var.$Num10 * 10 * Var.$Per;
-    height: Var.$Num10 * 10 * Var.$Per;
+    // height: Var.$Num10 * 10 * Var.$Per;
     background-color: burlywood;
 }
 // 子選擇器 (指定階層 > ；同層之中不能有相同的標籤，若有相同須設定 id or class)；子孫選擇器(跨標籤讀取 利用「空格」；不論哪一層物件，需設定 id or class )
@@ -77,7 +77,16 @@
 
 @include Media.Rwd(lg) {
     #bookingplace {
-        height: Var.$Num10 * 10%;
+        // height: Var.$Num10 * 10%;
+    }
+    // 利用偽元素 ::after (之後) 來處理浮動問題
+    .claerfix::after {
+        // 新增 content 空物件
+        content: "";
+        //顯示的方法：區塊
+        display: block;
+        clear: both;
+
     }
     // 浮動語法 float ：會脫離原來的父框架
     header {
@@ -90,13 +99,13 @@
     }
     main, #main {
         width: Var.$Num10 * 6%;
-        height: Var.$Num10 * 8%;
+        // height: Var.$Num10 * 8%;
         float: right;
         background-color: olivedrab;
     }
     footer {
         width: Var.$Num10 * 6%;
-        height: Var.$Num10 * 2%;
+        // height: Var.$Num10 * 2%;
         float: right;
         background-color: goldenrod;
     }
