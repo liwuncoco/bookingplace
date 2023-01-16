@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
 html, body {
@@ -9,6 +10,7 @@ html, body {
 
 #bookingplace {
   width: 100%;
+  height: 100%;
   background-color: burlywood;
 }
 
@@ -34,7 +36,48 @@ html, body {
   }
   header h1 {
     width: 85%;
+    height: 50px;
+    text-align: center;
     background-color: rgb(188, 15, 78);
+  }
+  header h1 li {
+    margin-top: 9px;
+  }
+  header ul {
+    width: 100%;
+  }
+  header nav {
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    position: absolute;
+    background-color: white;
+  }
+  header nav #menuheader {
+    height: 15%;
+    background-color: lightgreen;
+  }
+  header nav #menuheader #close {
+    width: 100%;
+    background-color: brown;
+  }
+  header nav #menuheader #close a {
+    display: inline-block;
+    font-size: 1.5rem;
+    padding: 1%;
+    float: right;
+    background-color: red;
+  }
+  header nav #menuheader #close::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  header nav #menunav {
+    height: 70%;
+  }
+  header nav #menuicon {
+    height: 15%;
   }
 }
 @media screen and (min-width: 576px) {
@@ -64,25 +107,35 @@ html, body {
   }
 }
 @media screen and (min-width: 992px) {
-  .claerfix::after {
-    content: "";
-    display: block;
-    clear: both;
+  #bookingplace {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
   header {
     width: 40%;
-    float: left;
-    clear: both;
+    height: 100%;
     background-color: brown;
   }
   main, #main {
     width: 60%;
-    float: right;
+    height: 80%;
     background-color: olivedrab;
+  }
+  main nav, #main nav {
+    position: absolute;
+    top: 450px;
+    left: 0;
+    background-color: blueviolet;
   }
   footer {
     width: 60%;
-    float: right;
+    height: 20%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
     background-color: goldenrod;
   }
 }

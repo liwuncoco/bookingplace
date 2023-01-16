@@ -5,7 +5,7 @@
 // 滿版設計 section id="bookingplace"；設定寬 100 高 100 背景顏色
 #bookingplace {
     width: Var.$Num10 * 10 * Var.$Per;
-    // height: Var.$Num10 * 10 * Var.$Per;
+    height: Var.$Num10 * 10 * Var.$Per;
     background-color: burlywood;
 }
 // 子選擇器 (指定階層 > ；同層之中不能有相同的標籤，若有相同須設定 id or class)；子孫選擇器(跨標籤讀取 利用「空格」；不論哪一層物件，需設定 id or class )
@@ -25,23 +25,68 @@
             height: 50px;
             // 文字顏色
             color: rebeccapurple;
-            // // 背景圖片取代文字顯示，背景圖片的對齊，可以輕易達到 水平垂直置中 的排列方式
-            // // 1. 設定背景圖片連結 2. 背景圖片不重複顯示 3. 背景圖片的對齊(定位點 X Y - 水平垂直置中)
-            // // 4. 位移文字(首行縮排 - 單行文字 或者 段落文字的第一行) 5. 圖片尺寸設定 (預設值：自動)
-            // background-image: url(../../images/icons/list.svg);
-            // background-repeat: no-repeat;
-            // background-position: center;
-            // // auto(預設值：自動) cover (滿版覆蓋框架尺寸) contain(滿版留白) | 個別設定 X Y 的值 (例如：background-size: 50% 30%) | 單位：px %
-            // background-size: contain;
-            // text-indent: -9999px;
             @include Img.Images(center, contain, icons, "list.svg") ;
             background-color: cadetblue;
-    
         }
         h1 {
+            // h1 (2em 32px) h2 (1.5em 24px) h3 (1em 16px)
             width: Var.$Num10 * 8.5%;
+            height: 50px;
+            text-align: center;
             background-color: rgb(188, 15, 78);
+            li {
+                // 上間距 margin-top
+                margin-top: calc( (50px - 32px) / 2);
+            }
         }  
+        ul {
+            width: Var.$Num10 * 10%;
+        }
+        nav {
+            width: Var.$Num10 * 10%;
+            height: Var.$Num10 * 10%;
+            // 層疊樣式表 Z 軸 數值；值越小，層越低；值越大，層越高
+            z-index: Var.$ZNum99;
+            // 需配合 定位點：絕對
+            position: absolute;
+            // 背景顏色
+            background-color: white;
+            #menuheader {
+                height: Var.$Num10 * 1.5%;
+                background-color: lightgreen;
+
+                #close {
+                    width: Var.$Num10 * 10%;
+                    // padding-bottom: 2%;
+                    background-color: brown;
+                    a {
+                        // 顯示方式
+                        display: inline-block;
+                        // 文字尺寸取代高度
+                        font-size: 1.5rem;
+                        // 文字設定內間距
+                        padding: 1%;
+                        // // 定位點：絕對
+                        // position: absolute;
+                        // right: 0;
+                        // 浮動元素
+                        float: right;
+                        background-color: red;
+                    }
+                }
+                #close::after {
+                    content: "";
+                    display: block;
+                    clear: both;
+                }
+            }
+            #menunav {
+                height: Var.$Num10 * 7%;
+            }
+            #menuicon {
+                height: Var.$Num10 * 1.5%;
+            }
+        }
     }
 }
 @include Media.Rwd(sm) {
@@ -76,73 +121,74 @@
 }
 
 @include Media.Rwd(lg) {
-    #bookingplace {
-        // height: Var.$Num10 * 10%;
-    }
     // 利用偽元素 ::after (之後) 來處理浮動問題
-    .claerfix::after {
-        // 新增 content 空物件
-        content: "";
-        //顯示的方法：區塊
-        display: block;
-        clear: both;
-
-    }
-    // 浮動語法 float ：會脫離原來的父框架
-    header {
-        width: Var.$Num10 * 4%;
-        // height: Var.$Num10 * 10%;
-        float: left;
-        // 清除全部的浮動效果
-        clear: both;
-        background-color: brown;
-    }
-    main, #main {
-        width: Var.$Num10 * 6%;
-        // height: Var.$Num10 * 8%;
-        float: right;
-        background-color: olivedrab;
-    }
-    footer {
-        width: Var.$Num10 * 6%;
-        // height: Var.$Num10 * 2%;
-        float: right;
-        background-color: goldenrod;
-    }
-    // #bookingplace {
-    //     display: flex;
-    //     flex-wrap: wrap;
+    // .claerfix::after {
+    //     // 新增 content 空物件
+    //     content: "";
+    //     //顯示的方法：區塊
+    //     display: block;
+    //     clear: both;
     // }
+    // // 浮動語法 float ：會脫離原來的父框架
     // header {
     //     width: Var.$Num10 * 4%;
     //     height: Var.$Num10 * 10%;
+    //     float: left;
+    //     // 清除全部的浮動效果
+    //     clear: both;
     //     background-color: brown;
+
+    //     #menu {
+    //         display: none;
+    //     }
+    //     h1 {
+    //         width: Var.$Num10 * 10%;
+    //     }
     // }
     // main, #main {
     //     width: Var.$Num10 * 6%;
     //     height: Var.$Num10 * 8%;
+    //     float: right;
     //     background-color: olivedrab;
-
-    //     nav {
-    //         position: absolute;
-    //         top: 450px;
-    //         left: 0;
-    //         background-color: blueviolet;
-    //     }
     // }
     // footer {
     //     width: Var.$Num10 * 6%;
     //     height: Var.$Num10 * 2%;
-    //     // 左右的外間距為0
-    //     margin-left: 0;
-    //     margin-right: 0;
-    //     // 定位方式 絕對位置 依照body 為對齊原點
-    //     position:  absolute;
-    //     right: 0;
-    //     bottom: 0;
+    //     float: right;
     //     background-color: goldenrod;
     // }
-    // ul {
+    #bookingplace {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    header {
+        width: Var.$Num10 * 4%;
+        height: Var.$Num10 * 10%;
+        background-color: brown;
+    }
+    main, #main {
+        width: Var.$Num10 * 6%;
+        height: Var.$Num10 * 8%;
+        background-color: olivedrab;
 
-    // }
+        nav {
+            position: absolute;
+            top: 450px;
+            left: 0;
+            background-color: blueviolet;
+        }
+    }
+    footer {
+        width: Var.$Num10 * 6%;
+        height: Var.$Num10 * 2%;
+
+        // 定位方式 絕對位置 依照body 為對齊原點
+        position:  absolute;
+        right: 0;
+        bottom: 0;
+        background-color: goldenrod;
+    }
+    ul {
+
+    }
 }
