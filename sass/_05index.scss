@@ -30,10 +30,10 @@
         }
         h1 {
             // h1 (2em 32px) h2 (1.5em 24px) h3 (1em 16px)
-            width: Var.$Num10 * 8.5%;
+            width: Var.$Num10 * 85%;
             height: 50px;
             text-align: center;
-            background-color: rgb(188, 15, 78);
+            // background-color: rgb(188, 15, 78);
             li {
                 // 上間距 margin-top
                 margin-top: calc( (50px - 32px) / 2);
@@ -51,28 +51,52 @@
             position: absolute;
             // 背景顏色
             background-color: white;
+
+            // 父框架設置定位點 relative，子物件設置定位點 absolute， 系統會將「body」的原點位置，重新定給「父框架」使用
             #menuheader {
-                height: Var.$Num10 * 1.5%;
-                background-color: lightgreen;
+                height: Var.$Num10 * 2%;
+                // position: relative;
+                display: flex;
+                // 水平置中
+                justify-content: center;
+                // 垂直置中
+                align-items: center;
+                background-color: Var.$Blue-Green;;
 
                 #close {
-                    width: Var.$Num10 * 10%;
-                    // padding-bottom: 2%;
-                    background-color: brown;
-                    a {
-                        // 顯示方式
+                        // 顯示方式：inline-block(行內區塊層級)；以內容寬度為主
                         display: inline-block;
-                        // 文字尺寸取代高度
-                        font-size: 1.5rem;
-                        // 文字設定內間距
-                        padding: 1%;
+                        // 文字尺寸替代高度
+                        font-size: 1.15rem;
+                        // 文字設定內間距(留白)
+                        padding: 2px;
+                        // 文字變化 uppercase (全部大寫) lowercase (全部小寫) capitalize(單字的第一個字母大寫)
+                        text-transform: uppercase;
+                        // 小型大寫字，會比原本大寫還要在小寫在扁一點
+                        // font-variant: small-caps; 
                         // // 定位點：絕對
-                        // position: absolute;
-                        // right: 0;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        // 若與display: inline-block 一起用，系統會將視為display: block
                         // 浮動元素
-                        float: right;
-                        background-color: red;
-                    }
+                        // float: right;
+                        // background-color: red;
+                        a {
+                            color: rgb(255,255,255);
+                            text-decoration: none;
+                        }
+                }
+                > h1 {
+                    // height: Var.$Num10 * 10%;
+                    font-size: 2rem;
+                    
+                    // position: absolute;
+                    // top: 40%;
+                    // left: 25%;
+                    // // margin-left: -25%;
+                    // // margin-top: -50%;
+                    // background-color: aquamarine;    
                 }
                 #close::after {
                     content: "";
@@ -84,9 +108,23 @@
                 height: Var.$Num10 * 7%;
             }
             #menuicon {
+                width: Var.$Num10 * 8.5%;
                 height: Var.$Num10 * 1.5%;
+                
+                // 框線
+                border-top {
+                    color: Var.$Blue-Green;
+                    width: 2px;
+                    // style: solid;
+                }
+                // solid 實線；double 雙線；dashed 虛線；dotted 原點虛線； inset 內陰影；outset 外陰影
+                // groove 浮凸；ridge 內凹
+                border-top-style: solid;
             }
         }
+    }
+    footer {
+        font-size: 0.9rem;
     }
 }
 @include Media.Rwd(sm) {
