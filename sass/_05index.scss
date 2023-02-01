@@ -12,6 +12,7 @@
 // 巢狀寫法
 // menu (背景圖片取代文字呈現) 與 Logo (水平垂直置中) 要在同一列；聯絡資訊要各別一列(文字的寬度為 90% ；文字靠右對齊、文字顏色 咖啡色；隱藏項目符號)
 // #{ } 格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」
+$FooterHeright: Var.$Num10 * 5px;
 @include Media.Rwd(xs) {
     header {
         // 顯示方法：彈性佈局(智能對齊)；在需要排版物件的父框架設定
@@ -39,8 +40,11 @@
                 margin-top: calc( (50px - 32px) / 2);
             }
         }  
-        ul {
+        .ConnBox {
             width: Var.$Num10 * 10%;
+            position: absolute;
+            bottom: clac ($FooterHeright - 100px);
+            
         }
         nav {
             width: Var.$Num10 * 10%;
@@ -53,10 +57,16 @@
             background-color: white;
 
             // 父框架設置定位點 relative，子物件設置定位點 absolute， 系統會將「body」的原點位置，重新定給「父框架」使用
+
+            $MenuHeaderH: Var.$Num10 * 15px;
+
             #menuheader {
-                height: Var.$Num10 * 2%;
+                height: $MenuHeaderH;
                 // position: relative;
+                // 彈性佈局
                 display: flex;
+                // 停佇
+                display: fixed;
                 // 水平置中
                 justify-content: center;
                 // 垂直置中
@@ -105,25 +115,91 @@
                 }
             }
             #menunav {
-                height: Var.$Num10 * 7%;
+                width: Var.$Num10 * 8%;
+                // height: Var.$Num10 * 6.8%;
+                // 上邊界
+                margin-top: calc( $MenuHeaderH + 10px );
+                .NH {
+                    height: 70px;
+                }
+                h2 {
+                    padding: 5px 0;
+                    border-bottom: {
+                        color: Var.$Blue-Green;
+                        width: 4px;
+                        // style: solid;
+                    };
+                    border-top-style: double;
+                }
+                .Conn {
+                    margin-top: 20px;
+                }
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    background-color: wheat;
+                    li {
+                        width: Var.$Num10 * 10%;
+                        // 首行縮排
+                        text-indent: 8%;
+                        font-size: 1rem * 1.2;
+                    }
+                    .One {
+                        order: 2;
+                    }
+                    .Two {
+                        order: 3;
+                    }
+                    .Three {
+                        order: 4;
+                    }
+                    .Four {
+                        order: 5;                 
+                    }
+                    .Five {
+                        order: 6;
+                    }
+                    .Six {
+                        order: 1;
+                    }
+                }
             }
+            $MenuIconWidth: Var.$Num10 * 8.5%;
             #menuicon {
-                width: Var.$Num10 * 8.5%;
-                height: Var.$Num10 * 1.5%;
+                width:  $MenuIconWidth;
+                height: Var.$Num10 * 6px;
                 
                 // 框線
                 border-top {
                     color: Var.$Blue-Green;
                     width: 2px;
                     // style: solid;
-                }
+                };
                 // solid 實線；double 雙線；dashed 虛線；dotted 原點虛線； inset 內陰影；outset 外陰影
                 // groove 浮凸；ridge 內凹
                 border-top-style: solid;
+                // 水平置中
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // 定位點：絕對
+                position: absolute;
+                z-index: $ZNum10 * 1px;
+
+                // 定位點：停佇
+                position: fixed;
+                bottom: 0;
+                margin-left: calc( ( 100% -  $MenuIconWidth ) / 2 );
+
+                
             }
         }
     }
     footer {
+        height: $FooterHeright;
+        // 定位點
+        position: fixed;
+        bottom: 0;
         font-size: 0.9rem;
     }
 }
@@ -157,7 +233,6 @@
         }
     }
 }
-
 @include Media.Rwd(lg) {
     // 利用偽元素 ::after (之後) 來處理浮動問題
     // .claerfix::after {

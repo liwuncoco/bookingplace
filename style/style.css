@@ -54,10 +54,11 @@ html, body {
     background-color: white;
   }
   header nav #menuheader {
-    height: 20%;
+    height: 150px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    display: fixed;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -88,12 +89,28 @@ html, body {
     clear: both;
   }
   header nav #menunav {
-    height: 70%;
+    width: 80%;
+    margin-top: 160px;
+  }
+  header nav #menunav .NH {
+    height: 60px;
   }
   header nav #menuicon {
     width: 85%;
-    height: 15%;
+    height: 60px;
     border-top-style: solid;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    bottom: 0;
+    margin-left: 7.5%;
   }
   header nav #menuicon border-top {
     color: #005e8a;
