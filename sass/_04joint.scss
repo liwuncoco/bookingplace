@@ -1,17 +1,18 @@
-@use '_01variable/variable' as var;
+@use '_01variable/variable' as Var;
+// 匯入檔案在所有資料的最前面
+// @import '_00variable.scss';
 // 通用選擇器 *
-* {
-    // 外間距 上下為0 左右自動；四個值 上右下左 
-    margin: 0;
+*{
+    // 外間距 上下為0 左右自動置中；四個值 上右下左
+    margin: 0 auto;
     // 內間距 
     padding: 0;
     // 隱藏 項目符號
     list-style-type: none;
 }
-
 // 設定 高度單位為 % 時，高度會自動展開
 html, body {
-    height: var.$Num10 * 10%;
+    height: Var.$Num10 * 10%;
+    // width: Var.$Num10 * 10;
     font-family: Arial, Helvetica, sans-serif;
-
 }

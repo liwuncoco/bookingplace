@@ -1,39 +1,36 @@
-// mixin (混用)，可以在語法內寫入 css語法、計算方式或是判斷式；可以設定呼叫參數的方式
-@use '../_01variable/variable' as var;
+// minix (混用)，可以在語法內寫入 css語法、計算方式或是判斷式；可以設定呼叫參數的方式
+@use '../_01variable/variable' as Var;
 
 // 媒體斷點判斷 @if @else if 
 @mixin Rwd($width) {
     @if $width == xs {
-        @media screen and (min-width: var.$xs) {
-            @content;            
+        @media screen and (min-width: Var.$xs) {
+            @content;
         }
     }
     @else if $width == sm {
-        @media screen and (min-width: var.$sm) {
-            @content;            
+        @media screen and (min-width: Var.$sm) {
+            @content;
         }
     }
     @else if $width == md {
-        @media screen and (min-width: var.$md) {
-            @content;                        
-        } 
+        @media screen and (min-width: Var.$md) {
+            @content;
+        }
     }
     @else if $width == lg {
-        @media screen and (min-width: var.$lg) {
-            @content;            
+        @media screen and (min-width: Var.$lg) {
+            @content;
         }
     }
     @else if $width == xl {
-        @media screen and (min-width: var.$xl) {
-            @content;                        
-        } 
+        @media screen and (min-width: Var.$xl) {
+            @content;
+        }
     }
     @else if $width == xxl {
-        @media screen and (min-width: var.$xxl) {
-            @content;                        
-        } 
+        @media screen and (min-width: Var.$xxl) {
+            @content;
+        }
     }
-}
-@mixin FloatBox (){
-    
 }

@@ -1,8 +1,13 @@
-/*  通用選擇器 */
-*{
-    /* 外間距 上下為0 左右自動置中 */
+/* 通用選擇棄 */
+* {
+    /* 外間距 上下為0; 左右自動置中 */
     margin: 0 auto;
+    /* 內間距 上下左右為0 */
+    padding: 0;
+    /* 文字顏色 */
+    color: burlywood;
 }
-html,body {
-height: 100%;
+
+html, body {
+    height: 100%;
 }

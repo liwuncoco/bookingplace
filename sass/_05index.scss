@@ -2,306 +2,146 @@
 @use '_01variable/variable' as Var;
 @use '_02mixin/01media' as Media;
 @use '_02mixin/02images' as Img;
-// 滿版設計 section id="bookingplace"；設定寬 100 高 100 背景顏色
-#bookingplace {
+// @use '_02mixin/03Rounded' as Ro;
+// @use '_02mixin/04Jmixin' as JM;
+// 滿版設計 section id="ceshizhong"：設定 寬度 100 高 100 背景顏色
+
+#ceshizhong {
     width: Var.$Num10 * 10 * Var.$Per;
-    height: Var.$Num10 * 10 * Var.$Per;
+    // height: Var.$Num10 * 10 * Var.$Per;
     background-color: burlywood;
 }
-// 子選擇器 (指定階層 > ；同層之中不能有相同的標籤，若有相同須設定 id or class)；子孫選擇器(跨標籤讀取 利用「空格」；不論哪一層物件，需設定 id or class )
+
+// 子選擇器 (指定階層 > ：同層之中不能有相同的標籤，若有相同需設定 id or class)：子孫選擇器(跨標籤讀取 利用「空格」；不論哪一層物件，需設定 id or class)
 // 巢狀寫法
-// menu (背景圖片取代文字呈現) 與 Logo (水平垂直置中) 要在同一列；聯絡資訊要各別一列(文字的寬度為 90% ；文字靠右對齊、文字顏色 咖啡色；隱藏項目符號)
+// menu( 背景圖片取代文字呈現) 與 LOGO (水平垂直置中) 要同一列；聯絡資訊要各別一列 (文字寬度為 90%； 文字靠右對齊，文字顏色 咖啡色； 隱藏項目符號)
+
 // #{ } 格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」
-$FooterHeright: Var.$Num10 * 5px;
 @include Media.Rwd(xs) {
     header {
-        // 顯示方法：彈性佈局(智能對齊)；在需要排版物件的父框架設定
+        // 顯示方法；彈性佈局(智能對齊)；在需要排版物件的父框架設定；會將所有的子物件排成一列
         display: flex;
-        // 換行，將子物件設定為 兩列；預設值會自動判斷 子物件 的寬度(均分)；要設定 子物件 的寬度才會有作用
+        // 換行，將子物件設定為 兩列；預設值會自動判斷 子物件 的寬度(均分)要設定 子物件 的寬度才會有作用
         flex-wrap: wrap;
-        // 隱藏項目符號
         list-style-type: none;
         #menu {
             width: Var.$Num10 * 1.5%;
             height: 50px;
             // 文字顏色
             color: rebeccapurple;
-            @include Img.Images(center, contain, icons, "list.svg") ;
-            background-color: cadetblue;
+            // // 背景圖片取代文字顯示，背景圖片的對齊功能，可以輕易達到 水平垂直置中 的排列方法
+            // // 1. 設定背景圖片連結
+            // // 2. 背景圖片不重複顯示
+            // // 3. 背景圖片的對齊 (定位點 X Y - 水平垂直置中)
+            // // 4. 位移文字(首行縮排 - 單行文字 或者 段落文字的第一行)
+            // // 5. 圖片尺寸設定(預設值：自動) cover (滿版覆蓋框架尺寸) contain (留白) | 各別設定 x y 的值(例如： background-size: 50% 30%) | 單位：px %
+            // background-image: url(../../images/icon/list.svg);
+            // background-repeat: no-repeat;
+            // background-position: center;
+            // background-size: contain;
+            // text-indent: -9999px;
+            @include Img.Images(center, contain, icons, 'list.svg');    
+            // 背景顏色
+            background-color: aquamarine;
+            // #{}格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」 #{Var.$sm}
+    
+            // @include Media.Rwd(sm) {
+            //     width: Var.$Num10 * 1.3%;
+            //     background-color: rgb(145, 48, 255);
+            // }
+    
+            // @include Media.Rwd(md) {
+            //     width: Var.$Num10 * 1.3%;
+            //     background-color: rgb(244, 32, 32);
+            // }
         }
         h1 {
-            // h1 (2em 32px) h2 (1.5em 24px) h3 (1em 16px)
-            width: Var.$Num10 * 85%;
-            height: 50px;
-            text-align: center;
-            // background-color: rgb(188, 15, 78);
-            li {
-                // 上間距 margin-top
-                margin-top: calc( (50px - 32px) / 2);
-            }
-        }  
-        .ConnBox {
-            width: Var.$Num10 * 10%;
-            position: absolute;
-            bottom: clac ($FooterHeright - 100px);
-            
-        }
-        nav {
-            width: Var.$Num10 * 10%;
-            height: Var.$Num10 * 10%;
-            // 層疊樣式表 Z 軸 數值；值越小，層越低；值越大，層越高
-            z-index: Var.$ZNum99;
-            // 需配合 定位點：絕對
-            position: absolute;
+            width: Var.$Num10 * 8.5%;
             // 背景顏色
-            background-color: white;
-
-            // 父框架設置定位點 relative，子物件設置定位點 absolute， 系統會將「body」的原點位置，重新定給「父框架」使用
-
-            $MenuHeaderH: Var.$Num10 * 15px;
-
-            #menuheader {
-                height: $MenuHeaderH;
-                // position: relative;
-                // 彈性佈局
-                display: flex;
-                // 停佇
-                display: fixed;
-                // 水平置中
-                justify-content: center;
-                // 垂直置中
-                align-items: center;
-                background-color: Var.$Blue-Green;;
-
-                #close {
-                        // 顯示方式：inline-block(行內區塊層級)；以內容寬度為主
-                        display: inline-block;
-                        // 文字尺寸替代高度
-                        font-size: 1.15rem;
-                        // 文字設定內間距(留白)
-                        padding: 2px;
-                        // 文字變化 uppercase (全部大寫) lowercase (全部小寫) capitalize(單字的第一個字母大寫)
-                        text-transform: uppercase;
-                        // 小型大寫字，會比原本大寫還要在小寫在扁一點
-                        // font-variant: small-caps; 
-                        // // 定位點：絕對
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-                        // 若與display: inline-block 一起用，系統會將視為display: block
-                        // 浮動元素
-                        // float: right;
-                        // background-color: red;
-                        a {
-                            color: rgb(255,255,255);
-                            text-decoration: none;
-                        }
-                }
-                > h1 {
-                    // height: Var.$Num10 * 10%;
-                    font-size: 2rem;
-                    
-                    // position: absolute;
-                    // top: 40%;
-                    // left: 25%;
-                    // // margin-left: -25%;
-                    // // margin-top: -50%;
-                    // background-color: aquamarine;    
-                }
-                #close::after {
-                    content: "";
-                    display: block;
-                    clear: both;
-                }
-            }
-            #menunav {
-                width: Var.$Num10 * 8%;
-                // height: Var.$Num10 * 6.8%;
-                // 上邊界
-                margin-top: calc( $MenuHeaderH + 10px );
-                .NH {
-                    height: 70px;
-                }
-                h2 {
-                    padding: 5px 0;
-                    border-bottom: {
-                        color: Var.$Blue-Green;
-                        width: 4px;
-                        // style: solid;
-                    };
-                    border-top-style: double;
-                }
-                .Conn {
-                    margin-top: 20px;
-                }
-                ul {
-                    display: flex;
-                    flex-wrap: wrap;
-                    background-color: wheat;
-                    li {
-                        width: Var.$Num10 * 10%;
-                        // 首行縮排
-                        text-indent: 8%;
-                        font-size: 1rem * 1.2;
-                    }
-                    .One {
-                        order: 2;
-                    }
-                    .Two {
-                        order: 3;
-                    }
-                    .Three {
-                        order: 4;
-                    }
-                    .Four {
-                        order: 5;                 
-                    }
-                    .Five {
-                        order: 6;
-                    }
-                    .Six {
-                        order: 1;
-                    }
-                }
-            }
-            $MenuIconWidth: Var.$Num10 * 8.5%;
-            #menuicon {
-                width:  $MenuIconWidth;
-                height: Var.$Num10 * 6px;
-                
-                // 框線
-                border-top {
-                    color: Var.$Blue-Green;
-                    width: 2px;
-                    // style: solid;
-                };
-                // solid 實線；double 雙線；dashed 虛線；dotted 原點虛線； inset 內陰影；outset 外陰影
-                // groove 浮凸；ridge 內凹
-                border-top-style: solid;
-                // 水平置中
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                // 定位點：絕對
-                position: absolute;
-                z-index: $ZNum10 * 1px;
-
-                // 定位點：停佇
-                position: fixed;
-                bottom: 0;
-                margin-left: calc( ( 100% -  $MenuIconWidth ) / 2 );
-
-                
-            }
+            background-color: gray;
+            // @include Media.Rwd(sm) {
+            //     width: Var.$Num10 * 8.7%;
+            //     background-color: rgb(198, 40, 40);
+            // }
+        }
+        ul {
+            width: Var.$Num10 * 10%;
         }
     }
-    footer {
-        height: $FooterHeright;
-        // 定位點
-        position: fixed;
-        bottom: 0;
-        font-size: 0.9rem;
+    main {
+        background-color: cadetblue;
+    }
+    nav {
+        color: red;
     }
 }
+
 @include Media.Rwd(sm) {
     header {
         #menu {
             width: Var.$Num10 * 1.3%;
-            background-color: pink;
+            background-color: rgb(145, 48, 255);
         }
         h1 {
             width: Var.$Num10 * 8.7%;
-            background-color: rgb(113, 11, 255);
-        }
-        ul {
-            width: Var.$Num10 * 10%;
+            background-color: rgb(198, 40, 40);
         }
     }
+    main {
+        background-color: green;
+    }
+    nav {
+        color: yellow;
+    }
 }
+
 @include Media.Rwd(md) {
     header {
         #menu {
             width: Var.$Num10 * 1.3%;
-            background-color: rgb(128, 249, 47);
+            background-color: rgb(244, 32, 32);
         }
         h1 {
-            width: Var.$Num10 * 8.7%;
-            background-color: rgb(63, 5, 254);
+            background-color: rgb(222, 242, 41);
         }
         ul {
             width: Var.$Num10 * 10%;
         }
     }
-}
-@include Media.Rwd(lg) {
-    // 利用偽元素 ::after (之後) 來處理浮動問題
-    // .claerfix::after {
-    //     // 新增 content 空物件
-    //     content: "";
-    //     //顯示的方法：區塊
-    //     display: block;
-    //     clear: both;
-    // }
-    // // 浮動語法 float ：會脫離原來的父框架
-    // header {
-    //     width: Var.$Num10 * 4%;
-    //     height: Var.$Num10 * 10%;
-    //     float: left;
-    //     // 清除全部的浮動效果
-    //     clear: both;
-    //     background-color: brown;
-
-    //     #menu {
-    //         display: none;
-    //     }
-    //     h1 {
-    //         width: Var.$Num10 * 10%;
-    //     }
-    // }
-    // main, #main {
-    //     width: Var.$Num10 * 6%;
-    //     height: Var.$Num10 * 8%;
-    //     float: right;
-    //     background-color: olivedrab;
-    // }
-    // footer {
-    //     width: Var.$Num10 * 6%;
-    //     height: Var.$Num10 * 2%;
-    //     float: right;
-    //     background-color: goldenrod;
-    // }
-    #bookingplace {
-        display: flex;
-        flex-wrap: wrap;
+    main {
+        background-color: palegreen;
     }
+    nav {
+        color: orange;
+    }
+}
+
+@include Media.Rwd(lg) {
+    #ceshizhong {
+        height: Var.$Num10 * 10%;
+    }
+    // 浮動語法 float ：會脫離原來的父框架
     header {
         width: Var.$Num10 * 4%;
-        height: Var.$Num10 * 10%;
+        height: Var.$Num10 * 5%;
+        float: left;
         background-color: brown;
     }
     main, #main {
         width: Var.$Num10 * 6%;
         height: Var.$Num10 * 8%;
+        float: right;
         background-color: olivedrab;
-
-        nav {
-            position: absolute;
-            top: 450px;
-            left: 0;
-            background-color: blueviolet;
-        }
     }
+
     footer {
         width: Var.$Num10 * 6%;
         height: Var.$Num10 * 2%;
-
-        // 定位方式 絕對位置 依照body 為對齊原點
-        position:  absolute;
-        right: 0;
-        bottom: 0;
+        float: right;
+        // 清除全部的浮動效果
+        clear: both;
         background-color: goldenrod;
-    }
-    ul {
 
     }
 }
+

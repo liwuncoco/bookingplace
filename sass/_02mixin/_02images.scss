@@ -1,14 +1,16 @@
 // 參數 - 自行填入的資料； 變數 - 承接填入資料的名稱
 @mixin Images($Pos, $Size, $Folder, $Img) {
-    // 背景圖片取代文字顯示，背景圖片的對齊，可以輕易達到 水平垂直置中 的排列方式
-    // 1. 設定背景圖片連結 2. 背景圖片不重複顯示 3. 背景圖片的對齊(定位點 X Y - 水平垂直置中)
-    // 4. 位移文字(首行縮排 - 單行文字 或者 段落文字的第一行) 5. 圖片尺寸設定 (預設值：自動)
+    // 背景圖片取代文字顯示，背景圖片的對齊功能，可以輕易達到 水平垂直置中 的排列方法
+    // 1. 設定背景圖片連結
+    // 2. 背景圖片不重複顯示
+    // 3. 背景圖片的對齊 (定位點 X Y - 水平垂直置中)
+    // 4. 位移文字(首行縮排 - 單行文字 或者 段落文字的第一行)
+    // 5. 圖片尺寸設定(預設值：自動) cover (滿版覆蓋框架尺寸) contain (留白) | 各別設定 x y 的值(例如： background-size: 50% 30%) | 單位：px %
     background-image: url(../../images/#{$Folder}/#{$Img});
     background-position: $Pos;
-    // auto(預設值：自動) cover (滿版覆蓋框架尺寸) contain(滿版留白) | 個別設定 X Y 的值 (例如：background-size: 50% 30%) | 單位：px %
     background-size: $Size;
     
-    // 不變動
+    //不要動
     background-repeat: no-repeat;
     text-indent: -9999px;
 }
