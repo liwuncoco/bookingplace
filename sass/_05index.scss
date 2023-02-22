@@ -40,7 +40,7 @@
             // background-position: center;
             // background-size: contain;
             // text-indent: -9999px;
-            @include Img.Images(center, contain, icons, 'list.svg');    
+            @include Img.Images(center, contain, icon, 'list.svg');    
             // 背景顏色
             background-color: aquamarine;
             // #{}格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」 #{Var.$sm}
@@ -56,23 +56,70 @@
             // }
         }
         h1 {
+            // 行高(行距)；h1 (2em 32px) h2 (1.5em 24px) h3 (1em 16px)
             width: Var.$Num10 * 8.5%;
+            // height: 50px;
+            text-align: center;
             // 背景顏色
             background-color: gray;
-            // @include Media.Rwd(sm) {
-            //     width: Var.$Num10 * 8.7%;
-            //     background-color: rgb(198, 40, 40);
-            // }
+            li {
+                // height: 32px;
+                // 上間距 margin-top
+                margin-top: calc((50px - 32px) / 2 );
+                // background-color: olive;
+            }
         }
         ul {
             width: Var.$Num10 * 10%;
         }
+        nav {
+            width: Var.$Num10 * 10%;
+            height: Var.$Num10 * 10%;
+            // 層疊樣式表 Z 軸 數值：值越小，層越低；值越大，層越高
+            z-index: Var.$ZNum99;
+            // 須配合 定位點：絕對
+            position: absolute;
+            background-color: #fff;
+
+            #menuheader {
+                height: Var.$Num10 * 1.5%;
+                background-color: aqua;
+                #close {
+                    width: Var.$Num10 * 10%;
+                    background-color: blue;
+                    a {
+                        // 顯示方法：行區塊
+                        display: inline-block;
+                        // width: Var.$Num10 * 1%;
+                        // 文字尺寸取代高度
+                        font-size: 1.5rem;
+                        // 文字設定內間距
+                        padding: 1%;
+                        // 浮動元素：靠右
+                        float: right;
+                        // // 定位點：絕對
+                        // position: absolute;
+                        // // 靠右
+                        // right: 0;
+                        background-color: red;
+                    }
+                }
+                #close::after {
+                    content: "";
+                    display: block;
+                    clear: both;
+                }
+            }
+            #menunav {
+                height: Var.$Num10 * 7%;
+            }
+            #menuicon {
+                height: Var.$Num10 * 1.5%;
+            }
+        }
     }
-    main {
-        background-color: cadetblue;
-    }
-    nav {
-        color: red;
+    footer {
+        font-size: 0.9rem;
     }
 }
 
@@ -91,7 +138,7 @@
         background-color: green;
     }
     nav {
-        color: yellow;
+        // color: yellow;
     }
 }
 
@@ -112,36 +159,13 @@
         background-color: palegreen;
     }
     nav {
-        color: orange;
+        // color: orange;
     }
 }
 
 @include Media.Rwd(lg) {
-    #ceshizhong {
-        height: Var.$Num10 * 10%;
-    }
-    // 浮動語法 float ：會脫離原來的父框架
-    header {
-        width: Var.$Num10 * 4%;
-        height: Var.$Num10 * 5%;
-        float: left;
-        background-color: brown;
-    }
-    main, #main {
-        width: Var.$Num10 * 6%;
-        height: Var.$Num10 * 8%;
-        float: right;
-        background-color: olivedrab;
-    }
+    // @include Media.FloatBox();
+    @include Media.FlexBox();
 
-    footer {
-        width: Var.$Num10 * 6%;
-        height: Var.$Num10 * 2%;
-        float: right;
-        // 清除全部的浮動效果
-        clear: both;
-        background-color: goldenrod;
-
-    }
 }
 

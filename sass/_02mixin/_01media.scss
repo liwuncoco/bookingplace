@@ -34,3 +34,82 @@
         }
     }
 }
+
+@mixin FloatBox() {
+    // 利用偽元素 ::after(之後) 來處理浮動問題
+    .clearfix::after {
+        // 新增 content 空物件
+        content: "";
+        // 顯示的方式:區塊
+        display: block;
+        clear: both;
+    }
+    // 浮動語法 float ：會脫離原來的父框架
+    header {
+        width: Var.$Num10 * 4%;
+        height: Var.$Num10 * 10%;
+        float: left;
+        #menu {
+            display: none;
+        }
+        h1 {
+            width: Var.$Num10 * 8%;
+        }
+        ul {
+            width: Var.$Num10 * 8%;
+            text-align: right;
+            font-size: 1.2rem;
+        }
+    }
+    main, #main {
+        width: Var.$Num10 * 6%;
+        height: Var.$Num10 * 8.5%;
+        float: right;
+        background-color: olivedrab;
+    }
+
+    footer {
+        width: Var.$Num10 * 6%;
+        height: Var.$Num10 * 1.5%;
+        float: right;
+        background-color: goldenrod;
+
+    }
+}
+
+@mixin FlexBox() {
+     #ceshizhong {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    header {
+        width: Var.$Num10 * 4%;
+        height: 100%;
+        background-color: brown;
+        #menu {
+            display: none;
+        }
+    }
+
+    main, #main {
+        width: Var.$Num10 * 6%;
+        height: Var.$Num10 * 8.5%;
+        list-style-type: none;
+        background-color: olivedrab;
+        nav {
+            background-color: blueviolet;
+        }
+    }
+
+    footer {
+        width: Var.$Num10 * 6%;
+        height: Var.$Num10 * 1.5%;
+        // 定位方式 絕對位置
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background-color: goldenrod;
+
+    }
+}
