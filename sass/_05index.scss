@@ -6,9 +6,9 @@
 // @use '_02mixin/04Jmixin' as JM;
 // 滿版設計 section id="ceshizhong"：設定 寬度 100 高 100 背景顏色
 
-#ceshizhong {
+#bookingplace {
     width: Var.$Num10 * 10 * Var.$Per;
-    // height: Var.$Num10 * 10 * Var.$Per;
+    height: Var.$Num10 * 10 * Var.$Per;
     background-color: burlywood;
 }
 
@@ -18,6 +18,7 @@
 
 // #{ } 格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」
 @include Media.Rwd(xs) {
+    $FooterHeight: Var.$Num10 * 5px;
     header {
         // 顯示方法；彈性佈局(智能對齊)；在需要排版物件的父框架設定；會將所有的子物件排成一列
         display: flex;
@@ -40,7 +41,7 @@
             // background-position: center;
             // background-size: contain;
             // text-indent: -9999px;
-            @include Img.Images(center, contain, icon, 'list.svg');    
+            @include Img.Images(center, contain, icons, 'list.svg');    
             // 背景顏色
             background-color: aquamarine;
             // #{}格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」 #{Var.$sm}
@@ -55,13 +56,13 @@
             //     background-color: rgb(244, 32, 32);
             // }
         }
-        h1 {
+        > h1 {
             // 行高(行距)；h1 (2em 32px) h2 (1.5em 24px) h3 (1em 16px)
             width: Var.$Num10 * 8.5%;
             // height: 50px;
             text-align: center;
             // 背景顏色
-            // background-color: gray;
+            background-color: gray;
             li {
                 // height: 32px;
                 // 上間距 margin-top
@@ -69,8 +70,10 @@
                 // background-color: olive;
             }
         }
-        ul {
+        .ConnBox {
             width: Var.$Num10 * 10%;
+            position: absolute;
+            bottom: calc($FooterHeight + 10px);
         }
         nav {
             width: Var.$Num10 * 10%;
@@ -80,12 +83,19 @@
             // 須配合 定位點：絕對
             position: absolute;
             background-color: #fff;
+            display: none;
 
             // 父框架設置定位點 relative ，子物件設置定位點 absolute， 系統會將「body」的原點位置，重新給「父框架」使用
+
+            // 區域變數
+            $MenuHeaderH: Var.$Num10 * 15;
+
             #menuheader {
-                height: Var.$Num10 * 2%;
+                height: calc( $MenuHeaderH * 1px );
                 // position: relative;
                 display: flex;
+                // 定位點：停佇
+                position: fixed;
                 // 水平置中
                 justify-content: center;
                 // 垂直置中
@@ -135,12 +145,67 @@
                 }
             }
             #menunav {
-                height: Var.$Num10 * 6.5%;
-            }
-            #menuicon {
-                width: Var.$Num10 * 8.5%;
-                height: Var.$Num10 * 1.5%;
+                width: Var.$Num10 * 8%;
+                // height: Var.$Num10 * 6.8%;
+                // 上邊界
+                margin-top: calc( ( $MenuHeaderH + 10 ) * 1px );
+                
+                .NH {
+                    height: 70px;
+                }
+                h2 {
+                    padding: 2.5px 0;
+                    border-bottom: {
+                        color: Var.$Blue-Grenn;
+                        width: 4px;
+                        style: double;
+                    };
+                }
+                .Conn {
+                   margin-top: 20px;  
+                }
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    li {
+                        width: Var.$Num10 * 10%;
+                        // 首行縮排
+                        text-indent: 8%;
+                        font-size: 1rem * 1.2;
+                    }
+                    .One {
+                        order: 2;
+                    }
+                    .Two {
+                        order: 3;
+                    }
+                    .Three {
+                        order: 4;
+                    }
+                    .Four {
+                        order: 5;
+                    }
+                    .Five {
+                        order: 6;
+                    }
+                    .Six {
+                        order: 1;
+                    }
+                }
+                // .Items {
+                //     display: flex;
+                //     flex-wrap: wrap;
+                //     li {
+                //         width: Var.$Num10 * 10%;
+                //     }
+                // }
 
+            }
+            $MenuIconWidth: Var.$Num10 * 8.5%;
+            #menuicon {
+                width: $MenuIconWidth;
+                height: Var.$Num10 * 6px;
+ 
                 // 框線 border
                 border-top: {
                     color: Var.$Blue-Grenn;
@@ -149,10 +214,27 @@
                     // inset 內陰影； outset 外陰影；groove 浮凸； ridge 內凹
                     style: solid;
                 };
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // 定位點：絕對值
+                position: absolute;
+                z-index: Var.$ZNum10; 
+                // 定位點：停佇
+                position: fixed;
+                bottom: 0;
+
+                margin-left: calc( ( 100% - $MenuIconWidth ) / 2 );
+
+                background-color: #fff;
             }
         }
     }
     footer {
+        height: $FooterHeight;
+        // 定位點：停佇
+        position: fixed;
+        bottom: 0;
         font-size: 0.9rem;
     }
 }

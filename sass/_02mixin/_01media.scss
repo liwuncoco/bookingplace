@@ -113,3 +113,11 @@
 
     }
 }
+
+@mixin Clearfix() {
+    // 新增 content 空物件
+    content: "";
+    // 顯示的方式:區塊
+    display: block;
+    clear: both;
+}
