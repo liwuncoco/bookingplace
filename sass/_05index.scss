@@ -61,7 +61,7 @@
             // height: 50px;
             text-align: center;
             // 背景顏色
-            background-color: gray;
+            // background-color: gray;
             li {
                 // height: 32px;
                 // 上間距 margin-top
@@ -81,40 +81,74 @@
             position: absolute;
             background-color: #fff;
 
+            // 父框架設置定位點 relative ，子物件設置定位點 absolute， 系統會將「body」的原點位置，重新給「父框架」使用
             #menuheader {
-                height: Var.$Num10 * 1.5%;
-                background-color: aqua;
+                height: Var.$Num10 * 2%;
+                // position: relative;
+                display: flex;
+                // 水平置中
+                justify-content: center;
+                // 垂直置中
+                align-items: center;
+                background-color: Var.$Blue-Grenn;
+
                 #close {
-                    width: Var.$Num10 * 10%;
-                    background-color: blue;
+                    // 顯示方式： inline-block (行內區塊層級)：以內容的寬度為主
+                    display: inline-block;
+                    // 文字尺寸取代高度
+                    font-size: 1.15rem;
+                    // 文字設定內間距(留白)
+                    padding: 10px;
+                    // 文字變化 uppercase (全部大寫) lowercase (全部小寫) capitalize (單字的第一個字母大寫)
+                    text-transform: uppercase;
+                    
+                    // 文字變化 小型大寫字，會比原本的大寫還要再小再扁一點
+                    // font-variant: small-caps;
+                    
+                    // 定位點：絕對
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+
+                    // 浮動元素：靠右
+                    // 若與 display: inline-block 一起用，系統將會視為display: block
+                    // float: right;
+
                     a {
-                        // 顯示方法：行區塊
-                        display: inline-block;
-                        // width: Var.$Num10 * 1%;
-                        // 文字尺寸取代高度
-                        font-size: 1.5rem;
-                        // 文字設定內間距
-                        padding: 1%;
-                        // 浮動元素：靠右
-                        float: right;
-                        // // 定位點：絕對
-                        // position: absolute;
-                        // // 靠右
-                        // right: 0;
-                        background-color: red;
+                        color: #fff;
+                        // 取消文字裝飾(底線)
+                        text-decoration: none;
                     }
                 }
-                #close::after {
-                    content: "";
-                    display: block;
-                    clear: both;
+                // #close::after {
+                //     content: "";
+                //     display: block;
+                //     clear: both;
+                // }
+                > h1 {
+                    font-size: 2rem;
+                    // position: absolute;
+                    // top: 50%;
+                    // left: 50%;
+                    // margin-left: -25%;
+                    // margin-top: -6%;
                 }
             }
             #menunav {
-                height: Var.$Num10 * 7%;
+                height: Var.$Num10 * 6.5%;
             }
             #menuicon {
+                width: Var.$Num10 * 8.5%;
                 height: Var.$Num10 * 1.5%;
+
+                // 框線 border
+                border-top: {
+                    color: Var.$Blue-Grenn;
+                    width: 2px;
+                    // solid 實線；double 雙線；dashed 虛線； dotted 圓點虛線； 
+                    // inset 內陰影； outset 外陰影；groove 浮凸； ridge 內凹
+                    style: solid;
+                };
             }
         }
     }
