@@ -2,14 +2,14 @@
 @use '_01variable/variable' as Var;
 @use '_02mixin/01media' as Media;
 @use '_02mixin/02images' as Img;
-// @use '_02mixin/03Rounded' as Ro;
-// @use '_02mixin/04Jmixin' as JM;
+@use '_02mixin/03Rounded' as Ro;
+@use '_02mixin/04Jmixin' as JM;
 // 滿版設計 section id="ceshizhong"：設定 寬度 100 高 100 背景顏色
 
 #bookingplace {
     width: Var.$Num10 * 10 * Var.$Per;
     height: Var.$Num10 * 10 * Var.$Per;
-    background-color: burlywood;
+    // background-color: burlywood;
 }
 
 // 子選擇器 (指定階層 > ：同層之中不能有相同的標籤，若有相同需設定 id or class)：子孫選擇器(跨標籤讀取 利用「空格」；不論哪一層物件，需設定 id or class)
@@ -18,16 +18,63 @@
 
 // #{ } 格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」
 @include Media.Rwd(xs) {
-    $FooterHeight: Var.$Num10 * 5px;
+    #Banner {
+        @include JM.WH();
+        position: absolute;
+        // 背景圖再最下層
+        z-index: Var.$ZNumNeg;
+        // 停佇
+        position: fixed;
+        top: 0;
+        background-color: wheat;
+
+        ul {
+            @include JM.WH();
+            position: relative;
+            li {
+                @include JM.WH();
+                position: absolute;
+                background-color: rgb(9, 188,194);
+            }
+            
+            .Images1 {
+                @include Img.Images(center, cover, photo, "001.jpg");
+            }
+            .Images2 {
+                @include Img.Images(center, cover, photo, "002.jpg");
+            }
+            .Images3 {
+                @include Img.Images(center, cover, photo, "003.jpg");
+            }
+            .Images4 {
+                @include Img.Images(center, cover, photo, "004.jpg");
+            }
+            .Images5 {
+                @include Img.Images(center, cover, photo, "005.jpg");
+            }
+        }
+
+    }
+    $HeaderHeight: Var.$Num10 * 5px;
+    $FooterHeight: Var.$Num10 * 12px;
     header {
+        width: Var.$Num10 * 10%;
+        height: $HeaderHeight;
         // 顯示方法；彈性佈局(智能對齊)；在需要排版物件的父框架設定；會將所有的子物件排成一列
         display: flex;
         // 換行，將子物件設定為 兩列；預設值會自動判斷 子物件 的寬度(均分)要設定 子物件 的寬度才會有作用
         flex-wrap: wrap;
         list-style-type: none;
+        // 停佇
+        position: fixed;
+        top: 0;
+        // position: relative;
+
+        // position: absolute;
+        // z-index: Var.$ZNum5;
         #menu {
             width: Var.$Num10 * 1.5%;
-            height: 50px;
+            // height: 50px;
             // 文字顏色
             color: rebeccapurple;
             // // 背景圖片取代文字顯示，背景圖片的對齊功能，可以輕易達到 水平垂直置中 的排列方法
@@ -41,7 +88,7 @@
             // background-position: center;
             // background-size: contain;
             // text-indent: -9999px;
-            @include Img.Images(center, contain, icons, 'list.svg');    
+            @include Img.Images(center, contain, icon, 'list.svg');    
             // 背景顏色
             background-color: aquamarine;
             // #{}格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」 #{Var.$sm}
@@ -71,13 +118,10 @@
             }
         }
         .ConnBox {
-            width: Var.$Num10 * 10%;
-            position: absolute;
-            bottom: calc($FooterHeight + 10px);
+           display: none;
         }
         nav {
-            width: Var.$Num10 * 10%;
-            height: Var.$Num10 * 10%;
+            @include JM.WH();
             // 層疊樣式表 Z 軸 數值：值越小，層越低；值越大，層越高
             z-index: Var.$ZNum99;
             // 須配合 定位點：絕對
@@ -91,6 +135,7 @@
             $MenuHeaderH: Var.$Num10 * 15;
 
             #menuheader {
+                width: Var.$Num10 * 10%;
                 height: calc( $MenuHeaderH * 1px );
                 // position: relative;
                 display: flex;
@@ -164,41 +209,6 @@
                 .Conn {
                    margin-top: 20px;  
                 }
-                ul {
-                    display: flex;
-                    flex-wrap: wrap;
-                    li {
-                        width: Var.$Num10 * 10%;
-                        // 首行縮排
-                        text-indent: 8%;
-                        font-size: 1rem * 1.2;
-                    }
-                    .One {
-                        order: 2;
-                    }
-                    .Two {
-                        order: 3;
-                    }
-                    .Three {
-                        order: 4;
-                    }
-                    .Four {
-                        order: 5;
-                    }
-                    .Five {
-                        order: 6;
-                    }
-                    .Six {
-                        order: 1;
-                    }
-                }
-                // .Items {
-                //     display: flex;
-                //     flex-wrap: wrap;
-                //     li {
-                //         width: Var.$Num10 * 10%;
-                //     }
-                // }
 
             }
             $MenuIconWidth: Var.$Num10 * 8.5%;
@@ -230,12 +240,72 @@
             }
         }
     }
+    // 選單共用區
+    .Items {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            width: Var.$Num10 * 10%;
+            // 首行縮排
+            text-indent: 8%;
+            font-size: 1rem * 1.2;
+        }
+        .One {
+            order: 2;
+        }
+        .Two {
+            order: 3;
+        }
+        .Three {
+            order: 4;
+        }
+        .Four {
+            order: 5;
+        }
+        .Five {
+            order: 6;
+        }
+        .Six {
+            order: 1;
+        }
+    }
+    #main {
+        width: Var.$Num10 * 8.5%;
+
+        // header的高 - nav > li 的 margin-top
+        margin-top: $HeaderHeight + 15px;
+        nav {
+            li {
+                width: Var.$Num10 * 10%;
+                height: 150px;
+                margin: 15px 0;
+                background-color: #ff0000;
+                // 圓角矩形
+                @include Ro.Rounded(15px);
+                
+                // 取消首行縮排
+                text-indent: 0;
+                
+                // 文字水平垂直置中
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+        }
+        .Null {
+            height: 135px;
+        }
+    }
     footer {
+        width: Var.$Num10 * 10%;
         height: $FooterHeight;
         // 定位點：停佇
         position: fixed;
         bottom: 0;
         font-size: 0.9rem;
+        background-color: Var.$Blue-Grenn;
+
     }
 }
 
@@ -282,6 +352,25 @@
 @include Media.Rwd(lg) {
     // @include Media.FloatBox();
     @include Media.FlexBox();
+    header {
+        .ConnBox {
+            width: Var.$Num10 * 10%;
+            position: absolute;
+            // bottom: calc($FooterHeight + 10px);
+            display: block;
+            bottom: 0;
+            background-color: powderblue;
+        }
+    }
+    #main {
+        display: none;
+    }
+
+    footer {
+        .ConnBox {
+            display: none;
+        }
+    }
 
 }
 

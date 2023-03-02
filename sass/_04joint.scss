@@ -16,3 +16,9 @@ html, body {
     // width: Var.$Num10 * 10;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+// 圖片等比縮放
+img {
+    width: 100%;
+    height: auto;
+}
