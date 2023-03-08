@@ -5,3 +5,8 @@
     -ms-border-radius: $R;
     -o-border-radius: $R;
 }
+
+@mixin LRBottom($LR, $RR) {
+    border-bottom-left-radius: $LR;
+    border-bottom-right-radius: $RR;
+}

@@ -18,8 +18,15 @@ $xxl: 1400px;
 // 層疊樣式表的數值
 $ZNum99: 99; // 手機版選單內容
 $ZNum10: 10; // 手機版選單 header > nav > #menuicon
-$ZNum5: 5;
+$ZNum5: 5; // 手機版header、Footer
+$ZNum3: 3; // 手機版main
 $ZNumNeg: -1;
+
 
 // 顏色
 $Blue-Grenn: rgb(22, 136, 111);
+
+// 全域變數: 全部通用
+// $H: header 的高； $F: footer 的高
+$H: $Num10 * 0.5%;
+$F: 1.5%;
