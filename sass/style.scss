@@ -5,8 +5,8 @@
 // styles.scss 在彙整所有的 scss 原始檔案；匯入所有檔案
 // 匯入其他 scss 檔案
 @import '_04joint.scss';
-@import '_05index.scss';
-
+@import '_04web/01index';
+@import '_04web/02golf';
 
 // // 建立響應式斷點：媒體判斷 @media
 // // 超小裝置 <576px (max-width: 576px) 最大寬度

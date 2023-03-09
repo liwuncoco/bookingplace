@@ -1,0 +1,66 @@
+@use '../_01variable/variable' as Var;
+@use '../_02mixin/04Jmixin' as JM;
+@use '../_02mixin/01media' as Me;
+
+@include Me.Rwd(xs) {
+    .bookingplace {
+        @include JM.WH();
+        $HeaderHeight: Var.$Num10 * 5px;
+        #Golfmain {
+            @include JM.WH();
+            // 彈性佈局 - 設定框架順序位置
+            display: flex;
+            flex-wrap: wrap;
+            .GolfImg {
+                @include JM.WH();
+                order: 2;
+                background-color: aqua;
+            }
+            .GolfText {
+                width: Var.$Num10 * 10%;
+                order: 1;
+                margin-top: $HeaderHeight;
+                background-color: rgb(155, 255, 179);
+            }
+        }       
+    }
+}
+@include Me.Rwd(sm) {
+
+}
+@include Me.Rwd(md) {
+
+}
+@include Me.Rwd(lg) {
+    .bookingplace {
+        #GolfHeader {
+            display: none;
+        }
+        $HeaderHeight: 0;
+        #Golfmain {
+            @include JM.WH();
+            // 彈性佈局 - 設定框架順序位置
+            display: flex;
+            background-color: orangered;
+            .GolfImg {
+                width:  calc( (Var.$Num10 * 10%) / 3 * 1 );
+                height: Var.$Num10 * 10%;
+                order: 1;
+                background-color: aqua;
+
+                > article {
+                    color: brown;
+                }
+            }
+            .GolfText {
+                width:  calc( (Var.$Num10 * 10%) / 3 * 2 );
+                height: Var.$Num10 * 10%;
+                order: 2;
+                margin-top: 0;
+                // 溢位 框架一定要設定「寬度或高度」
+                overflow-y: auto;
+                background-color: rgb(155, 255, 179);
+            }
+        }        
+    }
+}

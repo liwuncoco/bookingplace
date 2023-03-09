@@ -14,13 +14,13 @@ img {
   height: auto;
 }
 
-#bookingplace {
-  width: 100%;
-  height: 100%;
+a {
+  color: white;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 0px) {
-  #Banner {
+  .bookingplace #Banner {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -28,12 +28,12 @@ img {
     position: fixed;
     top: 0;
   }
-  #Banner ul {
+  .bookingplace #Banner ul {
     width: 100%;
     height: 100%;
     position: relative;
   }
-  #Banner ul li {
+  .bookingplace #Banner ul li {
     width: 100%;
     height: 100%;
     animation: BannerRound 25s linear infinite;
@@ -77,73 +77,73 @@ img {
       -webkit-filter: alpha(opacity=0);
     }
   }
-  #Banner ul li span {
+  .bookingplace #Banner ul li span {
     width: 100%;
     height: 100%;
     display: block;
     background-color: rgba(0, 0, 0, 0.45);
   }
-  #Banner ul .Images1 {
+  .bookingplace #Banner ul .Images1 {
     background-image: url(../../images/photo/001.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     text-indent: -9999px;
   }
-  #Banner ul .Images2 {
+  .bookingplace #Banner ul .Images2 {
     background-image: url(../../images/photo/002.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     text-indent: -9999px;
   }
-  #Banner ul .Images3 {
+  .bookingplace #Banner ul .Images3 {
     background-image: url(../../images/photo/003.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     text-indent: -9999px;
   }
-  #Banner ul .Images4 {
+  .bookingplace #Banner ul .Images4 {
     background-image: url(../../images/photo/004.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     text-indent: -9999px;
   }
-  #Banner ul .Images5 {
+  .bookingplace #Banner ul .Images5 {
     background-image: url(../../images/photo/005.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     text-indent: -9999px;
   }
-  #Banner li:nth-child(5) {
+  .bookingplace #Banner li:nth-child(5) {
     -webkit-animation-delay: 0s;
             animation-delay: 0s;
     display: block;
   }
-  #Banner li:nth-child(4) {
+  .bookingplace #Banner li:nth-child(4) {
     -webkit-animation-delay: 5s;
             animation-delay: 5s;
     display: block;
   }
-  #Banner li:nth-child(3) {
+  .bookingplace #Banner li:nth-child(3) {
     -webkit-animation-delay: 10s;
             animation-delay: 10s;
     display: block;
   }
-  #Banner li:nth-child(2) {
+  .bookingplace #Banner li:nth-child(2) {
     -webkit-animation-delay: 15s;
             animation-delay: 15s;
     display: block;
   }
-  #Banner li:nth-child(1) {
+  .bookingplace #Banner li:nth-child(1) {
     -webkit-animation-delay: 20s;
             animation-delay: 20s;
     display: block;
   }
-  header {
+  .bookingplace header {
     width: 100%;
     height: 50px;
     display: -webkit-box;
@@ -158,7 +158,7 @@ img {
     top: 0;
     background-color: rgb(22, 136, 111);
   }
-  header #menu {
+  .bookingplace header #menu {
     width: 15%;
     color: rebeccapurple;
     background-image: url(../../images/icon/list.svg);
@@ -167,19 +167,18 @@ img {
     background-repeat: no-repeat;
     text-indent: -9999px;
   }
-  header > h1 {
+  .bookingplace header > h1 {
     width: 85%;
     height: 50px;
     text-align: center;
-    background-color: rgb(22, 136, 111);
   }
-  header > h1 li {
+  .bookingplace header > h1 li {
     margin-top: 9px;
   }
-  header .ConnBox {
+  .bookingplace header .ConnBox {
     display: none;
   }
-  #PhoneMenu {
+  .bookingplace #PhoneMenu {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -189,7 +188,7 @@ img {
     background-color: #fff;
     display: none;
   }
-  #PhoneMenu #menuheader {
+  .bookingplace #PhoneMenu #menuheader {
     width: 100%;
     height: 20%;
     display: -webkit-box;
@@ -203,7 +202,7 @@ img {
             align-items: center;
     background-color: rgb(22, 136, 111);
   }
-  #PhoneMenu #menuheader #close {
+  .bookingplace #PhoneMenu #menuheader #close {
     display: inline-block;
     font-size: 1.15rem;
     padding: 10px;
@@ -213,28 +212,28 @@ img {
     top: 0;
     right: 0;
   }
-  #PhoneMenu #menuheader #close a {
+  .bookingplace #PhoneMenu #menuheader #close a {
     color: #fff;
     text-decoration: none;
   }
-  #PhoneMenu #menuheader > h1 {
+  .bookingplace #PhoneMenu #menuheader > h1 {
     font-size: 2rem;
     text-align: center;
   }
-  #PhoneMenu #menunav {
+  .bookingplace #PhoneMenu #menunav {
     width: 80%;
     height: 72%;
   }
-  #PhoneMenu #menunav h2 {
+  .bookingplace #PhoneMenu #menunav h2 {
     padding: 2.5px 0;
     border-bottom-color: rgb(22, 136, 111);
     border-bottom-width: 4px;
     border-bottom-style: double;
   }
-  #PhoneMenu #menunav .Conn {
+  .bookingplace #PhoneMenu #menunav .Conn {
     margin-top: 20px;
   }
-  #PhoneMenu #menuicon {
+  .bookingplace #PhoneMenu #menuicon {
     width: 100%;
     height: 8%;
     border-top-color: rgb(22, 136, 111);
@@ -251,59 +250,59 @@ img {
             align-items: center;
     margin-left: 0%;
   }
-  .Items {
+  .bookingplace .Items {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .Items li {
+  .bookingplace .Items li {
     width: 100%;
     text-indent: 8%;
     font-size: 1.2rem;
   }
-  .Items .One {
+  .bookingplace .Items .One {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
   }
-  .Items .Two {
+  .bookingplace .Items .Two {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
   }
-  .Items .Three {
+  .bookingplace .Items .Three {
     -webkit-box-ordinal-group: 5;
         -ms-flex-order: 4;
             order: 4;
   }
-  .Items .Four {
+  .bookingplace .Items .Four {
     -webkit-box-ordinal-group: 6;
         -ms-flex-order: 5;
             order: 5;
   }
-  .Items .Five {
+  .bookingplace .Items .Five {
     -webkit-box-ordinal-group: 7;
         -ms-flex-order: 6;
             order: 6;
   }
-  .Items .Six {
+  .bookingplace .Items .Six {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
   }
-  #main {
+  .bookingplace #main {
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 3;
     margin-top: 65px;
   }
-  #main .Items {
+  .bookingplace #main .Items {
     width: 85%;
   }
-  #main .Items li {
+  .bookingplace #main .Items li {
     width: 100%;
     height: 170px;
     margin: 15px 0;
@@ -325,7 +324,7 @@ img {
         -ms-flex-align: center;
             align-items: center;
   }
-  #main .Items .One {
+  .bookingplace #main .Items .One {
     width: 100%;
     height: 170px;
     color: white;
@@ -334,7 +333,7 @@ img {
     background-size: cover;
     background-repeat: no-repeat;
   }
-  #main .Items .One a {
+  .bookingplace #main .Items .One a {
     width: 100%;
     height: 100%;
     display: -webkit-box;
@@ -353,20 +352,15 @@ img {
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    text-decoration: none;
-    color: #fff;
   }
-  #main .Items .One a:hover {
-    content: "";
-  }
-  #main .Items .Six {
+  .bookingplace #main .Items .Six {
     position: relative;
     background-image: url(../../images/btn/001.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
-  #main .Items .Six span {
+  .bookingplace #main .Items .Six span {
     width: 100%;
     display: inline-block;
     color: white;
@@ -379,10 +373,10 @@ img {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
   }
-  #main .Null {
+  .bookingplace #main .Null {
     height: 135px;
   }
-  footer {
+  .bookingplace footer {
     width: 100%;
     height: 120px;
     position: absolute;
@@ -396,14 +390,9 @@ img {
 @media screen and (min-width: 576px) {
   header #menu {
     width: 13%;
-    background-color: rgb(145, 48, 255);
   }
   header h1 {
     width: 87%;
-    background-color: rgb(198, 40, 40);
-  }
-  main {
-    background-color: green;
   }
 }
 @media screen and (min-width: 768px) {
@@ -465,7 +454,7 @@ img {
   }
 }
 @media screen and (min-width: 992px) {
-  #bookingplace {
+  .bookingplace {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -473,36 +462,35 @@ img {
         flex-wrap: wrap;
     color: #fff;
   }
-  #bookingplace header {
+  .bookingplace header {
     width: 40%;
-    height: 100%;
     background-color: transparent;
   }
-  #bookingplace header #menu {
+  .bookingplace header #menu {
     display: none;
   }
-  #bookingplace header .ConnBox {
+  .bookingplace header .ConnBox {
     width: 100%;
     position: absolute;
     bottom: 50px;
     display: block;
   }
-  #bookingplace header li {
+  .bookingplace header li {
     width: 85%;
   }
-  #bookingplace main {
+  .bookingplace #main {
     width: 60%;
     height: 85%;
     top: 0;
     right: 0;
     margin-top: 0;
   }
-  #bookingplace main nav {
+  .bookingplace #main nav {
     width: 100%;
     height: 100%;
     margin-top: 50px;
   }
-  #bookingplace main nav .Items {
+  .bookingplace #main nav .Items {
     width: 80%;
     height: 70%;
     display: -webkit-box;
@@ -517,7 +505,7 @@ img {
         -ms-flex-align: center;
             align-items: center;
   }
-  #bookingplace main nav .Items li {
+  .bookingplace #main nav .Items li {
     width: 30%;
     height: 45%;
     margin: 0 5px;
@@ -539,7 +527,7 @@ img {
         -ms-flex-align: center;
             align-items: center;
   }
-  #bookingplace main nav .Items .One {
+  .bookingplace #main nav .Items .One {
     width: 30%;
     height: 45%;
     color: white;
@@ -548,7 +536,7 @@ img {
     background-size: cover;
     background-repeat: no-repeat;
   }
-  #bookingplace main nav .Items .One a {
+  .bookingplace #main nav .Items .One a {
     width: 100%;
     height: 100%;
     display: -webkit-box;
@@ -570,10 +558,10 @@ img {
     text-decoration: none;
     color: #fff;
   }
-  #bookingplace main nav .Items .One a span {
+  .bookingplace #main nav .Items .One a span {
     display: none;
   }
-  #bookingplace main nav .Items .One a:hover {
+  .bookingplace #main nav .Items .One a:hover {
     background-color: rgba(171, 171, 171, 0.45);
     border-radius: 0px;
     -webkit-border-radius: 0px;
@@ -581,17 +569,17 @@ img {
     -ms-border-radius: 0px;
     -o-border-radius: 0px;
   }
-  #bookingplace main nav .Items .One a:hover span {
+  .bookingplace #main nav .Items .One a:hover span {
     display: block;
   }
-  #bookingplace main nav .Items .Six {
+  .bookingplace #main nav .Items .Six {
     position: relative;
     background-image: url(../../images/btn/001.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
-  #bookingplace main nav .Items .Six span {
+  .bookingplace #main nav .Items .Six span {
     width: 100%;
     height: 100%;
     display: inline-block;
@@ -614,13 +602,13 @@ img {
     -ms-border-radius: 0;
     -o-border-radius: 0;
   }
-  #bookingplace main nav .Items .Six span a {
+  .bookingplace #main nav .Items .Six span a {
     width: 100%;
     height: 100%;
     text-decoration: none;
     color: transparent;
   }
-  #bookingplace main nav .Items .Six span a:hover {
+  .bookingplace #main nav .Items .Six span a:hover {
     color: #fff;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -633,7 +621,7 @@ img {
             align-items: center;
     background-color: rgba(171, 171, 171, 0.45);
   }
-  #bookingplace footer {
+  .bookingplace footer {
     width: 60%;
     height: 15%;
     position: absolute;
@@ -641,10 +629,75 @@ img {
     bottom: 0;
     background-color: transparent;
   }
-  #bookingplace footer .ConnBox {
+  .bookingplace footer .ConnBox {
     display: none;
   }
-  #bookingplace footer li {
+  .bookingplace footer li {
     text-align: center;
+  }
+}
+@media screen and (min-width: 0px) {
+  .bookingplace {
+    width: 100%;
+    height: 100%;
+  }
+  .bookingplace #Golfmain {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .bookingplace #Golfmain .GolfImg {
+    width: 100%;
+    height: 100%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    background-color: aqua;
+  }
+  .bookingplace #Golfmain .GolfText {
+    width: 100%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    margin-top: 50px;
+    background-color: rgb(155, 255, 179);
+  }
+}
+@media screen and (min-width: 992px) {
+  .bookingplace #GolfHeader {
+    display: none;
+  }
+  .bookingplace #Golfmain {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: orangered;
+  }
+  .bookingplace #Golfmain .GolfImg {
+    width: 33.3333333333%;
+    height: 100%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    background-color: aqua;
+  }
+  .bookingplace #Golfmain .GolfImg > article {
+    color: brown;
+  }
+  .bookingplace #Golfmain .GolfText {
+    width: 66.6666666667%;
+    height: 100%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    margin-top: 0;
+    overflow-y: auto;
+    background-color: rgb(155, 255, 179);
   }
 }
