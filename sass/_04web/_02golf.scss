@@ -33,7 +33,7 @@
 }
 @include Me.Rwd(lg) {
     .bookingplace {
-        #GolfHeader {
+        header {
             display: none;
         }
         $HeaderHeight: 0;
