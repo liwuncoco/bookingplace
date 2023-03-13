@@ -15,12 +15,117 @@
                 @include JM.WH();
                 order: 2;
                 background-color: aqua;
+                position: relative;
+
+                > #WebBanner {
+                    @include JM.WH();
+                    background-color: orangered;
+                }
+                > article {
+                    @include JM.WH();
+                    position: absolute;
+                    z-index: Var.$ZNum3;
+                    top: 0;
+                    background-color: rgba($color: #838383, $alpha: 0.5);
+                    
+                    %GolfAling {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    > li {
+                        height: calc( $HeaderHeight + 100px);
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-end;
+                    }
+                    > ul {
+                        margin-top: calc( $HeaderHeight + 320px);
+                        flex-wrap: wrap;
+                        > .Price {
+                            width: Var.$Num10 * 10%;  
+                            height: Var.$Num10 * 5px;  
+                            @extend %GolfAling;
+                            font-size: 1rem * 2;
+                            color: blue;
+                            // background-color: aquamarine;
+                        }
+                        > .Btn {
+                            width: Var.$Num10 * 5%;
+                            @extend %GolfAling;
+                        }
+                    }
+                }
             }
             .GolfText {
                 width: Var.$Num10 * 10%;
                 order: 1;
                 margin-top: $HeaderHeight;
-                background-color: rgb(155, 255, 179);
+                // background-color: rgb(155, 255, 179);
+
+                > table {
+                  width: 80%;
+                  margin-bottom: 50px;
+                //   border: 1px solid brown;
+                //   background-color: rgb(190, 202, 238);
+
+                  .NullTr {
+                    height: 15px;
+                  }
+                  .title {
+                    font-size: 1rem * 0.9;
+                    color: gray;
+                  }
+                  span {
+                    margin-right: 20px;
+                  }
+                  .facility {
+                    // background-color: red;
+                    > td {
+                        width: calc( 100% / 4 );
+                    }
+                  }
+                }
+
+                > .content {
+                    width: 80%;
+                    margin-bottom: 50px;
+
+                    .title {
+                        font-size: 1rem * 0.9;
+                        color: gray;
+                    }
+
+                    .Poper {
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin: {
+                            top: 15px;
+                            bottom: 15px;
+                        }
+                        .title {
+                            width: 50%;
+                        }
+                        .Text {
+                            width: 50%;
+                        }
+
+                    }
+                    .facility {
+
+                        .title {
+                            width: 100%;
+                        }
+                        .Text {
+                            display: flex;
+                            flex-wrap: wrap;
+                            background-color: orange;
+                            li {
+                                width: calc( 100% / 4 );
+                            }
+                        }
+                    }
+                }
             }
         }       
     }
@@ -41,7 +146,7 @@
             @include JM.WH();
             // 彈性佈局 - 設定框架順序位置
             display: flex;
-            background-color: orangered;
+            // background-color: orangered;
             .GolfImg {
                 width:  calc( (Var.$Num10 * 10%) / 3 * 1 );
                 height: Var.$Num10 * 10%;
@@ -59,7 +164,28 @@
                 margin-top: 0;
                 // 溢位 框架一定要設定「寬度或高度」
                 overflow-y: auto;
-                background-color: rgb(155, 255, 179);
+                // background-color: rgb(155, 255, 179);
+                color: black;
+                
+                // scss 繼承 %name(% 隱藏原始物件) ； 呼叫 @extend
+                %TabConW {
+                    width: 50%;
+                    margin-left: 20px;
+                }
+                > table {
+                    @extend %TabConW;
+                }
+                > .content {
+                    @extend %TabConW;
+                }
+
+                // 原始 css3 的寫法
+                // > table, .content {
+                //     width: 50%;
+                //     margin-left: 20px;
+                //     // background-color: orange
+                //     ;
+                // }
             }
         }        
     }
