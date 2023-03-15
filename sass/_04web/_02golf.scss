@@ -34,10 +34,27 @@
                         align-items: center;
                     }
                     > li {
+                        width: Var.$Num10 * 3.5%;
                         height: calc( $HeaderHeight + 100px);
                         display: flex;
                         justify-content: center;
                         align-items: flex-end;
+
+                        a {
+                            display: inline-block;
+                            font-size: 1rem * 1.1;
+                            padding: 2px;
+                        }
+                        a:hover {
+                            // 底線樣式
+                            // text-decoration-line: underline;
+                            // -moz-text-decoration-line: underline;
+                            // text-decoration-color: olivedrab;
+                            // -moz-text-decoration-color: olivedrab;
+                            // 框線
+                            border-bottom: 1px solid rgb(150, 51, 16);
+                            
+                        }
                     }
                     > ul {
                         margin-top: calc( $HeaderHeight + 320px);
@@ -46,13 +63,19 @@
                             width: Var.$Num10 * 10%;  
                             height: Var.$Num10 * 5px;  
                             @extend %GolfAling;
-                            font-size: 1rem * 2;
+                            font-size: 1rem * 1.8;
                             color: blue;
                             // background-color: aquamarine;
                         }
                         > .Btn {
-                            width: Var.$Num10 * 5%;
+                            width: Var.$Num10 * 7.5%;
+                            height: 45px;
                             @extend %GolfAling;
+                            font-size: 1rem * 1.5;
+                            background-color: rgb(252, 107, 54);
+                        }
+                        > .Btn:hover {
+                            background-color: orangered;
                         }
                     }
                 }
@@ -127,6 +150,25 @@
                     }
                 }
             }
+            #SubForm {
+                @include JM.WH();
+                position: absolute;
+                z-index: Var.$ZNum10;
+                position: fixed;
+                top: 0;
+                background-color: #fff;
+                display: flex;
+                flex-wrap: wrap;
+
+                > #golfform {
+                    order: 2;
+                    @include JM.WH();
+                    background-color: orangered;
+                }
+                > .content {
+                    order: 1;
+                }
+            }
         }       
     }
 }
@@ -186,6 +228,14 @@
                 //     // background-color: orange
                 //     ;
                 // }
+            }
+            #SubForm {
+                width: 90%;
+                height: 90%;
+                // 上下 左右
+                margin: 2.5% 5%;
+                background-color: wheat;
+                
             }
         }        
     }

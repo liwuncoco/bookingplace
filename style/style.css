@@ -153,7 +153,7 @@ a {
         flex-wrap: wrap;
     list-style-type: none;
     position: absolute;
-    z-index: 5;
+    z-index: 10;
     position: fixed;
     top: 0;
     background-color: rgb(22, 136, 111);
@@ -380,7 +380,7 @@ a {
     width: 100%;
     height: 120px;
     position: absolute;
-    z-index: 5;
+    z-index: 10;
     position: fixed;
     bottom: 0;
     font-size: 0.9rem;
@@ -684,6 +684,7 @@ a {
             align-items: center;
   }
   .bookingplace #Golfmain .GolfImg > article > li {
+    width: 35%;
     height: 150px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -695,6 +696,14 @@ a {
         -ms-flex-align: end;
             align-items: flex-end;
   }
+  .bookingplace #Golfmain .GolfImg > article > li a {
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: 2px;
+  }
+  .bookingplace #Golfmain .GolfImg > article > li a:hover {
+    border-bottom: 1px solid rgb(150, 51, 16);
+  }
   .bookingplace #Golfmain .GolfImg > article > ul {
     margin-top: 370px;
     -ms-flex-wrap: wrap;
@@ -703,11 +712,17 @@ a {
   .bookingplace #Golfmain .GolfImg > article > ul > .Price {
     width: 100%;
     height: 50px;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: blue;
   }
   .bookingplace #Golfmain .GolfImg > article > ul > .Btn {
-    width: 50%;
+    width: 75%;
+    height: 45px;
+    font-size: 1.5rem;
+    background-color: rgb(252, 107, 54);
+  }
+  .bookingplace #Golfmain .GolfImg > article > ul > .Btn:hover {
+    background-color: orangered;
   }
   .bookingplace #Golfmain .GolfText {
     width: 100%;
@@ -770,6 +785,33 @@ a {
   .bookingplace #Golfmain .GolfText > .content .facility .Text li {
     width: 25%;
   }
+  .bookingplace #Golfmain #SubForm {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    width: 100%;
+    height: 100%;
+    background-color: orangered;
+  }
+  .bookingplace #Golfmain #SubForm > .content {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
 }
 @media screen and (min-width: 992px) {
   .bookingplace header {
@@ -806,5 +848,11 @@ a {
   .bookingplace #Golfmain .GolfText > .content, .bookingplace #Golfmain .GolfText > table {
     width: 50%;
     margin-left: 20px;
+  }
+  .bookingplace #Golfmain #SubForm {
+    width: 90%;
+    height: 90%;
+    margin: 2.5% 5%;
+    background-color: wheat;
   }
 }

@@ -50,10 +50,12 @@
                 <section class="GolfImg">
                     <div id="WebBanner"></div>
                     <article>
-                        <li> 〈 查看其他運動</li>
+                        <li> 〈 <a href="../index.htm">查看其他運動</a></li>
                         <ul>
                             <li class="Price">$500 / hr</li>
-                            <li class="Btn">訂購表單</li>
+                            <a href="javascript:;" class="Btn">
+                                <li >訂購表單</li>
+                            </a>
                         </ul>
                     </ul>
                 </section>
@@ -108,6 +110,37 @@
                         </ul>
                     </ul>
                 </div>
+               </section>
+               <section id="SubForm">
+                <form action="" id="golfform" name="golfform">
+                   <div class="UserName">
+                    <label for="Name"><li>姓名</li></label>
+                    <input type="text" name="" id="Name" maxlength="5" required value="姓名">
+                   </div>
+                   <div class="TelNumber">
+                    <label for="TelNumber"><li>電話</li></label>
+                    <input type="tel" name="" id="TelNumber" maxlength="10" required placeholder="例如:0910123456">
+                   </div>
+                   <div class="StartDate">
+                    <label for="StartDate"><li>開始時間</li></label>
+                    <input type="datetime-local" name="" id="StartDate">
+                   </div>
+                   <div class="EndDate">
+                    <label for="EndDate"><li>結束時間</li></label>
+                    <input type="datetime-local" name="" id="EndDate">
+                   </div>
+                   <li><input type="text" name="" id="" value="請選擇日期" readonly></li>
+                   <div class="Price">
+                    <li>價格</li>
+                    <li><input type="text" name="" id="" value="$0" readonly></li>
+                   </div>
+                   <div class="Btn">
+                    <input type="reset" value="清除資料">
+                    <input type="submit" value="確認送出">
+                   </div>
+                   <li>此預約系統僅預約的功能，並不會對您進行收費</li>
+                </form>
+                <div class="content">說明</div>
                </section>
             </main>
            

@@ -77,7 +77,7 @@
             list-style-type: none;
             // 1. 設定階層需先寫定位點:絕對值 階層：值 2. 停佇設定 
             position: absolute;
-            z-index: Var.$ZNum5;
+            z-index: Var.$ZNum10;
             // 停佇
             position: fixed;
             top: 0;
@@ -335,7 +335,7 @@
             width: Var.$Num10 * 10%;
             height: $FooterHeight;
             position: absolute;
-            z-index: Var.$ZNum5;
+            z-index: Var.$ZNum10;
             // 定位點：停佇
             position: fixed;
             bottom: 0;
