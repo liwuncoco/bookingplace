@@ -19,8 +19,11 @@
 // #{ } 格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」
 @include Media.Rwd(xs) {
     .bookingplace {
+        %XSWH {
+            @include JM.WH(10%, 10%);
+        }
         #Banner {
-            @include JM.WH();
+            @extend %XSWH;
             position: absolute;
             // 背景圖再最下層
             z-index: -1;
@@ -29,10 +32,10 @@
             top: 0;
     
             ul {
-                @include JM.WH();
+                @extend %XSWH;
                 position: relative;
                 li {
-                    @include JM.WH();
+                    @extend %XSWH;
                     @include JM.RoundAN();
     
                     // 動畫格式預設值
@@ -41,7 +44,7 @@
                     -webkit-filter: alpha(opacity=0);
                     position: absolute;
                     span {
-                        @include JM.WH();
+                        @extend %XSWH;
                         display: block;
                         background-color: rgba(0, 0, 0, 0.45);
                     }                                  
@@ -133,7 +136,7 @@
             }
         }
         #PhoneMenu {
-            @include JM.WH();
+            @extend %XSWH;
             // 須配合 定位點：絕對
             position: absolute;
             // 層疊樣式表 Z 軸 數值：值越小，層越低；值越大，層越高
@@ -263,8 +266,7 @@
             }
         }
         #main {
-            width: Var.$Num10 * 10%;
-            height: Var.$Num10 * 10%;
+            @extend %XSWH;
             position: absolute;
             z-index: Var.$ZNum3;
     
@@ -292,8 +294,7 @@
                     color: white;
                     @include Img.Img(center, cover, btn, "002.jpg");
                     a {
-                        width: Var.$Num10 * 10%;
-                        height: Var.$Num10 * 10%;
+                        @extend %XSWH;
                         display: flex;
                         justify-content: center;
                         align-items: center;
@@ -426,13 +427,16 @@
     // @include Media.FloatBox();
     // @include Media.FlexBox();
     .bookingplace {
+        %LGWH {
+            @include JM.WH(10%, 10%);
+        }
         display: flex;
         flex-wrap: wrap;
         color: #fff;
 
         header {
             width: Var.$Num10 * 4%;
-            // width: Var.$Num10 * 10%;
+            width: Var.$Num10 * 10%;
             #menu {
                 display: none;
             }
@@ -458,8 +462,7 @@
             // header的高 - nav > li 的 margin-top
             margin-top: 0;
             nav {
-                width: Var.$Num10 * 10%;
-                height: Var.$Num10 * 10%;
+                @extend %LGWH;
                 margin-top: 50px;
                 .Items {
                     width: Var.$Num10 * 8%;
@@ -492,8 +495,7 @@
                         // 超連結的四種狀態 (a:link-尚未瀏覽的連結 預設 可以不用寫 link； a:hover 游標移到超連結之上)
                         // a:active 點擊超連結時  a:visited 已經瀏覽過的超連
                         a {
-                            width: Var.$Num10 * 10%;
-                            height: Var.$Num10 * 10%;
+                            @extend %LGWH;
                             display: flex;
                             justify-content: center;
                             align-items: center;
@@ -522,7 +524,7 @@
                         @include Img.Img(center, cover, btn, "001.jpg");
                         // 行內範圍，不會換行
                         span {
-                            @include JM.WH();
+                            @extend %LGWH;
                             // width: Var.$Num10 * 10%;
                             display: inline-block;
                             color: white;
@@ -538,7 +540,7 @@
                             @include Ro.Rounded(0);
 
                             a {
-                                @include JM.WH();
+                                @extend %LGWH;
                                 text-decoration: none;
                                 // 文字透明
                                 color: transparent;

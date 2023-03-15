@@ -20,22 +20,20 @@ a {
 }
 
 @media screen and (min-width: 0px) {
-  .bookingplace #Banner {
+  .bookingplace #main .Items .One a, .bookingplace #main, .bookingplace #PhoneMenu, .bookingplace #Banner ul li span, .bookingplace #Banner ul li, .bookingplace #Banner ul, .bookingplace #Banner {
     width: 100%;
     height: 100%;
+  }
+  .bookingplace #Banner {
     position: absolute;
     z-index: -1;
     position: fixed;
     top: 0;
   }
   .bookingplace #Banner ul {
-    width: 100%;
-    height: 100%;
     position: relative;
   }
   .bookingplace #Banner ul li {
-    width: 100%;
-    height: 100%;
     animation: BannerRound 25s linear infinite;
     -webkit-animation: BannerRound 25s linear infinite;
     opacity: 0;
@@ -78,8 +76,6 @@ a {
     }
   }
   .bookingplace #Banner ul li span {
-    width: 100%;
-    height: 100%;
     display: block;
     background-color: rgba(0, 0, 0, 0.45);
   }
@@ -179,8 +175,6 @@ a {
     display: none;
   }
   .bookingplace #PhoneMenu {
-    width: 100%;
-    height: 100%;
     position: absolute;
     z-index: 99;
     top: 0;
@@ -293,8 +287,6 @@ a {
             order: 1;
   }
   .bookingplace #main {
-    width: 100%;
-    height: 100%;
     position: absolute;
     z-index: 3;
     margin-top: 65px;
@@ -334,8 +326,6 @@ a {
     background-repeat: no-repeat;
   }
   .bookingplace #main .Items .One a {
-    width: 100%;
-    height: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -462,8 +452,13 @@ a {
         flex-wrap: wrap;
     color: #fff;
   }
+  .bookingplace #main nav .Items .Six span a, .bookingplace #main nav .Items .Six span, .bookingplace #main nav .Items .One a, .bookingplace #main nav {
+    width: 100%;
+    height: 100%;
+  }
   .bookingplace header {
     width: 40%;
+    width: 100%;
     background-color: transparent;
   }
   .bookingplace header #menu {
@@ -486,8 +481,6 @@ a {
     margin-top: 0;
   }
   .bookingplace #main nav {
-    width: 100%;
-    height: 100%;
     margin-top: 50px;
   }
   .bookingplace #main nav .Items {
@@ -537,8 +530,6 @@ a {
     background-repeat: no-repeat;
   }
   .bookingplace #main nav .Items .One a {
-    width: 100%;
-    height: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -580,8 +571,6 @@ a {
     background-repeat: no-repeat;
   }
   .bookingplace #main nav .Items .Six span {
-    width: 100%;
-    height: 100%;
     display: inline-block;
     color: white;
     font-size: 1.5rem;
@@ -603,8 +592,6 @@ a {
     -o-border-radius: 0;
   }
   .bookingplace #main nav .Items .Six span a {
-    width: 100%;
-    height: 100%;
     text-decoration: none;
     color: transparent;
   }
@@ -637,10 +624,6 @@ a {
   }
 }
 @media screen and (min-width: 0px) {
-  .bookingplace {
-    width: 100%;
-    height: 100%;
-  }
   .bookingplace #Golfmain {
     width: 100%;
     height: 100%;
@@ -663,6 +646,96 @@ a {
     width: 100%;
     height: 100%;
     background-color: orangered;
+  }
+  .bookingplace #Golfmain .GolfImg > #WebBanner ul {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .bookingplace #Golfmain .GolfImg > #WebBanner ul li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    animation: BannerRound 25s linear infinite;
+    -webkit-animation: BannerRound 25s linear infinite;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-filter: alpha(opacity=0);
+    background-color: #838383;
+  }
+  @-webkit-keyframes BannerRound {
+    4% {
+      opacity: 1;
+      filter: alpha(opacity=100);
+      -webkit-filter: alpha(opacity=100);
+    }
+    20% {
+      opacity: 1;
+      filter: alpha(opacity=100);
+      -webkit-filter: alpha(opacity=100);
+    }
+    24% {
+      opacity: 0;
+      filter: alpha(opacity=0);
+      -webkit-filter: alpha(opacity=0);
+    }
+  }
+  @keyframes BannerRound {
+    4% {
+      opacity: 1;
+      filter: alpha(opacity=100);
+      -webkit-filter: alpha(opacity=100);
+    }
+    20% {
+      opacity: 1;
+      filter: alpha(opacity=100);
+      -webkit-filter: alpha(opacity=100);
+    }
+    24% {
+      opacity: 0;
+      filter: alpha(opacity=0);
+      -webkit-filter: alpha(opacity=0);
+    }
+  }
+  .bookingplace #Golfmain .GolfImg > #WebBanner ul .I01 {
+    background-color: wheat;
+  }
+  .bookingplace #Golfmain .GolfImg > #WebBanner ul .I02 {
+    background-color: olive;
+  }
+  .bookingplace #Golfmain .GolfImg > #WebBanner ul .I03 {
+    background-color: blueviolet;
+  }
+  .bookingplace #Golfmain .GolfImg > #WebBanner ul .I04 {
+    background-color: orangered;
+  }
+  .bookingplace #Golfmain .GolfImg > #WebBanner ul .I05 {
+    background-color: hotpink;
+  }
+  .bookingplace #Golfmain .GolfImg > #WebBanner li:nth-child(5) {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+    display: block;
+  }
+  .bookingplace #Golfmain .GolfImg > #WebBanner li:nth-child(4) {
+    -webkit-animation-delay: 5s;
+            animation-delay: 5s;
+    display: block;
+  }
+  .bookingplace #Golfmain .GolfImg > #WebBanner li:nth-child(3) {
+    -webkit-animation-delay: 10s;
+            animation-delay: 10s;
+    display: block;
+  }
+  .bookingplace #Golfmain .GolfImg > #WebBanner li:nth-child(2) {
+    -webkit-animation-delay: 15s;
+            animation-delay: 15s;
+    display: block;
+  }
+  .bookingplace #Golfmain .GolfImg > #WebBanner li:nth-child(1) {
+    -webkit-animation-delay: 20s;
+            animation-delay: 20s;
+    display: block;
   }
   .bookingplace #Golfmain .GolfImg > article {
     width: 100%;
@@ -730,6 +803,7 @@ a {
         -ms-flex-order: 1;
             order: 1;
     margin-top: 50px;
+    background-color: rgb(155, 255, 179);
   }
   .bookingplace #Golfmain .GolfText > table {
     width: 80%;
@@ -798,6 +872,7 @@ a {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    display: none;
   }
   .bookingplace #Golfmain #SubForm > #golfform {
     -webkit-box-ordinal-group: 3;
@@ -807,10 +882,105 @@ a {
     height: 100%;
     background-color: orangered;
   }
+  .bookingplace #Golfmain #SubForm > #golfform h1 {
+    text-align: center;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > li, .bookingplace #Golfmain #SubForm > #golfform > div {
+    width: 85%;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > li input, .bookingplace #Golfmain #SubForm > #golfform > div input {
+    width: 100%;
+    height: 35px;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > div {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > div label {
+    font-size: 1.2rem;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > div label li {
+    margin-bottom: 10px;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > div input {
+    border-style: none;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-size: 1.2rem;
+    color: rgb(12, 82, 122);
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > div input::-webkit-input-placeholder {
+    color: rgb(12, 82, 122);
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > div input::-moz-placeholder {
+    color: rgb(12, 82, 122);
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > div input:-ms-input-placeholder {
+    color: rgb(12, 82, 122);
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > div input::-ms-input-placeholder {
+    color: rgb(12, 82, 122);
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > div input::placeholder {
+    color: rgb(12, 82, 122);
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > .Price {
+    font-size: 1.1rem;
+    text-align: right;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > .Price input {
+    text-align: right;
+    font-size: 1.5rem;
+    background-color: transparent;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > li {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > li input {
+    border-style: none;
+    outline: none;
+    font-size: 1.2rem;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > li input[type=submit] {
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    color: #fff;
+    background-color: rgb(12, 82, 182);
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > li input[type=reset] {
+    width: 100%;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > li input[type=text] {
+    background-color: transparent;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > .Date {
+    border-bottom: double 5px brown;
+  }
+  .bookingplace #Golfmain #SubForm > #golfform > .Text {
+    text-align: center;
+    font-size: 0.9rem;
+  }
   .bookingplace #Golfmain #SubForm > .content {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+  }
+  .bookingplace #Golfmain #SubForm > .content a {
+    width: 50px;
+    height: 30px;
+    display: inline-block;
+    color: rgb(172, 7, 7);
+    font-size: 1.3rem;
+    padding: 10px;
+    position: absolute;
+    right: 0;
   }
 }
 @media screen and (min-width: 992px) {
@@ -823,6 +993,7 @@ a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    background-color: orangered;
   }
   .bookingplace #Golfmain .GolfImg {
     width: 33.3333333333%;
@@ -854,5 +1025,23 @@ a {
     height: 90%;
     margin: 2.5% 5%;
     background-color: wheat;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: none;
+  }
+  .bookingplace #Golfmain #SubForm #golfform {
+    width: 33.3333333333%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .bookingplace #Golfmain #SubForm .content {
+    width: 66.6666666667%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    color: #838383;
+    overflow-y: auto;
   }
 }

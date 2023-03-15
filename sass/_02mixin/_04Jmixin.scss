@@ -1,7 +1,7 @@
 @use '../_01variable/variable' as Var;
-@mixin WH() {
-    width: Var.$Num10 * 10%;
-    height: Var.$Num10 * 10%;
+@mixin WH($WM, $HM) {
+    width: Var.$Num10 * $WM;
+    height: Var.$Num10 * $HM;
 }
 // 1. 動畫名稱 2. 動畫總秒數 3. 動畫速度曲線 4. 動畫播放次數
 @mixin Filter {

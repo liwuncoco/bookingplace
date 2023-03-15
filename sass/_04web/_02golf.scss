@@ -1,28 +1,60 @@
 @use '../_01variable/variable' as Var;
-@use '../_02mixin/04Jmixin' as JM;
 @use '../_02mixin/01media' as Me;
+@use '../_02mixin/03Rounded' as Ro;
+@use '../_02mixin/04Jmixin' as JM;
 
 @include Me.Rwd(xs) {
     .bookingplace {
-        @include JM.WH();
         $HeaderHeight: Var.$Num10 * 5px;
+        $HeHeight: 10 * 5px;
         #Golfmain {
-            @include JM.WH();
+            @include JM.WH(10%, 10%);
             // 彈性佈局 - 設定框架順序位置
             display: flex;
             flex-wrap: wrap;
             .GolfImg {
-                @include JM.WH();
+                @include JM.WH(10%, 10%);
                 order: 2;
                 background-color: aqua;
                 position: relative;
 
                 > #WebBanner {
-                    @include JM.WH();
+                    @include JM.WH(10%, 10%);
                     background-color: orangered;
+
+                    ul {
+                        @include JM.WH(10%, 10%);
+                        position: relative;
+                        li {
+                            @include JM.WH(10%, 10%);
+                            position: absolute;
+                            @include JM.RoundAN;
+                            // 動畫格式預設值
+                            opacity: 0;
+                            filter: alpha(opacity=0);
+                            -webkit-filter: alpha(opacity=0);
+                            background-color: #838383;
+                        }
+                        .I01 {
+                            background-color: wheat;
+                        }
+                        .I02 {
+                            background-color: olive;
+                        }
+                        .I03 {
+                            background-color: blueviolet;
+                        }
+                        .I04 {
+                            background-color: orangered;
+                        }
+                        .I05 {
+                            background-color: hotpink;
+                        }
+                    }
+                    @include JM.BannerDelay;
                 }
                 > article {
-                    @include JM.WH();
+                    @include JM.WH(10%, 10%);
                     position: absolute;
                     z-index: Var.$ZNum3;
                     top: 0;
@@ -46,14 +78,8 @@
                             padding: 2px;
                         }
                         a:hover {
-                            // 底線樣式
-                            // text-decoration-line: underline;
-                            // -moz-text-decoration-line: underline;
-                            // text-decoration-color: olivedrab;
-                            // -moz-text-decoration-color: olivedrab;
                             // 框線
-                            border-bottom: 1px solid rgb(150, 51, 16);
-                            
+                            border-bottom: 1px solid rgb(150, 51, 16);                           
                         }
                     }
                     > ul {
@@ -84,7 +110,7 @@
                 width: Var.$Num10 * 10%;
                 order: 1;
                 margin-top: $HeaderHeight;
-                // background-color: rgb(155, 255, 179);
+                background-color: rgb(155, 255, 179);
 
                 > table {
                   width: 80%;
@@ -151,7 +177,7 @@
                 }
             }
             #SubForm {
-                @include JM.WH();
+                @include JM.WH(10%, 10%);
                 position: absolute;
                 z-index: Var.$ZNum10;
                 position: fixed;
@@ -159,14 +185,115 @@
                 background-color: #fff;
                 display: flex;
                 flex-wrap: wrap;
+                display: none;
 
                 > #golfform {
                     order: 2;
-                    @include JM.WH();
+                    @include JM.WH(10%, 10%);
                     background-color: orangered;
+
+                    h1 {
+                        text-align: center;
+                    }
+
+                    %DivLiW {
+                        width: Var.$Num10 * 8.5%;
+                    }
+                    %InputWH {
+                        @include JM.WH(10%, 3.5px);
+                    }
+                    > div {
+                        @extend %DivLiW;
+                        // 上下邊界
+                        margin: {
+                            top: 15px;
+                            bottom: 15px;
+                        };
+                        label {
+                            font-size: 1rem * 1.2;
+                            li {
+                                margin-bottom: 10px;
+                            }
+                        }
+                        // 輸入框
+                        input {
+                            @extend %InputWH;
+                            // 輸入框的外框線
+                            border-style: none;
+                            // 輸入框的內框架
+                            outline: none;
+                            // 內部留白
+                            padding: {
+                                left: 10px;
+                                right: 10px;
+                            };
+                            // 設定為內部留白
+                            box-sizing: border-box;
+                            font-size: 1rem * 1.2;
+                            color: rgb(12, 82, 122);
+                        }
+                        // 偽類別 ::
+                        input::placeholder {
+                            color: rgb(12, 82, 122);
+                        }
+                    }
+                    > .Price {
+                        font-size: 1rem * 1.1;
+                        text-align: right;
+                        input {
+                            text-align: right;
+                            font-size: 1rem * 1.5;
+                            background-color: transparent;
+                        }
+                    }
+                    > li {
+                        @extend %DivLiW;
+                        // 上下邊界
+                        margin: {
+                            top: 15px;
+                            bottom: 15px;
+                        };
+                        // 輸入框
+                        input {
+                            @extend %InputWH;
+                            // 輸入框的外框線
+                            border-style: none;
+                            // 輸入框的內框架
+                            outline: none;
+                            font-size: 1rem * 1.2;
+                        }
+                        input[type="submit"] {
+                            @include Ro.Rounded(15px);
+                            color: #fff;
+                            background-color: rgb(12, 82, 182);
+                        }
+                        input[type="reset"] {
+                            width: 100%;
+                        }    
+                        input[type="text"] {
+                            background-color: transparent;
+                        }                        
+                    }
+                    > .Date {
+                        border-bottom: double 5px brown;
+                    }
+                    > .Text {
+                        // 左右切齊 justify
+                        text-align: center;
+                        font-size: 1rem * 0.9;
+                    }
                 }
                 > .content {
                     order: 1;
+                    a {
+                        @include JM.WH(5px, 3px);
+                        display: inline-block;
+                        color: rgb(172, 7, 7);
+                        font-size:  1rem * 1.3;
+                        padding: 10px;
+                        position: absolute;
+                        right: 0;
+                    }
                 }
             }
         }       
@@ -185,10 +312,10 @@
         }
         $HeaderHeight: 0;
         #Golfmain {
-            @include JM.WH();
+            @include JM.WH(10%, 10%);
             // 彈性佈局 - 設定框架順序位置
             display: flex;
-            // background-color: orangered;
+            background-color: orangered;
             .GolfImg {
                 width:  calc( (Var.$Num10 * 10%) / 3 * 1 );
                 height: Var.$Num10 * 10%;
@@ -235,7 +362,19 @@
                 // 上下 左右
                 margin: 2.5% 5%;
                 background-color: wheat;
-                
+                display: flex;
+                display: none;
+
+                #golfform {
+                    width: calc(100% / 3);
+                    order: 1;
+                }
+                .content {
+                    width: calc(100% / 3 * 2);
+                    order: 2;
+                    color: #838383;
+                    overflow-y: auto;
+                }
             }
         }        
     }

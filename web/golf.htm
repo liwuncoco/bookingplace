@@ -48,16 +48,24 @@
 
             <main id="Golfmain">
                 <section class="GolfImg">
-                    <div id="WebBanner"></div>
+                    <div id="WebBanner">
+                        <ul>
+                            <li class="I01">images1</li>
+                            <li class="I02">images2</li>
+                            <li class="I03">images3</li>
+                            <li class="I04">images4</li>
+                            <li class="I05">images5</li>
+                        </ul>
+                    </div>
                     <article>
-                        <li> 〈 <a href="../index.htm">查看其他運動</a></li>
+                        <li>〈<a href="../index.htm">查看其他運動</a></li>
                         <ul>
                             <li class="Price">$500 / hr</li>
                             <a href="javascript:;" class="Btn">
                                 <li >訂購表單</li>
                             </a>
                         </ul>
-                    </ul>
+                    </article>
                 </section>
                <section class="GolfText">
                 <h1>高爾夫</h1>
@@ -113,14 +121,15 @@
                </section>
                <section id="SubForm">
                 <form action="" id="golfform" name="golfform">
-                   <div class="UserName">
+                   <h1>預定教室</h1>
+                    <div class="UserName">
                     <label for="Name"><li>姓名</li></label>
-                    <input type="text" name="" id="Name" maxlength="5" required value="姓名">
+                    <input type="text" name="" id="Name" maxlength="5" required placeholder="姓名">
                    </div>
                    <div class="TelNumber">
                     <label for="TelNumber"><li>電話</li></label>
                     <input type="tel" name="" id="TelNumber" maxlength="10" required placeholder="例如:0910123456">
-                   </div>
+                </div>
                    <div class="StartDate">
                     <label for="StartDate"><li>開始時間</li></label>
                     <input type="datetime-local" name="" id="StartDate">
@@ -129,18 +138,21 @@
                     <label for="EndDate"><li>結束時間</li></label>
                     <input type="datetime-local" name="" id="EndDate">
                    </div>
-                   <li><input type="text" name="" id="" value="請選擇日期" readonly></li>
+                   <li class="Date"><input type="text" name="" id="" value="請選擇日期" readonly></li>
                    <div class="Price">
                     <li>價格</li>
                     <li><input type="text" name="" id="" value="$0" readonly></li>
                    </div>
-                   <div class="Btn">
-                    <input type="reset" value="清除資料">
-                    <input type="submit" value="確認送出">
-                   </div>
-                   <li>此預約系統僅預約的功能，並不會對您進行收費</li>
+                   <li>
+                    <!-- <input type="reset" value="清除資料"> -->
+                    <input type="submit" value="確認送出" id="SubmitBtn">
+                   </li>
+                   <li class="Text">此預約系統僅預約的功能，並不會對您進行收費</li>
                 </form>
-                <div class="content">說明</div>
+                <div class="content">
+                    <a href="javascript:;">close</a>
+                    <div class="TextContent">說明</div>
+                </div>
                </section>
             </main>
            
