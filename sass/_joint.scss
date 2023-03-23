@@ -1,4 +1,4 @@
-@use '_01variable/variable' as Var;
+@use '_01variable/01Var' as V;
 // 匯入檔案在所有資料的最前面
 // @import '_00variable.scss';
 // 通用選擇器 *
@@ -8,18 +8,18 @@
     // 內間距 
     padding: 0;
     // 隱藏 項目符號
-    list-style-type: none;
+    // list-style-type: none;
 }
 // 設定 高度單位為 % 時，高度會自動展開
 html, body {
-    height: Var.$Num10 * 10%;
-    // width: Var.$Num10 * 10;
-    font-family: Arial, Helvetica, sans-serif;
+    height: V.$Num10 * 10%;
+    // width: V.$Num10 * 10;
+    font-family: Arial, Helvetica, sans-serif, '微軟正黑體';
 }
 
 // 圖片等比縮放
 img {
-    width: 100%;
+    width: V.$Ten * 10%;
     height: auto;
 }
 

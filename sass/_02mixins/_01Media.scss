@@ -1,35 +1,35 @@
 // minix (混用)，可以在語法內寫入 css語法、計算方式或是判斷式；可以設定呼叫參數的方式
-@use '../_01variable/variable' as Var;
+@use '../_01variable/01Var' as V;
 
 // 媒體斷點判斷 @if @else if 
 @mixin Rwd($width) {
     @if $width == xs {
-        @media screen and (min-width: Var.$xs) {
+        @media screen and (min-width: V.$xs) {
             @content;
         }
     }
     @else if $width == sm {
-        @media screen and (min-width: Var.$sm) {
+        @media screen and (min-width: V.$sm) {
             @content;
         }
     }
     @else if $width == md {
-        @media screen and (min-width: Var.$md) {
+        @media screen and (min-width: V.$md) {
             @content;
         }
     }
     @else if $width == lg {
-        @media screen and (min-width: Var.$lg) {
+        @media screen and (min-width: V.$lg) {
             @content;
         }
     }
     @else if $width == xl {
-        @media screen and (min-width: Var.$xl) {
+        @media screen and (min-width: V.$xl) {
             @content;
         }
     }
     @else if $width == xxl {
-        @media screen and (min-width: Var.$xxl) {
+        @media screen and (min-width: V.$xxl) {
             @content;
         }
     }

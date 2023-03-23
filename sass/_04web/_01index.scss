@@ -1,582 +1,438 @@
 // 讀取 變數 檔案 ；@use 區域性；一次性；規則 檔案要另給名稱；基於檔案的安全性；要放置在所有語法的最上層
-@use '../_01variable/variable' as Var;
-@use '../_02mixin/01media' as Media;
-@use '../_02mixin/02images' as Img;
-@use '../_02mixin/03Rounded' as Ro;
-@use '../_02mixin/04Jmixin' as JM;
-// 滿版設計 section id="ceshizhong"：設定 寬度 100 高 100 背景顏色
+@use '../_01variable/01Var' as V;
+@use '../_02mixins/01Media' as Me;
+@use '../_02mixins/02WH' as WH;
+@use '../_02mixins/03Images' as Im;
+@use '../_02mixins/04Animation' as An;
+@use '../_02mixins/05Round' as Ro;
 
-// #bookingplace {
-//     width: Var.$Num10 * 10 * Var.$Per;
-//     height: Var.$Num10 * 10 * Var.$Per;
-//     // background-color: burlywood;
-// }
+$MenuW: 15%;
+$H: 11; // main > footer
 
-// 子選擇器 (指定階層 > ：同層之中不能有相同的標籤，若有相同需設定 id or class)：子孫選擇器(跨標籤讀取 利用「空格」；不論哪一層物件，需設定 id or class)
-// 巢狀寫法
-// menu( 背景圖片取代文字呈現) 與 LOGO (水平垂直置中) 要同一列；聯絡資訊要各別一列 (文字寬度為 90%； 文字靠右對齊，文字顏色 咖啡色； 隱藏項目符號)
-
-// #{ } 格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」
-@include Media.Rwd(xs) {
+@include Me.Rwd(xs) {
+    // 繼承功能，無法寫在 media 判斷之外
+    %XSWH {
+        @include WH.WH(10%, 10%);
+    }
+    %PhoneMenuW {
+        @include WH.W(10%);
+    }
+    %NavWidth {
+        @include WH.W(9%);
+    }
+    %ListType {
+        list-style-type: none;
+    }
     .bookingplace {
-        %XSWH {
-            @include JM.WH(10%, 10%);
-        }
+        @extend %XSWH;
         #Banner {
             @extend %XSWH;
-            position: absolute;
-            // 背景圖再最下層
-            z-index: -1;
-            // 停佇
+            position: relative;
             position: fixed;
-            top: 0;
-    
+
             ul {
                 @extend %XSWH;
                 position: relative;
+
                 li {
                     @extend %XSWH;
-                    @include JM.RoundAN();
-    
-                    // 動畫格式預設值
-                    opacity: 0;
-                    filter: alpha(opacity=0);
-                    -webkit-filter: alpha(opacity=0);
                     position: absolute;
+                    @include An.Opacity;
+                    @include An.BannerRound;
+
+
                     span {
                         @extend %XSWH;
                         display: block;
-                        background-color: rgba(0, 0, 0, 0.45);
-                    }                                  
+                        background-color: rgba(80, 80, 80, 0.3);
+                    }
                 }
-                
                 .Images1 {
-                    @include Img.Images(center, cover, photo, "001.jpg");
+                    @include Im.Images(no-repeat, center, cover, 0, photo, "001.jpg");
                 }
                 .Images2 {
-                    @include Img.Images(center, cover, photo, "002.jpg");
+                    @include Im.Images(no-repeat, center, cover, 0, photo, "002.jpg");
                 }
                 .Images3 {
-                    @include Img.Images(center, cover, photo, "003.jpg");
+                    @include Im.Images(no-repeat, center, cover, 0, photo, "003.jpg");
                 }
                 .Images4 {
-                    @include Img.Images(center, cover, photo, "004.jpg");
+                    @include Im.Images(no-repeat, center, cover, 0, photo, "004.jpg");
                 }
                 .Images5 {
-                    @include Img.Images(center, cover, photo, "005.jpg");
+                    @include Im.Images(no-repeat, center, cover, 0, photo, "005.jpg");
                 }
+                @include An.BannerDelay;
             }
-            @include JM.BannerDelay;
+            
         }
-        $HeaderHeight: Var.$Num10 * 5px;
-        $FooterHeight: Var.$Num10 * 12px;
+        
         header {
-            width: Var.$Num10 * 10%;
-            height: $HeaderHeight;
-            // 顯示方法；彈性佈局(智能對齊)；在需要排版物件的父框架設定；會將所有的子物件排成一列
-            display: flex;
-            // 換行，將子物件設定為 兩列；預設值會自動判斷 子物件 的寬度(均分)要設定 子物件 的寬度才會有作用
-            flex-wrap: wrap;
-            list-style-type: none;
-            // 1. 設定階層需先寫定位點:絕對值 階層：值 2. 停佇設定 
+
+            @include WH.WH(10%, V.$HeaderH);
             position: absolute;
-            z-index: Var.$ZNum10;
-            // 停佇
+            z-index: V.$HeaderZindex;
             position: fixed;
             top: 0;
-            background-color: Var.$Blue-Grenn;
-    
-            #menu {
-                width: Var.$Num10 * 1.5%;
-                // height: 50px;
-                // 文字顏色
-                color: rebeccapurple;
-                // // 背景圖片取代文字顯示，背景圖片的對齊功能，可以輕易達到 水平垂直置中 的排列方法
-                // // 1. 設定背景圖片連結
-                // // 2. 背景圖片不重複顯示
-                // // 3. 背景圖片的對齊 (定位點 X Y - 水平垂直置中)
-                // // 4. 位移文字(首行縮排 - 單行文字 或者 段落文字的第一行)
-                // // 5. 圖片尺寸設定(預設值：自動) cover (滿版覆蓋框架尺寸) contain (留白) | 各別設定 x y 的值(例如： background-size: 50% 30%) | 單位：px %
-                // background-image: url(../../images/icon/list.svg);
-                // background-repeat: no-repeat;
-                // background-position: center;
-                // background-size: contain;
-                // text-indent: -9999px;
-                @include Img.Images(center, contain, icon, 'list.svg');    
-                // 背景顏色
-                // background-color: aquamarine;
-                // #{}格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」 #{Var.$sm}
-        
-                // @include Media.Rwd(sm) {
-                //     width: Var.$Num10 * 1.3%;
-                //     background-color: rgb(145, 48, 255);
-                // }
-        
-                // @include Media.Rwd(md) {
-                //     width: Var.$Num10 * 1.3%;
-                //     background-color: rgb(244, 32, 32);
-                // }
+            background-color: V.$BlueColor;
+            display: flex;
+
+            $MenuW: 15%;
+            .menu {
+                @include WH.WH($MenuW, V.$HeaderH);
+                @include Im.Images(no-repeat, center, cover, -9999px, icons, "list.svg");
             }
-            > h1 {
-                // 行高(行距)；h1 (2em 32px) h2 (1.5em 24px) h3 (1em 16px)
-                width: Var.$Num10 * 8.5%;
-                height: 50px;
-                text-align: center;
-                // 背景顏色
-                // background-color: Var.$Blue-Grenn;
-                li {
-                    // height: 32px;
-                    // 上間距 margin-top
-                    margin-top: calc((50px - 32px) / 2 );
-                    // background-color: olive;
+            h1 {
+                @include WH.WH(calc(100% - $MenuW), V.$HeaderH);
+                list-style-type: none;
+
+                a {
+                    @include WH.WH(5%, V.$HeaderH);
+                    display: block;
+                    span {
+                        line-height: calc(V.$HeaderH * 10);
+                    }  
                 }
             }
+
             .ConnBox {
-               display: none;
+                display: none;
             }
         }
         #PhoneMenu {
-            @extend %XSWH;
-            // 須配合 定位點：絕對
+            @include WH.WH(10%, 10%);
             position: absolute;
-            // 層疊樣式表 Z 軸 數值：值越小，層越低；值越大，層越高
-            z-index: Var.$ZNum99;
-            // 定位點：停佇
-            top: 0;
+            z-index: V.$PMZindex;
             position: fixed;
+            top: 0;
             background-color: #fff;
             display: none;
-    
-            // 父框架設置定位點 relative ，子物件設置定位點 absolute， 系統會將「body」的原點位置，重新給「父框架」使用
-    
-            // 區域變數
-            $MenuHeaderH: Var.$Num10 * 2;
-            $MenuFooterH: Var.$Num10 * 0.8;
-    
+
+            $MenuHH: 15%;
+            $MenuIH: 10%;
+            $MenuNH: calc(100% - $MenuHH - $MenuIH);
+
             #menuheader {
-                width: Var.$Num10 * 10%;
-                height: calc( $MenuHeaderH * 1% );
-                // position: relative;
-                display: flex;
-                // 水平置中
-                justify-content: center;
-                // 垂直置中
-                align-items: center;
-                background-color: Var.$Blue-Grenn;
-    
-                #close {
-                    // 顯示方式： inline-block (行內區塊層級)：以內容的寬度為主
-                    display: inline-block;
-                    // 文字尺寸取代高度
-                    font-size: 1.15rem;
-                    // 文字設定內間距(留白)
-                    padding: 10px;
-                    // 文字變化 uppercase (全部大寫) lowercase (全部小寫) capitalize (單字的第一個字母大寫)
-                    text-transform: uppercase;
-                    background-color: rebeccapurple;
-    
-                    // 文字變化 小型大寫字，會比原本的大寫還要再小再扁一點
-                    // font-variant: small-caps;
-                    
-                    // 定位點：絕對
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-    
-                    // 浮動元素：靠右
-                    // 若與 display: inline-block 一起用，系統將會視為display: block
-                    // float: right;
-    
-                    a {
-                        color: #fff;
-                        // 取消文字裝飾(底線)
-                        text-decoration: none;
-                    }
-                }
-                > h1 {
-                    font-size: 2rem;
-                    text-align: center;
-                }
-            }
-            #menunav {
-                width: Var.$Num10 * 8%;
-                height: calc( ( 100 - $MenuHeaderH - $MenuFooterH ) * 1% );
-                // 上邊界
-                // margin-top: calc( ( $MenuHeaderH + 10 ) * 1px );
-                
-                h2 {
-                    padding: 2.5px 0;
-                    border-bottom: {
-                        color: Var.$Blue-Grenn;
-                        width: 4px;
-                        style: double;
-                    };
-                }
-                .Conn {
-                   margin-top: 20px;  
-                }
-    
-            }
-            $MenuIconWidth: Var.$Num10 * 10%;
-            #menuicon {
-                width: $MenuIconWidth;
-                height: calc( $MenuFooterH * 1% );
-    
-                // 框線 border
-                border-top: {
-                    color: Var.$Blue-Grenn;
-                    width: 2px;
-                    // solid 實線；double 雙線；dashed 虛線； dotted 圓點虛線； 
-                    // inset 內陰影； outset 外陰影；groove 浮凸； ridge 內凹
-                    style: solid;
-                };
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-left: calc( ( 100% - $MenuIconWidth ) / 2 );
-            }
-        }
-        // 選單共用區
-        .Items {
-            display: flex;
-            flex-wrap: wrap;
-            li {
-                width: Var.$Num10 * 10%;
-                // 首行縮排
-                text-indent: 8%;
-                font-size: 1rem * 1.2;
-            }
-            .One {
-                order: 2;
-            }
-            .Two {
-                order: 3;
-            }
-            .Three {
-                order: 4;
-            }
-            .Four {
-                order: 5;
-            }
-            .Five {
-                order: 6;
-            }
-            .Six {
-                order: 1;
-            }
-        }
-        #main {
-            @extend %XSWH;
-            position: absolute;
-            z-index: Var.$ZNum3;
-    
-            // header的高 - nav > li 的 margin-top
-            margin-top: $HeaderHeight + 15px;
-            .Items {
-                width: Var.$Num10 * 8.5%;            
+                @extend %PhoneMenuW;
+                height: $MenuHH;
+                background-color: V.$BlueColor;
+                list-style-type: none;
+
                 li {
-                    width: Var.$Num10 * 10%;
-                    height: 170px;
-                    margin: 15px 0;
-                    background-color: rgb(146, 61, 61);
-                    // 圓角矩形
-                    @include Ro.Rounded(15px);  
-                    font-size: 1rem * 1.2;
-                    text-indent: 0;              
-                    // 文字水平垂直置中
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-                .One {
-                    width: Var.$Num10 * 10%;
-                    height: 170px;
-                    color: white;
-                    @include Img.Img(center, cover, btn, "002.jpg");
+                    @include WH.WH(70px, 3.5px);
+                    text-align: center;
+                    margin-right: 0;
+
                     a {
-                        @extend %XSWH;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        font-size: 1rem * 1.3;
-                        background-color: rgba(120, 120, 120, 0.45);
-                        @include Ro.Rounded(15px);
-                    }
-    
-                }
-                .Six {
-                    // 定位點：相對值
-                    position: relative;
-                    @include Img.Img(center, cover, btn, "001.jpg");
-                    // 行內範圍，不會換行
-                    span {
-                        width: Var.$Num10 * 10%;
+                        padding: 0 5px;
+                        font-size: 1rem * 1.2;
                         display: inline-block;
-                        color: white;
-                        // 文字尺寸取代高度
-                        font-size: 1rem * 1.3;
-                        padding: 5px 0;
-                        text-align: center;
-                        // 定位點：絕對值
-                        position: absolute;
-                        // 靠下對齊
-                        bottom: 0;
-                        // rgba a= 透明度 0-1 (接受到小數點第二位)
-                        background-color: rgba(120, 120, 120, 0.45);
-                        @include Ro.LRBottom(15px, 15px);
-    
+                    }
+                }
+
+                h1 {
+                    text-align: center;
+                    font-size: 1rem * 1.6;
+
+                    a {
+                        padding: 5px;
                     }
                 }
             }
-            .Null {
-                height: 135px;
-            }
-        }
-        footer {
-            width: Var.$Num10 * 10%;
-            height: $FooterHeight;
-            position: absolute;
-            z-index: Var.$ZNum10;
-            // 定位點：停佇
-            position: fixed;
-            bottom: 0;
-            font-size: 0.9rem;
-            background-color: Var.$Blue-Grenn;
-        }
-    }  
-}
 
-@include Media.Rwd(sm) {
-    header {
-        #menu {
-            width: Var.$Num10 * 1.3%;
-            // background-color: rgb(145, 48, 255);
-        }
-        h1 {
-            width: Var.$Num10 * 8.7%;
-            // background-color: rgb(198, 40, 40);
-        }
-    }
-}
+            #menunav {
+                @include WH.WH(8.5%, 10%);
+                height: $MenuNH;
+                overflow-y: auto;
 
-@include Media.Rwd(md) {
-    #bookingplace {
-        display: flex;
-        flex-wrap: wrap;
-        color: #fff;
+                h2 {
+                    padding: 10px 0px;
+                    border-bottom: solid 1px V.$BlueColor;
+                }
 
-        main {
-            width: Var.$Num10 * 10%;
-            height: Var.$Num10 * 10%;
-            top: 0;
-            // right: 0;
-    
-            // header的高 - nav > li 的 margin-top
-            margin-top: 0;
-            nav {
-                width: Var.$Num10 * 10%;
-                height: Var.$Num10 * 10%;
-                margin-top: 60px;
-                .Items {
-                    width: Var.$Num10 * 10%;
-                    height: Var.$Num10 * 8%;
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    align-items: center;     
+                ul {
+                    @include WH.W(8.5%);
+                    margin-top: 20px;
+                    @extend %ListType;
+
                     li {
-                        width: Var.$Num10 * 4%;
-                        height: Var.$Num10 * 3%;
-                        margin: 10px;
-                        background-color:rgba(120, 120, 120, 0.45);
-                        // 圓角矩形
-                        @include Ro.Rounded(0px);  
                         font-size: 1rem * 1.2;
-                        text-indent: 0;              
-                        // 文字水平垂直置中
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
+                        padding: 5px;
                     }
-                    // .One {
-                    //     width: Var.$Num10 * 4%;
-                    //     height: Var.$Num10 * 3%;
-                    //     color: white;
-                    //     @include Img.Img(center, cover, btn, "002.jpg");
-                    //     a {
-                    //         width: Var.$Num10 * 10%;
-                    //         height: Var.$Num10 * 10%;
-                    //         display: flex;
-                    //         justify-content: center;
-                    //         align-items: center;
-                    //         font-size: 1rem * 1.3;
-                    //         background-color: rgba(120, 120, 120, 0.45);
-                    //         @include Ro.Rounded(0);
-                    //         text-decoration: none;
-                    //     }
-                    // }
                 }
             }
+            
+            #menuicon {
+                @extend %NavWidth;
+                height: $MenuIH;
+                border-top: solid 1px V.$BlueColor;
+                @extend %ListType;
+                display: flex;
 
-        }
-
-    }
-}
-
-@include Media.Rwd(lg) {
-    // @include Media.FloatBox();
-    // @include Media.FlexBox();
-    .bookingplace {
-        %LGWH {
-            @include JM.WH(10%, 10%);
-        }
-        display: flex;
-        flex-wrap: wrap;
-        color: #fff;
-
-        header {
-            width: Var.$Num10 * 4%;
-            width: Var.$Num10 * 10%;
-            #menu {
-                display: none;
-            }
-            // 透明效果 - 去掉背景色
-            background-color: transparent;
-            .ConnBox {
-                width: Var.$Num10 * 10%;
-                position: absolute;
-                bottom: 50px;
-                display: block;
-            }
-            li {
-                width: Var.$Num10 * 8.5%;
+                li {
+                    padding: 5px;
+                }
             }
         }
-    
+        // // 選單共用區
+        // .Items {
+        //     display: flex;
+        //     flex-wrap: wrap;
+        //     li {
+        //         width: Var.$Num10 * 10%;
+        //         // 首行縮排
+        //         text-indent: 8%;
+        //         font-size: 1rem * 1.2;
+        //     }
+        //     .One {
+        //         order: 2;
+        //     }
+        //     .Two {
+        //         order: 3;
+        //     }
+        //     .Three {
+        //         order: 4;
+        //     }
+        //     .Four {
+        //         order: 5;
+        //     }
+        //     .Five {
+        //         order: 6;
+        //     }
+        //     .Six {
+        //         order: 1;
+        //     }
+        // }
         #main {
-            width: Var.$Num10 * 6%;
-            height: Var.$Num10 * 8.5%;
-            top: 0;
-            right: 0;
-    
-            // header的高 - nav > li 的 margin-top
-            margin-top: 0;
+
+            @include WH.W(10%);
+            margin-top: calc(V.$HeaderH * 10 + 10px);
+            position: absolute;
+            z-index: V.$InMainZindex;
+            color: #fff;
+
             nav {
-                @extend %LGWH;
-                margin-top: 50px;
-                .Items {
-                    width: Var.$Num10 * 8%;
-                    height: Var.$Num10 * 7%;
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    align-items: center;     
+                @extend %NavWidth;
+
+                ul {
+                    @extend %ListType;
+
                     li {
-                        width: Var.$Num10 * 3%;
-                        height: Var.$Num10 * 4.5%;
-                        margin: 0 5px;
-                        background-color: rgb(146, 61, 61);
-                        // 圓角矩形
-                        @include Ro.Rounded(0px);  
-                        font-size: 1rem * 1.2;
-                        text-indent: 0;              
-                        // 文字水平垂直置中
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                    .One {
-                        width: Var.$Num10 * 3%;
-                        height: Var.$Num10 * 4.5%;
-                        color: white;
-                        @include Img.Img(center, cover, btn, "002.jpg");
-                        // 行內範圍，不會換行
-                        // 虛擬類別 用來選擇符合特定條件的資訊，或其他簡單的選擇器所無法表達的資訊
-                        // 超連結的四種狀態 (a:link-尚未瀏覽的連結 預設 可以不用寫 link； a:hover 游標移到超連結之上)
-                        // a:active 點擊超連結時  a:visited 已經瀏覽過的超連
-                        a {
-                            @extend %LGWH;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            font-size: 1rem * 1.5;
-                            background-color: transparent;
-                            @include Ro.Rounded(0px);
-                            text-decoration: none;
-                            color: #fff;
-                            span {
-                                display: none;
-                            }
-                        }
-                        a:hover {
-                            // rgba a= 透明度 0-1 (接受到小數點第二位)
-                            background-color: rgba(171, 171, 171, 0.45);
-                            @include Ro.Rounded(0px);
-                            span {
-                                display: block;
-                            }
-                        }
-
-                    }
-                    .Six {
-                        // 定位點：相對值
+                        @include WH.WH(9%, 15px);
+                        background-color: red;
+                        margin: {
+                            top: 15px;
+                            bottom: 15px;
+                        };
+                        @include Ro.RoundAll(15px, 15px, 15px, 15px);
                         position: relative;
-                        @include Img.Img(center, cover, btn, "001.jpg");
-                        // 行內範圍，不會換行
-                        span {
-                            @extend %LGWH;
-                            // width: Var.$Num10 * 10%;
-                            display: inline-block;
-                            color: white;
-                            // 文字尺寸
-                            font-size: 1rem * 1.5;
-                            padding: 0;
-                            // 文字水平垂直置中
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            // rgba a= 透明度 0-1 (接受到小數點第二位)
-                            background-color: rgba(120, 120, 120, 0.45);
-                            @include Ro.Rounded(0);
 
-                            a {
-                                @extend %LGWH;
-                                text-decoration: none;
-                                // 文字透明
-                                color: transparent;
-
-                            }
-                            a:hover {
-                                color: #fff;
-                                // 文字水平垂直置中
+                        $ItemaAH: 3.5px;
+                        a {
+                            @include WH.WH(10%, 5px);
+                            position: absolute;
+                            bottom: 0;
+                            font-size: 1rem * 1.3;
+                            background-color: rgba(210, 105, 30, 0.76);
+                            @include Ro.RoundAll(0px, 0px, 15px, 15px);
+                            span {
+                                height: calc($ItemaAH * 10);
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
-                                background-color: rgba(171, 171, 171, 0.45);
                             }
                         }
-                        
                     }
+                    .One {
+                        @include Im.Images(no-repeat, center, cover, 0, btn, "002.jpg")
+
+                    }
+                    .Two {
+                        @include Im.Images(no-repeat, center, cover, 0, btn, "003.jpg")
+                    }
+                    .Three {
+                        @include Im.Images(no-repeat, center, cover, 0, btn, "001.jpg")
+                    }
+                    .Four {
+                        @include Im.Images(no-repeat, center, cover, 0, btn, "004.jpg")
+                    }
+                    .Five {
+                        @include Im.Images(no-repeat, center, cover, 0, btn, "005.jpg")
+                    }
+                    .Six {
+                        @include Im.Images(no-repeat, center, cover, 0, btn, "006.jpg")
+                    }
+
+
+                }
+                .Null {
+                    height: calc(($H * 10) * 1px + 20px);
+                }
+            }
+            
+            footer {
+                @include WH.WH(10%, calc($H * 1px));
+                background-color: V.$BlueColor;
+                @extend %ListType;
+                font-size: 1rem * 0.5;
+                text-align: center;
+                position: absolute;
+                z-index: V.$HeaderZindex;
+                bottom: 0;
+                position: fixed;
+                padding: {
+                    top: 5px;
+                    bottom: 15px;
+                };
+
+                .ConnBox {
+                    font-size: 1rem * 0.9;
+                    margin-bottom: 10px;
                 }
             }
 
+            
         }
-    
-        footer {
-            width: Var.$Num10 * 6%;
-            height: Var.$Num10 * 1.5%;
-            // 定位方式 絕對位置
-            position: absolute;
-            right: 0;
-            bottom: 0;
+
+    }  
+}
+
+@include Me.Rwd(sm) {
+    // header {
+    //     #menu {
+    //         width: Var.$Num10 * 1.3%;
+    //         // background-color: rgb(145, 48, 255);
+    //     }
+    //     h1 {
+    //         width: Var.$Num10 * 8.7%;
+    //         // background-color: rgb(198, 40, 40);
+    //     }
+    // }
+}
+
+@include Me.Rwd(md) {
+    .bookingplace {
+        header {
+            $MdMenuW: calc($MenuW - 5%);
+            .menu {
+                @include WH.WH(calc($MdMenuW / 10), V.$HeaderH);
+            }
+            h1 {
+                @include WH.WH(calc((100% - $MdMenuW) / 10), V.$HeaderH);
+
+            }
+        }
+        #main {
+            nav {
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    li {
+                        @include WH.WH(4.5%, 23px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include Me.Rwd(lg) {
+    %LgListType {
+        list-style-type: none;
+    }
+    // vw 寬度單位(裝置的可視範圍)，不要與 % 共用；特性： 1. 自動展開高度，父框架不需要給值 2. 有百分比的特性 
+    // vh 高度單位(裝置的可視範圍)，不要與 % 共用；特性： 1. 自動展開高度，父框架不需要給值
+    .bookingplace {
+        display: flex;
+        header {
+            @include WH.W(calc(10% / 3));            
+            // 定位點：預設值(靜態定位)，「不會特別定位」在頁面上特定位置，而是照著瀏覽器預設的配置自動排版在頁面上。
+            position: static;
+            z-index: 0;
+            flex-wrap: wrap;
             background-color: transparent;
-            .ConnBox {
+
+            $ConnBoxH: 1.5vh;
+            .menu {
                 display: none;
             }
-            li {
+            h1 {
+                @include WH.WH(10%, calc(10vh - $ConnBoxH));
                 text-align: center;
             }
-        }    
+            .ConnBox {
+                @include WH.WH(8.5%, $ConnBoxH);
+                display: block;
+                @extend %LgListType;
+                color: #fff;
+            }
+
+        }
+
+        #main {
+            $H: 8vh;
+
+            @include WH.WH(calc(10% / 3 * 2), 10vh);
+            margin-top: 0;
+            position: static;
+            z-index: 0;
+
+            nav {
+                width: 80%;
+                height: calc(100vh - $H);
+                .TopNull {
+                    height: 90px;
+                }
+                ul {
+                    li {
+                        @include WH.WH(calc(10% / 3), 3vh);
+                        margin: 0;
+                        @include Ro.RoundAll(0, 0, 0, 0);
+    
+
+                        a {
+                            @include WH.WH(10%, 10%);
+                            position: static;
+                            bottom: 0;
+                            font-size: 1rem * 1.3;
+                            @include Ro.RoundAll(0, 0, 0, 0);
+                            background-color: transparent;
+                            span {
+                                @include WH.H(10%);
+                                color: transparent;
+                            }
+
+                        }
+                        a:hover {
+                            display: block;
+                            background-color: rgba(50, 50, 50, 0.5);
+                            span {
+                                @include WH.H(10%);
+                                display: flex;
+                                justify-content: center;
+                                text-align: center;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+                .Null {
+                    height: 0;
+                }
+            }
+            footer {
+                height: $H;
+                position: static;
+                z-index: 0;
+                padding: 0;
+                background-color: transparent;
+                ul {
+                    @extend %LgListType;
+                    display: none;
+                }
+
+            }
+        }
     }
 }
 

@@ -3,12 +3,13 @@
 // 宣告單位變數 px (像素 絕對值) % vw vh em rem (相對值)；em rem 這兩個單位會設定給「文字」使用；% vw vh (% 請勿與 vw vh的單位共用，因為單位不相容；vw vh 瀏覽器的支援度比較少)
 $Px: 1px;
 $Per: 1%;
+$Ten: 10;
 
 // 寬度 width；高度 height：基礎值
 $Num10: 10;
 
 // 設定媒體判斷尺寸的變數
-$xs: 0px;
+$xs: 320px;
 $sm: 576px;
 $md: 768px;
 $lg: 992px;
@@ -16,18 +17,30 @@ $xl: 1200px;
 $xxl: 1400px;
 
 // 層疊樣式表的數值
-$ZNum99: 99; // 手機版選單內容
+$ZNum99: 99; // 手機版選單內容 #PhoneMenu
+$ZNum50: 50; // 手機版header Footer
+$ZNum45: 45; // 手機版 #main
+
 $ZNum20: 20; // 手機版選單 header > nav > #menuicon
-$ZNum10: 10; // 手機版header、Footer // main #SubForm
+$ZNum10: 10;  // main #SubForm
 $ZNum5: 5; 
 $ZNum3: 3; // 手機版main // main #golfmain > section > article
 $ZNumNeg: -1;
 
 
+$HeaderZindex: 50; // 手機版頁首
+$PMZindex: 99;  // 手機版選單
+$InMainZindex: 45;  //手機版內容
+
 // 顏色
 $Blue-Grenn: rgb(22, 136, 111);
+$BlueColor: rgb(18, 128, 92);
 
 // 全域變數: 全部通用
 // $H: header 的高； $F: footer 的高
 $H: $Num10 * 0.5%;
 $F: 1.5%;
+
+
+// 共用
+$HeaderH: 6px;

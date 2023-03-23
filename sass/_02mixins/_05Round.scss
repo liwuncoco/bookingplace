@@ -1,0 +1,13 @@
+@mixin RoundAll($LT, $RT, $RB, $LB) {
+    // 左上 右上 右下 左下
+    border-radius: $LT $RT $RB $LB;
+    -webkit-border-radius: $LT $RT $RB $LB;
+    -moz-border-radius: $LT $RT $RB $LB;
+    -ms-border-radius: $LT $RT $RB $LB;
+    -o-border-radius: $LT $RT $RB $LB;
+}
+
+@mixin RoundLRBottom($LR, $RR) {
+    border-bottom-left-radius: $LR;
+    border-bottom-right-radius: $RR;
+}
