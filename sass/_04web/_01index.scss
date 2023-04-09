@@ -1,438 +1,445 @@
-// 讀取 變數 檔案 ；@use 區域性；一次性；規則 檔案要另給名稱；基於檔案的安全性；要放置在所有語法的最上層
-@use '../_01variable/01Var' as V;
-@use '../_02mixins/01Media' as Me;
-@use '../_02mixins/02WH' as WH;
-@use '../_02mixins/03Images' as Im;
-@use '../_02mixins/04Animation' as An;
+@use '../_01variable/01Var' as Var;
+@use '../_02mixins/01Media' as Rwd;
+@use '../_02mixins/02WH' as Wh;
+@use '../_02mixins/03Images' as Img;
+@use '../_02mixins//04Animation' as An;
 @use '../_02mixins/05Round' as Ro;
 
-$MenuW: 15%;
-$H: 11; // main > footer
-
-@include Me.Rwd(xs) {
-    // 繼承功能，無法寫在 media 判斷之外
-    %XSWH {
-        @include WH.WH(10%, 10%);
+@include Rwd.Rwd(xs) {
+    %WHIn {
+        @include Wh.WH(10%, 10%);
     }
-    %PhoneMenuW {
-        @include WH.W(10%);
+    %W100 {
+        @include Wh.W(10%);
     }
-    %NavWidth {
-        @include WH.W(9%);
-    }
-    %ListType {
+    %ListNone {
         list-style-type: none;
     }
-    .bookingplace {
-        @extend %XSWH;
-        #Banner {
-            @extend %XSWH;
-            position: relative;
+    %justifyAlign {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    %DisplayNoneIn {
+        display: none;
+    }
+
+    #bookingplace {
+        @extend %WHIn;
+        
+        > #Banner {
+            @extend %WHIn;
             position: fixed;
 
             ul {
-                @extend %XSWH;
+                @extend %WHIn;
                 position: relative;
-
+                display: flex;
+                flex-wrap: wrap;
+                
                 li {
-                    @extend %XSWH;
+                    @extend %WHIn;
                     position: absolute;
                     @include An.Opacity;
                     @include An.BannerRound;
-
-
+                    
                     span {
-                        @extend %XSWH;
+                        @extend %WHIn;
                         display: block;
-                        background-color: rgba(80, 80, 80, 0.3);
+                        background: rgba(122, 122, 122, 0.5);
                     }
                 }
                 .Images1 {
-                    @include Im.Images(no-repeat, center, cover, 0, photo, "001.jpg");
+                    @include Img.Images(no-repeat, center, cover, 0, photo, "005.jpg");
+                    background-color: bisque;
                 }
                 .Images2 {
-                    @include Im.Images(no-repeat, center, cover, 0, photo, "002.jpg");
+                    @include Img.Images(no-repeat, center, cover, 0, photo, "004.jpg");
+                    background-color: rgb(249, 29, 29);
                 }
                 .Images3 {
-                    @include Im.Images(no-repeat, center, cover, 0, photo, "003.jpg");
+                    @include Img.Images(no-repeat, center, cover, 0, photo, "003.jpg");
+                    background-color: rgb(227, 40, 130);
                 }
                 .Images4 {
-                    @include Im.Images(no-repeat, center, cover, 0, photo, "004.jpg");
+                    @include Img.Images(no-repeat, center, cover, 0, photo, "002.jpg");
+                    background-color: rgb(20, 229, 51);
                 }
                 .Images5 {
-                    @include Im.Images(no-repeat, center, cover, 0, photo, "005.jpg");
+                    @include Img.Images(no-repeat, center, cover, 0, photo, "001.jpg");
+                    background-color: rgb(18, 92, 222);
                 }
                 @include An.BannerDelay;
             }
             
         }
-        
-        header {
 
-            @include WH.WH(10%, V.$HeaderH);
+        
+        > header {
+            @extend %W100;
+            height: Var.$HeaderH;
             position: absolute;
-            z-index: V.$HeaderZindex;
+            z-index: Var.$ZNum45;
             position: fixed;
             top: 0;
-            background-color: V.$BlueColor;
+            @extend %ListNone;
             display: flex;
+            background-color: Var.$Blue-Grenn;
 
-            $MenuW: 15%;
-            .menu {
-                @include WH.WH($MenuW, V.$HeaderH);
-                @include Im.Images(no-repeat, center, cover, -9999px, icons, "list.svg");
+            $MenuWidth: 12%;
+            #menu {
+                width: $MenuWidth;
+                height: 100%;
+                @include Img.Images(no-repeat, center, contain, -9999px, icon, "list.svg");
             }
-            h1 {
-                @include WH.WH(calc(100% - $MenuW), V.$HeaderH);
-                list-style-type: none;
+            #Logo {
+                width: calc( 100% - $MenuWidth);
+                @extend %justifyAlign;
 
                 a {
-                    @include WH.WH(5%, V.$HeaderH);
-                    display: block;
-                    span {
-                        line-height: calc(V.$HeaderH * 10);
-                    }  
+                    color: white;
+                    // text-decoration: none;
                 }
-            }
 
+            }
             .ConnBox {
-                display: none;
+                @extend %DisplayNoneIn;
             }
         }
-        #PhoneMenu {
-            @include WH.WH(10%, 10%);
+
+        > #PhoneMenu {
+            @extend %DisplayNoneIn;
+            @extend %WHIn;
             position: absolute;
-            z-index: V.$PMZindex;
-            position: fixed;
             top: 0;
-            background-color: #fff;
-            display: none;
+            position: fixed;
+            z-index: Var.$ZNum50;
+            background-color: white;
 
-            $MenuHH: 15%;
-            $MenuIH: 10%;
-            $MenuNH: calc(100% - $MenuHH - $MenuIH);
+            $MH: 15%;
+            $FH: 7%;
 
-            #menuheader {
-                @extend %PhoneMenuW;
-                height: $MenuHH;
-                background-color: V.$BlueColor;
-                list-style-type: none;
+            > #menuheader {
+                @extend %W100;
+                height: $MH;
+                background-color: Var.$Blue-Grenn;
 
-                li {
-                    @include WH.WH(70px, 3.5px);
+                #close {
+                    width: 10%;
+                    color: white;
+                    font-size: 1rem * 1.6;
                     text-align: center;
                     margin-right: 0;
-
-                    a {
-                        padding: 0 5px;
-                        font-size: 1rem * 1.2;
-                        display: inline-block;
-                    }
+                    @extend %ListNone;
                 }
 
                 h1 {
-                    text-align: center;
-                    font-size: 1rem * 1.6;
+                    font-size: 1rem * 1.8;
+                    @extend %justifyAlign;
 
                     a {
-                        padding: 5px;
+                        color: white;
                     }
                 }
+
             }
 
-            #menunav {
-                @include WH.WH(8.5%, 10%);
-                height: $MenuNH;
+            > #menunav {
+                width: 70%;
+                height: calc( 100% - $MH - $FH );
                 overflow-y: auto;
 
                 h2 {
-                    padding: 10px 0px;
-                    border-bottom: solid 1px V.$BlueColor;
+                    margin: {
+                        top: 20px;
+                        bottom: 5px;
+                    };
+                    border-bottom: 1px solid Var.$Blue-Grenn;
                 }
 
                 ul {
-                    @include WH.W(8.5%);
-                    margin-top: 20px;
-                    @extend %ListType;
+                    width: 90%;
+                    @extend %ListNone;
+                    margin-right: 0;
+                    font-size: 1rem * 1.1;
 
                     li {
-                        font-size: 1rem * 1.2;
-                        padding: 5px;
+                        margin: {
+                            top: 5px;
+                        };
+
+                        a {
+                            color: Var.$BrowmColor;
+                        }
                     }
                 }
             }
-            
-            #menuicon {
-                @extend %NavWidth;
-                height: $MenuIH;
-                border-top: solid 1px V.$BlueColor;
-                @extend %ListType;
-                display: flex;
 
-                li {
-                    padding: 5px;
+            > #menuicon {
+                width: 85%;
+                height: $FH;
+                @extend %ListNone;
+                @extend %justifyAlign;
+                border-top: 1px solid Var.$Blue-Grenn;
+            }
+        }
+
+        > #main {
+            @extend %W100;
+            position: absolute;
+            z-index: Var.$ZNum20;
+            top: 0;
+
+            nav {
+                @extend %W100;
+                
+                $UlH: 20px;
+                ul {
+                    width: 80%;
+                    @extend %ListNone;
+                    margin-top: Var.$HeaderH;
+                    display: flex;
+                    flex-wrap: wrap;
+                    
+                    li {
+                        @extend %W100;
+                        height: 200px;
+                        margin-top: $UlH;
+                        @include Ro.RoundAll(15px, 15px, 15px, 15px);
+                        text-align: center;
+                        display: flex;
+                        justify-content: center;
+                        align-items:flex-end;
+                        background-color: rgba(255, 192, 203, 0.622);
+
+                        $SpanH: 40px;
+                        span {
+                            @extend %W100;
+                            height: $SpanH;
+                            display: inline-block;
+                            font-size: 1rem * 1.3;
+                            text-align: center;
+                            background-color: rgba(255, 192, 203, 0.622);
+                            @include Ro.RoundAll(0, 0, 15px, 15px);
+
+                            a {
+                                color: Var.$BrowmColor;
+                                font-weight: 700;
+                                letter-spacing: 0.7px;
+                                line-height: $SpanH;
+                            }
+                        }
+                        
+                    }
+
+                    .One {
+                        order: 2;
+                        @include Img.Images(no-repeat, center, cover, 0, btn, "001.jpg");
+                    }
+                    .Two {
+                        order: 3;
+                        @include Img.Images(no-repeat, center, cover, 0, btn, "003.jpg");
+                    }
+                    .Three {
+                        order: 4;
+                        @include Img.Images(no-repeat, center, cover, 0, btn, "004.jpg");
+                    }
+                    .Four {
+                        order: 5;
+                        @include Img.Images(no-repeat, center, cover, 0, btn, "005.jpg");
+                    }
+                    .Five {
+                        order: 6;
+                        @include Img.Images(no-repeat, center, cover, 0, btn, "006.jpg");
+                        margin-bottom: $UlH;
+                    }
+                    .Six {
+                        order: 1;
+                        @include Img.Images(no-repeat, center, cover, 0, btn, "002.jpg");
+                    }
+                }
+            }    
+
+            > footer {                
+                ul {
+                    @extend %ListNone;
+                    color: white;
+                    font-size: 1rem * 0.85;
+                    text-align: center;
+                    margin-bottom: 5px;
                 }
             }
         }
-        // // 選單共用區
-        // .Items {
-        //     display: flex;
-        //     flex-wrap: wrap;
-        //     li {
-        //         width: Var.$Num10 * 10%;
-        //         // 首行縮排
-        //         text-indent: 8%;
-        //         font-size: 1rem * 1.2;
-        //     }
-        //     .One {
-        //         order: 2;
-        //     }
-        //     .Two {
-        //         order: 3;
-        //     }
-        //     .Three {
-        //         order: 4;
-        //     }
-        //     .Four {
-        //         order: 5;
-        //     }
-        //     .Five {
-        //         order: 6;
-        //     }
-        //     .Six {
-        //         order: 1;
-        //     }
-        // }
-        #main {
+        
 
-            @include WH.W(10%);
-            margin-top: calc(V.$HeaderH * 10 + 10px);
-            position: absolute;
-            z-index: V.$InMainZindex;
-            color: #fff;
 
-            nav {
-                @extend %NavWidth;
+    }
+}
 
+@include Rwd.Rwd(md) {
+    #bookingplace {
+        
+        > header {
+            $MenuWidth: 10%;
+            #menu {
+                width: $MenuWidth;
+            }
+            #Logo {
+                width: calc( 100% - $MenuWidth );
+            }
+        }
+        > #PhoneMenu {
+            $MH: 12%;
+            $FH: 6%;
+
+            > #menuheader {
+                height: $MH;
+
+                #close {
+                    font-size: 1rem * 1.8;
+                }
+
+                h1 {
+                    font-size: 1rem * 2.2;
+                    margin-top: calc( $MH / 11 );
+                }
+            }
+
+            > #menunav {
+                height: calc( 100% - $MH - $FH );
                 ul {
-                    @extend %ListType;
+                    font-size: 1rem * 1.5;
 
                     li {
-                        @include WH.WH(9%, 15px);
-                        background-color: red;
-                        margin: {
-                            top: 15px;
-                            bottom: 15px;
-                        };
-                        @include Ro.RoundAll(15px, 15px, 15px, 15px);
-                        position: relative;
-
-                        $ItemaAH: 3.5px;
                         a {
-                            @include WH.WH(10%, 5px);
-                            position: absolute;
-                            bottom: 0;
-                            font-size: 1rem * 1.3;
-                            background-color: rgba(210, 105, 30, 0.76);
-                            @include Ro.RoundAll(0px, 0px, 15px, 15px);
-                            span {
-                                height: calc($ItemaAH * 10);
+                            font-size: 1rem * 1.2;
+                        }
+                    }
+                }
+            }
+
+            > #menuicon {
+                height: $FH;
+            }
+        }
+
+        > #main {
+            height: 100%;
+            $DivH: 2.5%;
+            $FooterH: 10%;
+            $NavH: calc( 100% - $DivH - $FooterH );
+            div {
+                height: $DivH;
+            }
+            nav {
+                height: $NavH;
+                ul {
+                    width: 90%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    height: 100%;
+
+                    li {
+                        width: 47%;
+                        height: calc( $NavH / 3 );
+                    }
+                }
+            }
+
+            > footer {
+                width: 80%;
+                height: 10%;
+                ul {
+                    font-size: 1rem * 0.9;
+                }
+                .ConnBox {
+                    display: flex;
+                }
+            }
+        }
+    }
+}
+
+@include Rwd.Rwd(lg) {
+    %DisplayNoneInG {
+        display: none;
+    }
+    %ListNoneG {
+        list-style-type: none;
+    }
+    #bookingplace {
+        display: flex;
+        $WidthH: calc( 100% / 3 );
+        > header {
+            width: $WidthH;
+            height: 100%;
+            position: static;
+            flex-wrap: wrap;
+            background-color: transparent;
+            #menu {
+                @extend %DisplayNoneInG;
+            }
+            $LogoH: 7.8%;
+            #Logo {
+                @include Wh.WH(10%, $LogoH);
+                display: block;
+                text-align: center;
+                margin-top: 20px;
+            }
+            .ConnBox {
+                @include Wh.WH(6.5%, calc( 10% - $LogoH ));
+                display: block;
+                color: white;
+                @extend %ListNoneG;
+            }
+        }
+        > #main {
+            width: calc( $WidthH * 2 );
+            position: static;
+            div {
+                @extend %DisplayNoneInG;
+            }
+            nav {
+                ul {
+                    height: 500px;
+                    margin-top: 0;
+                    li {
+                        width: calc( 100% / 3 );
+                        height: 200px;
+                        margin-top: 0;
+                        @include Ro.RoundAll(0, 0, 0, 0);
+
+                        span {
+                            @include Wh.WH(10%, 10%);
+                            @include Ro.RoundAll(0, 0, 0, 0);
+                            background-color: transparent;
+
+                            a {
+                                @include Wh.WH(10%, 10%);
+                                display: block;
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
+                                color: transparent;                                
+                            }
+                            :hover {
+                                color: white;
+                                background-color: rgba(53, 53, 53, 0.329);
                             }
                         }
                     }
-                    .One {
-                        @include Im.Images(no-repeat, center, cover, 0, btn, "002.jpg")
-
+                    .Six, .One, .Two {
+                        margin-top: 10%;
                     }
-                    .Two {
-                        @include Im.Images(no-repeat, center, cover, 0, btn, "003.jpg")
-                    }
-                    .Three {
-                        @include Im.Images(no-repeat, center, cover, 0, btn, "001.jpg")
-                    }
-                    .Four {
-                        @include Im.Images(no-repeat, center, cover, 0, btn, "004.jpg")
-                    }
-                    .Five {
-                        @include Im.Images(no-repeat, center, cover, 0, btn, "005.jpg")
-                    }
-                    .Six {
-                        @include Im.Images(no-repeat, center, cover, 0, btn, "006.jpg")
-                    }
-
-
-                }
-                .Null {
-                    height: calc(($H * 10) * 1px + 20px);
                 }
             }
-            
-            footer {
-                @include WH.WH(10%, calc($H * 1px));
-                background-color: V.$BlueColor;
-                @extend %ListType;
-                font-size: 1rem * 0.5;
-                text-align: center;
-                position: absolute;
-                z-index: V.$HeaderZindex;
-                bottom: 0;
-                position: fixed;
-                padding: {
-                    top: 5px;
-                    bottom: 15px;
-                };
-
+            > footer {
                 .ConnBox {
-                    font-size: 1rem * 0.9;
-                    margin-bottom: 10px;
+                    @extend %DisplayNoneInG;
                 }
             }
 
-            
         }
 
-    }  
-}
-
-@include Me.Rwd(sm) {
-    // header {
-    //     #menu {
-    //         width: Var.$Num10 * 1.3%;
-    //         // background-color: rgb(145, 48, 255);
-    //     }
-    //     h1 {
-    //         width: Var.$Num10 * 8.7%;
-    //         // background-color: rgb(198, 40, 40);
-    //     }
-    // }
-}
-
-@include Me.Rwd(md) {
-    .bookingplace {
-        header {
-            $MdMenuW: calc($MenuW - 5%);
-            .menu {
-                @include WH.WH(calc($MdMenuW / 10), V.$HeaderH);
-            }
-            h1 {
-                @include WH.WH(calc((100% - $MdMenuW) / 10), V.$HeaderH);
-
-            }
-        }
-        #main {
-            nav {
-                ul {
-                    display: flex;
-                    flex-wrap: wrap;
-                    li {
-                        @include WH.WH(4.5%, 23px);
-                    }
-                }
-            }
-        }
     }
 }
-
-@include Me.Rwd(lg) {
-    %LgListType {
-        list-style-type: none;
-    }
-    // vw 寬度單位(裝置的可視範圍)，不要與 % 共用；特性： 1. 自動展開高度，父框架不需要給值 2. 有百分比的特性 
-    // vh 高度單位(裝置的可視範圍)，不要與 % 共用；特性： 1. 自動展開高度，父框架不需要給值
-    .bookingplace {
-        display: flex;
-        header {
-            @include WH.W(calc(10% / 3));            
-            // 定位點：預設值(靜態定位)，「不會特別定位」在頁面上特定位置，而是照著瀏覽器預設的配置自動排版在頁面上。
-            position: static;
-            z-index: 0;
-            flex-wrap: wrap;
-            background-color: transparent;
-
-            $ConnBoxH: 1.5vh;
-            .menu {
-                display: none;
-            }
-            h1 {
-                @include WH.WH(10%, calc(10vh - $ConnBoxH));
-                text-align: center;
-            }
-            .ConnBox {
-                @include WH.WH(8.5%, $ConnBoxH);
-                display: block;
-                @extend %LgListType;
-                color: #fff;
-            }
-
-        }
-
-        #main {
-            $H: 8vh;
-
-            @include WH.WH(calc(10% / 3 * 2), 10vh);
-            margin-top: 0;
-            position: static;
-            z-index: 0;
-
-            nav {
-                width: 80%;
-                height: calc(100vh - $H);
-                .TopNull {
-                    height: 90px;
-                }
-                ul {
-                    li {
-                        @include WH.WH(calc(10% / 3), 3vh);
-                        margin: 0;
-                        @include Ro.RoundAll(0, 0, 0, 0);
-    
-
-                        a {
-                            @include WH.WH(10%, 10%);
-                            position: static;
-                            bottom: 0;
-                            font-size: 1rem * 1.3;
-                            @include Ro.RoundAll(0, 0, 0, 0);
-                            background-color: transparent;
-                            span {
-                                @include WH.H(10%);
-                                color: transparent;
-                            }
-
-                        }
-                        a:hover {
-                            display: block;
-                            background-color: rgba(50, 50, 50, 0.5);
-                            span {
-                                @include WH.H(10%);
-                                display: flex;
-                                justify-content: center;
-                                text-align: center;
-                                color: #fff;
-                            }
-                        }
-                    }
-                }
-                .Null {
-                    height: 0;
-                }
-            }
-            footer {
-                height: $H;
-                position: static;
-                z-index: 0;
-                padding: 0;
-                background-color: transparent;
-                ul {
-                    @extend %LgListType;
-                    display: none;
-                }
-
-            }
-        }
-    }
-}
-

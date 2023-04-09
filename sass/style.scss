@@ -1,21 +1,3 @@
-// sass / scss 可以幫助處理語法重複的部分，管理共用物件(文字、顏色或是數值)，設計可以計算的混用語法或是方法，重複使用的資料
-// sass / scss 設計的資料為程式語法，程式的註記與一般註記不同，轉譯之後不會將註記轉出；利用 sass / scss 規則建立的檔案也不會直接得知路徑 
-// 設定變數、mixin(混用)、function(方法)、繼承
-
-// styles.scss 在彙整所有的 scss 原始檔案；匯入所有檔案
-// 匯入其他 scss 檔案
 @import '_joint.scss';
-@import '_04web/01index.scss';
+@import '_04web/01index';
 @import '_04web/02golf';
-
-// // 建立響應式斷點：媒體判斷 @media
-// // 超小裝置 <576px (max-width: 576px) 最大寬度
-// @media screen and (max-width: 576px) {
-//     // @import '_02SS/_01index.scss';
-// }
-
-// // 小裝置 >576px (min-width: 576px) 最小寬度
-// @media screen and (min-width: 576px) {
-
-    
-// }

@@ -12,22 +12,23 @@
 
             <header id="GolfHeader">
                 <li id="menu" class="menu">享動空間運動場地預約選單</li>
-                <h1><li><a href="../index.htm">享動空間運動場地預約</a></li></h1>
+                <h1 id="Logo"><a href="../index.htm">享動空間運動場地預約</a></h1>
             </header>
+
             <nav id="PhoneMenu">
                 <ul id="menuheader">
-                    <li id="close"><a href="javascript:;">close</a></li>
+                    <li id="close" onclick="PhoneMenu()">X</li>
                     <h1><a href="index.htm">享動空間運動場地預約</a></h1>
                 </ul>
                 <ul id="menunav">
                     <h2 class="Sport">運動種類</h2>
                     <ul class="Items">
-                        <li class="One">羽球</li>
-                        <li class="Two">籃球</li>
-                        <li class="Three">壁球</li>
-                        <li class="Four">桌球</li>
-                        <li class="Five">撞球</li>
-                        <li class="Six">高爾夫</li>
+                        <li class="One"><a href="javascript:;">羽球</a></li>
+                        <li class="Two"><a href="javascript:;">籃球</a></li>
+                        <li class="Three"><a href="javascript:;">壁球</a></li>
+                        <li class="Four"><a href="javascript:;">桌球</a></li>
+                        <li class="Five"><a href="javascript:;">撞球</a></li>
+                        <li class="Six"><a href="../web/golf.htm">高爾夫</a></li>
                     </ul>
                     <h2  class="Conn">聯絡方式</h2>
                     <ul>
@@ -45,9 +46,9 @@
                 </ul>
             </nav>
 
-            <main id="Golfmain">
-                <section class="GolfImg">
-                    <div id="WebBanner">
+            <main id="webMain">
+                <section class="ImgBox">
+                    <div id="webBanner">
                         <ul>
                             <li class="I01">images1</li>
                             <li class="I02">images2</li>
@@ -57,7 +58,7 @@
                         </ul>
                     </div>
                     <article>
-                        <li><span>〈<a href="../index.htm">查看其他運動</a></span></li>
+                        <div>〈<a href="../index.htm">查看其他運動</a></div>
                         <ul>
                             <li class="Price">$500 / hr</li>
                             <a href="javascript:;" class="Btn">
@@ -66,19 +67,19 @@
                         </ul>
                     </article>
                 </section>
-               <section class="GolfText">
+                <section class="GolfText">
                 <h1>高爾夫</h1>
                 <table>
                     <tr>
                         <td colspan="4" class="title">練習室</td>
                     </tr>
                     <tr>
-                        <td colspan="4">果嶺</td>
+                        <td colspan="4" class="Line">果嶺</td>
                     </tr>
                     <tr class="NullTr"></tr>
                     <tr>
                         <td colspan="2" class="title">人數限制</td>
-                        <td colspan="2">坪數</td>
+                        <td colspan="2" class="title">坪數</td>
                     </tr>
                     <tr>
                         <td colspan="2"><span>2</span>人</td>
@@ -117,10 +118,9 @@
                         </ul>
                     </ul>
                 </div>
-               </section>
-               <section id="SubForm">
+                </section>
+                <section id="SubForm">
                 <form action="" id="golfform" name="golfform">
-                   <h1>預定教室</h1>
                     <div class="UserName">
                     <label for="Name"><li>姓名</li></label>
                     <input type="text" name="" id="Name" maxlength="5" required placeholder="姓名">
@@ -150,11 +150,34 @@
                 </form>
                 <div class="content">
                     <a href="javascript:;">close</a>
-                    <div class="TextContent">說明</div>
+                    <ul class="Title">
+                        <h1>預定高爾夫教室</h1>
+                        <li>booking room</li>
+                    </ul>
+                    <ul class="Line">
+                        <li>line</li>
+                    </ul>
+                    <div class="TextContent">
+                        <ul class="Text">
+                            <li>平日(一~四) 價格： 350 元</li>
+                            <li>假日(五~六) 價格： 500 元</li>
+                            <li>練習室 - 果嶺。人數限制 - 2人。坪數 - 10坪。</li>
+                        </ul>
+                        <ul class="facility">
+                            <li><span>WiFi</span></li>
+                            <li><span>電話</span></li>
+                            <li><span>供餐</span></li>
+                            <li><span>冰箱</span></li>
+                            <li><span>空調</span></li>
+                            <li><span>全面禁菸</span></li>
+                            <li><span>攜帶寵物</span></li>
+                        </ul>
+                    </div>
                 </div>
-               </section>
+                </section>
             </main>
-           
+        
         </section>
+        <script type="module" src="../js/webs.js"></script>
     </body>
 </html>

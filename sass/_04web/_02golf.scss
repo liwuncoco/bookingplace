@@ -1,75 +1,235 @@
-@use '../_01variable/01Var' as V;
-@use '../_02mixins/01Media' as Me;
-@use '../_02mixins/02WH' as WH;
-@use '../_02mixins/03Images' as Im;
-@use '../_02mixins/04Animation' as An;
+@use '../_01variable/01Var' as Var;
+@use '../_02mixins/01Media' as Rwd;
+@use '../_02mixins/02WH' as Wh;
+@use '../_02mixins/03Images' as Img;
+@use '../_02mixins//04Animation' as An;
 @use '../_02mixins/05Round' as Ro;
 
-@include Me.Rwd(xs) {
-    %PstXsWH {
-        @include WH.WH(10%, 10%);
+@include Rwd.Rwd(xs) {
+    %WHGo {
+        @include Wh.WH(10%, 10%);
     }
-    .bookingplace {
-        #Golfmain {
-            @extend %PstXsWH;
-            // 彈性佈局 - 設定框架順序位置
-            .GolfImg {
-                @extend %PstXsWH;
+    %WG100 {
+        @include Wh.W(10%);
+    }
+    %justifyAlignGo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    %ListNoneGo {
+        list-style-type: none;
+    }
+    #bookingplace {
+        > #webMain {
+            @extend %WHGo;
+            display: flex;
+            flex-wrap: wrap;
+            > .ImgBox {
+                @extend %WHGo;
+                order: 2;
                 position: relative;
-
-                #WebBanner {
-                    @extend %PstXsWH; 
-                    ul {
-                        @extend %PstXsWH;
-                        position: relative;
-                        li {
-                            @extend %PstXsWH;
+                > #webBanner {
+                    @extend %WHGo;
+                    > ul {
+                        @extend %WHGo;
+                        > li {
+                            @extend %WHGo;
                             position: absolute;
                             @include An.Opacity;
                             @include An.BannerRound;
                         }
-                        .I01 {
-                            @include Im.Images(no-repeat, center, cover, 0, photo, "001.jpg");
+                        > .I01 {
+                            @include Img.Images(no-repeat, center, cover, -9999px, btn, "001.jpg");
                         }
-                        .I02 {
-                            @include Im.Images(no-repeat, center, cover, 0, photo, "002.jpg");
+                        > .I02 {
+                            @include Img.Images(no-repeat, center, cover, -9999px, btn, "002.jpg");
                         }
-                        .I03 {
-                            @include Im.Images(no-repeat, center, cover, 0, photo, "003.jpg");
+                        > .I03 {
+                            @include Img.Images(no-repeat, center, cover, -9999px, btn, "003.jpg");
                         }
-                        .I04 {
-                            @include Im.Images(no-repeat, center, cover, 0, photo, "004.jpg");
+                        > .I04 {
+                            @include Img.Images(no-repeat, center, cover, -9999px, btn, "004.jpg");
                         }
-                        .I05 {
-                            @include Im.Images(no-repeat, center, cover, 0, photo, "005.jpg");
+                        > .I05 {
+                            @include Img.Images(no-repeat, center, cover, -9999px, btn, "005.jpg");
                         }
-                        @include An.BannerDelay;
+                    }
+                    @include An.BannerDelay;
+                }
+                > article {
+                    @include Wh.WH(10%, 8%);
+                    position: absolute;
+                    z-index: Var.$ZNum20;
+                    top: 0;
+                    margin-top: calc( Var.$HeaderH + 20px );
+
+                    > div {
+                        @include Wh.W(8%);
+                        font-size: 1rem * 1.05;
+                        > a {
+                            color: Var.$BrowmColor;
+                        }
+                    }
+
+                    > ul {
+                        @include Wh.WH(10%, 1.5%);
+                        position: absolute;
+                        bottom: 0;
+                        @extend %ListNoneGo;
+                        @extend %justifyAlignGo;
+                        flex-wrap: wrap;
+                        background-color: rgba(0, 0, 0, 0.3);
+                        > .Price {
+                            @extend %WG100;
+                            font-size: 1rem * 1.8;
+                            color: white;
+                            text-align: center;
+                        }
+                        > .Btn {
+                            color: white;
+                        }
                     }
                 }
-                article {
-                    @extend %PstXsWH;
-                    position: absolute;
-                    z-index: V.$InMainZindex;
-                    top: 0;
-                    color: white;
-                    > li {
-                        @include WH.H(calc(V.$HeaderH + 8px));
+            }
+
+            > .GolfText {
+                @extend %WG100;
+                order: 1;
+                > h1 {
+                    text-align: center;
+                    font-size: 1rem * 2.2;
+                }
+                > table {
+                    display: none;
+                    @include Wh.W(7%);
+                    > .title {
+                        font-size: 1rem * 1.1;
+                        color: Var.$BrowmColor;
+                        margin: {
+                            top: 3px;
+                            bottom: 3px;
+                        }
+                        border-bottom: 1px solid Var.$BrowmColor;   
+                    }
+                    > .NullTr {
+                        height: 10px;
+                    }
+                }
+
+                > .content {
+                    @include Wh.W(7%);
+                    > ul {
+                        @extend %ListNoneGo;
+                        margin: {
+                            top: 10px;
+                            bottom: 30px;
+                        }
+                        > .title {
+                            font-size: 1rem * 1.2;
+                        }
+                    }
+                    > .Poper {
                         display: flex;
-                        justify-content: center;
-                        align-items: flex-end;
-                        font-size: 1rem * 1.2;
+                        flex-wrap: wrap;
+
+                        > li {
+                            @include Wh.W(5%);
+                        }
+                    }
+                    > .facility {
+                        > ul {
+                            @extend %ListNoneGo;
+                            display: flex;
+                            flex-wrap: wrap;
+                            
+                        }
+                    }
+                }
+            }
+
+            > #SubForm {
+                @extend %WG100;
+                position: absolute;
+                z-index: Var.$ZNum50;
+                background-color: white;
+                display: flex;
+                flex-wrap: wrap;
+
+                > #golfform {
+                    @extend %WG100;
+                    order: 2;
+                }
+
+                > .content {
+                    @include Wh.W(9.5%);
+                    order: 1;
+                    display: flex;
+                    flex-wrap: wrap;
+                    @extend %ListNoneGo;
+
+                    > a {
+                        width: Var.$Awidth;
+                        order: 3;
+                        font-size: 1rem * 0.85;
+                        text-transform: uppercase;
+                        text-align: center;
+                        margin: {
+                            top: 10px;
+                            bottom: 10px;
+                        };
+                        color: Var.$DarkRed;
+                        
                     }
                     ul {
-                        $w: 5.5%;
-                        @include WH.W($w);
-                        position: absolute;
-                        bottom: 80px;
-                        margin-left: calc((100% - $w * 10) / 2);
-                        list-style-type: none;
-                        text-align: center;
+                        width: calc( (100% - Var.$Awidth) / 2 );
+                        @extend %ListNoneGo;
+                    }
+                    .Title {
+                        order: 1;
+                        margin: {
+                            top: 10px;
+                            bottom: 10px;
+                        };
+                        color: Var.$BrowmColor;
+                        h1 {
+                            text-align: center;
+                            font-size: 1rem * 1.2;
+                            // text-indent: Var.$Cabin;
+                        }
+                        li {
+                            text-align: center;
+                            font-size: 1rem * 0.85;
+                            text-transform: uppercase;
+                            // text-indent: Var.$Cabin;
+                        }
+                    }
+                    > .Line {
+                        order: 2;
+                        li {
+                            @extend %justifyAlignGo;
+                            font-size: 1rem * 2;
+                            text-indent: -9999px;
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+                        }
 
                     }
+
+                    > .TextContent {
+                        @include Wh.W(9%);
+                        order: 4;
+                        ul {
+                            @extend %WG100;
+                        }
+                        .Text {
+                            @extend %WG100;
+                            font-size: 1rem * 0.95;
+
+                        }
+                        
+                    }
                 }
+
             }
         }
     }

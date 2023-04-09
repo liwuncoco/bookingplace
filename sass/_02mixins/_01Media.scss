@@ -1,7 +1,5 @@
-// minix (混用)，可以在語法內寫入 css語法、計算方式或是判斷式；可以設定呼叫參數的方式
 @use '../_01variable/01Var' as V;
 
-// 媒體斷點判斷 @if @else if 
 @mixin Rwd($width) {
     @if $width == xs {
         @media screen and (min-width: V.$xs) {
@@ -35,16 +33,13 @@
     }
 }
 
-@mixin FloatBox() {
-    // 利用偽元素 ::after(之後) 來處理浮動問題
+@mixin FloatBox() {  
     .clearfix::after {
-        // 新增 content 空物件
         content: "";
-        // 顯示的方式:區塊
         display: block;
         clear: both;
     }
-    // 浮動語法 float ：會脫離原來的父框架
+
     header {
         width: Var.$Num10 * 4%;
         height: Var.$Num10 * 10%;
@@ -115,9 +110,7 @@
 }
 
 @mixin Clearfix() {
-    // 新增 content 空物件
     content: "";
-    // 顯示的方式:區塊
     display: block;
     clear: both;
 }
