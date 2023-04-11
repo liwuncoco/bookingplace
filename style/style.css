@@ -102,7 +102,7 @@ a {
     background: rgba(122, 122, 122, 0.5);
   }
   #bookingplace > #Banner ul .Images1 {
-    background-image: url(../../images/photo/005.jpg);
+    background-image: url(../../images/photo/005.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -110,7 +110,7 @@ a {
     background-color: bisque;
   }
   #bookingplace > #Banner ul .Images2 {
-    background-image: url(../../images/photo/004.jpg);
+    background-image: url(../../images/photo/004.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -118,7 +118,7 @@ a {
     background-color: rgb(249, 29, 29);
   }
   #bookingplace > #Banner ul .Images3 {
-    background-image: url(../../images/photo/003.jpg);
+    background-image: url(../../images/photo/003.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -126,7 +126,7 @@ a {
     background-color: rgb(227, 40, 130);
   }
   #bookingplace > #Banner ul .Images4 {
-    background-image: url(../../images/photo/002.jpg);
+    background-image: url(../../images/photo/002.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -134,7 +134,7 @@ a {
     background-color: rgb(20, 229, 51);
   }
   #bookingplace > #Banner ul .Images5 {
-    background-image: url(../../images/photo/001.jpg);
+    background-image: url(../../images/photo/001.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -180,7 +180,7 @@ a {
   #bookingplace > header #menu {
     width: 12%;
     height: 100%;
-    background-image: url(../../images/icon/list.svg);
+    background-image: url(../../images/icon/list.svg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -298,7 +298,7 @@ a {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
-    background-image: url(../../images/btn/001.jpg);
+    background-image: url(../../images/btn/001.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -308,7 +308,7 @@ a {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
-    background-image: url(../../images/btn/003.jpg);
+    background-image: url(../../images/btn/003.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -318,7 +318,7 @@ a {
     -webkit-box-ordinal-group: 5;
         -ms-flex-order: 4;
             order: 4;
-    background-image: url(../../images/btn/004.jpg);
+    background-image: url(../../images/btn/004.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -328,7 +328,7 @@ a {
     -webkit-box-ordinal-group: 6;
         -ms-flex-order: 5;
             order: 5;
-    background-image: url(../../images/btn/005.jpg);
+    background-image: url(../../images/btn/005.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -338,7 +338,7 @@ a {
     -webkit-box-ordinal-group: 7;
         -ms-flex-order: 6;
             order: 6;
-    background-image: url(../../images/btn/006.jpg);
+    background-image: url(../../images/btn/006.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -349,7 +349,7 @@ a {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
-    background-image: url(../../images/btn/002.jpg);
+    background-image: url(../../images/btn/002.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -532,7 +532,7 @@ a {
     width: 100%;
     height: 100%;
   }
-  #bookingplace > #webMain > #SubForm > .content > .TextContent .Text, #bookingplace > #webMain > #SubForm > .content > .TextContent ul, #bookingplace > #webMain > #SubForm > #golfform, #bookingplace > #webMain > #SubForm, #bookingplace > #webMain > .GolfText, #bookingplace > #webMain > .ImgBox > article > ul > .Price {
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .facility, #bookingplace > #webMain > #SubForm > .content > .TextContent > ul, #bookingplace > #webMain > #SubForm > #golfform, #bookingplace > #webMain > #SubForm, #bookingplace > #webMain > .GolfText, #bookingplace > #webMain > .ImgBox > article > ul > .Price {
     width: 100%;
   }
   #bookingplace > #webMain > #SubForm > .content > .Line li, #bookingplace > #webMain > .ImgBox > article > ul {
@@ -571,35 +571,35 @@ a {
     -webkit-animation: RoundAN 25s linear infinite;
   }
   #bookingplace > #webMain > .ImgBox > #webBanner > ul > .I01 {
-    background-image: url(../../images/btn/001.jpg);
+    background-image: url(../../images/btn/001.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: -9999px;
   }
   #bookingplace > #webMain > .ImgBox > #webBanner > ul > .I02 {
-    background-image: url(../../images/btn/002.jpg);
+    background-image: url(../../images/btn/002.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: -9999px;
   }
   #bookingplace > #webMain > .ImgBox > #webBanner > ul > .I03 {
-    background-image: url(../../images/btn/003.jpg);
+    background-image: url(../../images/btn/003.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: -9999px;
   }
   #bookingplace > #webMain > .ImgBox > #webBanner > ul > .I04 {
-    background-image: url(../../images/btn/004.jpg);
+    background-image: url(../../images/btn/004.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: -9999px;
   }
   #bookingplace > #webMain > .ImgBox > #webBanner > ul > .I05 {
-    background-image: url(../../images/btn/005.jpg);
+    background-image: url(../../images/btn/005.jpg?raw=true);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -786,7 +786,33 @@ a {
         -ms-flex-order: 4;
             order: 4;
   }
-  #bookingplace > #webMain > #SubForm > .content > .TextContent .Text {
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Text {
     font-size: 0.95rem;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .facility {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .facility > li {
+    width: 18.5%;
+    height: 60px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    background-color: red;
   }
 }

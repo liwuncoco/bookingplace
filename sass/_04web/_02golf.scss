@@ -218,15 +218,38 @@
                     > .TextContent {
                         @include Wh.W(9%);
                         order: 4;
-                        ul {
+                        > ul {
                             @extend %WG100;
                         }
-                        .Text {
-                            @extend %WG100;
+                        > .Text {
+                            // @extend %WG100;
                             font-size: 1rem * 0.95;
-
+                        }                     
+                        > .facility {
+                            @extend %WG100;
+                            display: flex;
+                            flex-wrap: wrap;
+                            margin: {
+                                top:10px;
+                                bottom: 10px;
+                            };
+                            > li {
+                                width: calc( ( 100% / 5) - 1.5% );
+                                height: 60px;
+                                margin: {
+                                    top:5px;
+                                    bottom: 5px;
+                                };
+                                font-size: 1rem * 0.8;
+                                display: flex;
+                                justify-content: center;
+                                align-items: flex-end;
+                                background-color: red;
+                            }
+                            // > li:last-child:nth-child(5n - 1){
+                            //     margin-right: calc( ( 36% + 4% ) / 4 );
+                            // }
                         }
-                        
                     }
                 }
 
