@@ -532,7 +532,7 @@ a {
     width: 100%;
     height: 100%;
   }
-  #bookingplace > #webMain > #SubForm > .content > .TextContent > .facility, #bookingplace > #webMain > #SubForm > .content > .TextContent > ul, #bookingplace > #webMain > #SubForm > #golfform, #bookingplace > #webMain > #SubForm, #bookingplace > #webMain > .GolfText, #bookingplace > #webMain > .ImgBox > article > ul > .Price {
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > ul, #bookingplace > #webMain > #SubForm > #golfform, #bookingplace > #webMain > #SubForm, #bookingplace > #webMain > .GolfText, #bookingplace > #webMain > .ImgBox > article > ul > .Price {
     width: 100%;
   }
   #bookingplace > #webMain > #SubForm > .content > .Line li, #bookingplace > #webMain > .ImgBox > article > ul {
@@ -790,19 +790,25 @@ a {
     font-size: 0.95rem;
   }
   #bookingplace > #webMain > #SubForm > .content > .TextContent > .facility {
+    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  #bookingplace > #webMain > #SubForm > .content > .TextContent > .facility > li {
-    width: 18.5%;
-    height: 60px;
     margin-top: 5px;
     margin-bottom: 5px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-column-gap: 13px;
+       -moz-column-gap: 13px;
+            column-gap: 13px;
+    row-gap: 5px;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .facility > li {
+    width: 60px;
+    height: 60px;
     font-size: 0.8rem;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -814,5 +820,12 @@ a {
         -ms-flex-align: end;
             align-items: flex-end;
     background-color: red;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .facility::after {
+    content: " ";
+    display: block;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
   }
 }
