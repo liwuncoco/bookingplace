@@ -532,10 +532,10 @@ a {
     width: 100%;
     height: 100%;
   }
-  #bookingplace > #webMain > #SubForm > .content > .TextContent > ul, #bookingplace > #webMain > #SubForm > #golfform, #bookingplace > #webMain > #SubForm, #bookingplace > #webMain > .GolfText, #bookingplace > #webMain > .ImgBox > article > ul > .Price {
+  #bookingplace > #webMain > #SubForm > #golfform, #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process, #bookingplace > #webMain > #SubForm > .content > .TextContent > ul, #bookingplace > #webMain > #SubForm, #bookingplace > #webMain > .GolfText, #bookingplace > #webMain > .ImgBox > article > ul > .Price {
     width: 100%;
   }
-  #bookingplace > #webMain > #SubForm > .content > .Line li, #bookingplace > #webMain > .ImgBox > article > ul {
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process > .Line > li, #bookingplace > #webMain > #SubForm > .content > .TextContent > .Room > .Line > li, #bookingplace > #webMain > #SubForm > .content > .Line li, #bookingplace > #webMain > .ImgBox > article > ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -546,7 +546,7 @@ a {
         -ms-flex-align: center;
             align-items: center;
   }
-  #bookingplace > #webMain > #SubForm > .content ul, #bookingplace > #webMain > #SubForm > .content, #bookingplace > #webMain > .GolfText > .content > .facility > ul, #bookingplace > #webMain > .GolfText > .content > ul, #bookingplace > #webMain > .ImgBox > article > ul {
+  #bookingplace > #webMain > #SubForm > #golfform > div, #bookingplace > #webMain > #SubForm > #golfform ul, #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process > div ul, #bookingplace > #webMain > #SubForm > .content > ul, #bookingplace > #webMain > #SubForm > .content, #bookingplace > #webMain > .GolfText > .content > .facility > ul, #bookingplace > #webMain > .GolfText > .content > ul, #bookingplace > #webMain > .ImgBox > article > ul {
     list-style-type: none;
   }
   #bookingplace > #webMain {
@@ -661,11 +661,13 @@ a {
   }
   #bookingplace > #webMain > .ImgBox > article > ul > .Btn {
     color: white;
+    font-size: 1.4rem;
   }
   #bookingplace > #webMain > .GolfText {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+    margin-top: 70px;
   }
   #bookingplace > #webMain > .GolfText > h1 {
     text-align: center;
@@ -716,22 +718,10 @@ a {
     position: absolute;
     z-index: 50;
     background-color: white;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  #bookingplace > #webMain > #SubForm > #golfform {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    display: none;
   }
   #bookingplace > #webMain > #SubForm > .content {
     width: 95%;
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -750,10 +740,10 @@ a {
     margin-bottom: 10px;
     color: rgb(178, 2, 2);
   }
-  #bookingplace > #webMain > #SubForm > .content ul {
+  #bookingplace > #webMain > #SubForm > .content > ul {
     width: 40%;
   }
-  #bookingplace > #webMain > #SubForm > .content .Title {
+  #bookingplace > #webMain > #SubForm > .content > .Title {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
@@ -761,11 +751,11 @@ a {
     margin-bottom: 10px;
     color: rgb(160, 75, 10);
   }
-  #bookingplace > #webMain > #SubForm > .content .Title h1 {
+  #bookingplace > #webMain > #SubForm > .content > .Title h1 {
     text-align: center;
     font-size: 1.2rem;
   }
-  #bookingplace > #webMain > #SubForm > .content .Title li {
+  #bookingplace > #webMain > #SubForm > .content > .Title li {
     text-align: center;
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -819,7 +809,7 @@ a {
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
-    background-color: red;
+    color: rgb(182, 182, 182);
   }
   #bookingplace > #webMain > #SubForm > .content > .TextContent > .facility::after {
     content: " ";
@@ -827,5 +817,151 @@ a {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Room {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-bottom: 25px;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Room > .Title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(160, 75, 10);
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Room > .Title h1 {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Room > .Title li {
+    text-align: center;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Room > .Line {
+    width: 70%;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Room > .Line > li {
+    font-size: 1.2rem;
+    text-indent: -9999px;
+    border-bottom: 1px solid rgba(102, 102, 102, 0.178);
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Room > ul {
+    text-align: justify;
+    letter-spacing: 1px;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Room > ul > li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 1.5rem;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process > .Title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(160, 75, 10);
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process > .Title h1 {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process > .Title li {
+    text-align: center;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process > .Line {
+    width: 70%;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process > .Line > li {
+    font-size: 1.2rem;
+    text-indent: -9999px;
+    border-bottom: 1px solid rgba(102, 102, 102, 0.178);
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process > div {
+    width: 80%;
+    text-align: center;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process .Information {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(33, 85, 189);
+    border-radius: 0 0 10px 10px;
+    -webkit-border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    -ms-border-radius: 0 0 10px 10px;
+    -o-border-radius: 0 0 10px 10px;
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process .Information .Image {
+    height: 50px;
+    background-color: rgb(33, 85, 189);
+  }
+  #bookingplace > #webMain > #SubForm > .content > .TextContent > .Process .Information .Text {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  #bookingplace > #webMain > #SubForm > #golfform {
+    color: white;
+    background-color: rgb(26, 67, 148);
+  }
+  #bookingplace > #webMain > #SubForm > #golfform > div, #bookingplace > #webMain > #SubForm > #golfform ul {
+    width: 85%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  #bookingplace > #webMain > #SubForm > #golfform > ul li {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+  #bookingplace > #webMain > #SubForm > #golfform > ul input {
+    width: 100%;
+    height: 35px;
+    text-indent: 20px;
+    font-size: 1.1rem;
+  }
+  #bookingplace > #webMain > #SubForm > #golfform > ul #Date {
+    border: 0;
+    color: rgb(47, 91, 180);
+    border-bottom: 1px solid rgb(47, 91, 180);
+    outline: none;
+    font-size: 0.9rem;
+    background-color: rgb(26, 67, 148);
+  }
+  #bookingplace > #webMain > #SubForm > #golfform > ul #SubmitBtn {
+    height: 45px;
+    text-indent: 0;
+    color: white;
+    border: 1px solid rgb(47, 91, 180);
+    background-color: transparent;
+  }
+  #bookingplace > #webMain > #SubForm > #golfform > .UserName::before, #bookingplace > #webMain > #SubForm > #golfform .Text::after {
+    content: " ";
+    display: block;
+    height: 20px;
+  }
+  #bookingplace > #webMain > #SubForm > #golfform > .Text {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-bottom: 0;
+  }
+  #bookingplace > #webMain > #SubForm > #golfform .Price li, #bookingplace > #webMain > #SubForm > #golfform .Price input {
+    text-align: right;
+  }
+  #bookingplace > #webMain > #SubForm > #golfform .Price input {
+    width: 95%;
+    font-size: 1.5rem;
+    color: white;
+    border: 0;
+    outline: none;
+    background-color: rgb(26, 67, 148);
   }
 }

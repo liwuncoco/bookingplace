@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" href="../../styles/style.min.css">
+        <link rel="stylesheet" type="text/css" href="../../styles/style.min.css">
         <title>享動空間運動場地預約 - 高爾夫</title>
     </head>
     <body>
@@ -61,8 +61,8 @@
                         <div>〈<a href="../index.htm">查看其他運動</a></div>
                         <ul>
                             <li class="Price">$500 / hr</li>
-                            <a href="javascript:;" class="Btn">
-                                <li >訂購表單</li>
+                            <a href="javascript:;" class="Btn" id="BtnGolf">
+                                <li >預定高爾夫</li>
                             </a>
                         </ul>
                     </article>
@@ -120,36 +120,8 @@
                 </div>
                 </section>
                 <section id="SubForm">
-                <form action="" id="golfform" name="golfform">
-                    <div class="UserName">
-                    <label for="Name"><li>姓名</li></label>
-                    <input type="text" name="" id="Name" maxlength="5" required placeholder="姓名">
-                   </div>
-                   <div class="TelNumber">
-                    <label for="TelNumber"><li>電話</li></label>
-                    <input type="tel" name="" id="TelNumber" maxlength="10" required placeholder="例如:0910123456">
-                </div>
-                   <div class="StartDate">
-                    <label for="StartDate"><li>開始時間</li></label>
-                    <input type="datetime-local" name="" id="StartDate">
-                   </div>
-                   <div class="EndDate">
-                    <label for="EndDate"><li>結束時間</li></label>
-                    <input type="datetime-local" name="" id="EndDate">
-                   </div>
-                   <li class="Date"><input type="text" name="" id="" value="請選擇日期" readonly></li>
-                   <div class="Price">
-                    <li>價格</li>
-                    <li><input type="text" name="" id="" value="$0" readonly></li>
-                   </div>
-                   <li>
-                    <!-- <input type="reset" value="清除資料"> -->
-                    <input type="submit" value="確認送出" id="SubmitBtn">
-                   </li>
-                   <li class="Text">此預約系統僅預約的功能，並不會對您進行收費</li>
-                </form>
-                <div class="content">
-                    <a href="javascript:;">close</a>
+                <div class="content" id="content">
+                    <a href="javascript:;" id="closeForm">close</a>
                     <ul class="Title">
                         <h1>預定高爾夫教室</h1>
                         <li>booking room</li>
@@ -172,8 +144,82 @@
                             <li><span>全面禁菸</span></li>
                             <li><span>攜帶寵物</span></li>
                         </ul>
+                        <div class="Room">
+                            <ul class="Title">
+                                <h1>預約資訊</h1>
+                            </ul>
+                            <ul class="Line">
+                                <li>line</li>
+                            </ul>
+                            <ul>
+                                <li>使用時間：可提前10分鐘進場；需準時離場</li>
+                                <li>預約當日不可取消</li>
+                                <li>平日定義週一至週四；假日定義為週五至週日</li>
+                            </ul>
+                        </div>
+                        <div class="Process">
+                            <ul class="Title">
+                                <h1>預約流程</h1>
+                            </ul>
+                            <ul class="Line">
+                                <li>line</li>
+                            </ul>
+                            <div class="Information">
+                                <div class="Image"></div>
+                                <ul class="Text">
+                                    <li>送出線上預約單</li>
+                                </ul>
+                            </div>
+                            <div class="Arrow">▼</div>
+                            <div class="Information">
+                                <div class="Image"></div>
+                                <ul class="Text">
+                                    <li>系統立即回覆是否預定成功</li>
+                                    <li>並以簡訊發送通知</li>
+                                    <li>(若未收到簡訊請來電確認)</li>
+                                </ul>
+                            </div>
+                            <div class="Arrow">▼</div>
+                            <div class="Information">
+                                <div class="Image"></div>
+                                <ul class="Text">
+                                    <li>入住當日憑簡訊通知</li>
+                                    <li>以現金或是刷卡付款即可</li>
+                                    <li>(僅接受VISA、JCB、銀聯卡)</li>
+                                </ul>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
+                <form action="" id="golfform" name="golfform">
+                    <ul class="UserName">
+                    <label for="Name"><li>姓名</li></label>
+                    <input type="text" name="" id="Name" maxlength="5" required placeholder="姓名">
+                    </ul>
+                   <ul class="TelNumber">
+                    <label for="TelNumber"><li>電話</li></label>
+                    <input type="tel" name="" id="TelNumber" maxlength="10" required placeholder="例如:0910123456">
+                   </ul>
+                   <ul class="StartDate">
+                    <label for="StartDate"><li>開始時間</li></label>
+                    <input type="datetime-local" name="" id="StartDate">
+                   </ul>
+                   <ul class="EndDate">
+                    <label for="EndDate"><li>結束時間</li></label>
+                    <input type="datetime-local" name="" id="EndDate">
+                   </ul>
+                   <ul class="Date"><input type="text" name="" id="Date" value="請選擇日期" readonly></ul>
+                   <ul class="Price">
+                    <li>總計</li>
+                    <li><input type="text" name="" id="" value="$0" readonly></li>
+                   </ul>
+                   <ul>
+                    <!-- <input type="reset" value="清除資料"> -->
+                    <input type="submit" value="確認送出" id="SubmitBtn">
+                   </ul>
+                   <ul class="Text">此預約系統僅有預約功能，並不會對您進行收費</ul>
+                </form>
                 </section>
             </main>
         

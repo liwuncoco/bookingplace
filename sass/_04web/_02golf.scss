@@ -88,6 +88,7 @@
                         }
                         > .Btn {
                             color: white;
+                            font-size: 1rem * 1.4;
                         }
                     }
                 }
@@ -96,6 +97,7 @@
             > .GolfText {
                 @extend %WG100;
                 order: 1;
+                margin-top: 70px;
                 > h1 {
                     text-align: center;
                     font-size: 1rem * 2.2;
@@ -153,17 +155,9 @@
                 position: absolute;
                 z-index: Var.$ZNum50;
                 background-color: white;
-                display: flex;
-                flex-wrap: wrap;
-
-                > #golfform {
-                    @extend %WG100;
-                    order: 2;
-                }
-
+                display: none;
                 > .content {
                     @include Wh.W(9.5%);
-                    order: 1;
                     display: flex;
                     flex-wrap: wrap;
                     @extend %ListNoneGo;
@@ -181,11 +175,11 @@
                         color: Var.$DarkRed;
                         
                     }
-                    ul {
+                    > ul {
                         width: calc( (100% - Var.$Awidth) / 2 );
                         @extend %ListNoneGo;
                     }
-                    .Title {
+                    > .Title {
                         order: 1;
                         margin: {
                             top: 10px;
@@ -246,7 +240,7 @@
                                 display: flex;
                                 justify-content: center;
                                 align-items: flex-end;
-                                background-color: red;
+                                color: rgb(182, 182, 182);
                             }
                         }
                         > .facility::after {
@@ -254,9 +248,174 @@
                             display: block;
                             flex: 1;
                         }
+                        > .Room {
+                            @include Wh.W(10%);
+                            display: flex;
+                            flex-wrap: wrap;
+                            margin-bottom: 25px;
+                            > .Title {
+                                margin: {
+                                    top: 10px;
+                                    bottom: 10px;
+                                };
+                                color: Var.$BrowmColor;
+                                h1 {
+                                    text-align: center;
+                                    font-size: 1rem * 1.2;
+                                }
+                                li {
+                                    text-align: center;
+                                    font-size: 1rem * 0.85;
+                                    text-transform: uppercase;
+                                }
+                            }
+                            > .Line {
+                                width: 70%;
+                                > li {
+                                    @extend %justifyAlignGo;
+                                    font-size: 1rem * 1.2;
+                                    text-indent: -9999px;
+                                    border-bottom: 1px solid rgba(102, 102, 102, 0.178);
+                                }
+                            }
+                            > ul {
+                                text-align: justify;
+                                letter-spacing: 1px;
+                                > li {
+                                    margin: {
+                                        top: 5px;
+                                        bottom: 5px;
+                                    };
+                                    line-height: 1rem  * 1.5;
+                                }
+
+                            }
+                        }
+                        > .Process {
+                            @extend %WG100;
+                            display: flex;
+                            flex-wrap: wrap;
+                            > .Title {
+                                margin: {
+                                    top: 10px;
+                                    bottom: 10px;
+                                };
+                                color: Var.$BrowmColor;
+                                h1 {
+                                    text-align: center;
+                                    font-size: 1rem * 1.2;
+                                }
+                                li {
+                                    text-align: center;
+                                    font-size: 1rem * 0.85;
+                                    text-transform: uppercase;
+                                }
+                            }
+                            > .Line {
+                                width: 70%;
+                                > li {
+                                    @extend %justifyAlignGo;
+                                    font-size: 1rem * 1.2;
+                                    text-indent: -9999px;
+                                    border-bottom: 1px solid rgba(102, 102, 102, 0.178);
+                                }
+                            }
+                            > div {
+                                @include Wh.W(8%);
+                                text-align: center;
+                                ul {
+                                    @extend %ListNoneGo;                         
+                                }
+                            }
+                            .Information {
+                                margin: {
+                                    top: 10px;
+                                    bottom: 10px;
+                                };
+                                border: 1px solid Var.$BlueColor;
+                                @include Ro.RoundAll(0, 0, 10px, 10px);
+                                .Image {
+                                    height: 50px;
+                                    background-color: Var.$BlueColor;
+                                }
+                                .Text {
+                                    margin: {
+                                        top: 15px;
+                                        bottom: 15px;
+                                    };
+                                }
+                            }
+                        }
                     }
                 }
-
+                > #golfform {
+                    @extend %WG100;
+                    color: white;
+                    background-color: Var.$BlueColor2;
+                    > div,ul {
+                        @include Wh.W(8.5%);
+                        @extend %ListNoneGo;
+                        margin: {
+                            top: 15px;
+                            bottom: 15px;
+                        };
+                    }
+                    > ul {
+                        li {
+                            font-size: 1rem * 0.9;
+                            margin-bottom: 5px;
+                        }
+                        input {
+                            @include Wh.WH(10%, 3.5px);
+                            text-indent: 20px;
+                            font-size: 1rem * 1.1;
+                        }
+                        #Date {
+                            // 框限為0
+                            border: 0;
+                            // 文字
+                            color: Var.$BlueColor3;
+                            // 下框線
+                            border-bottom: 1px solid Var.$BlueColor3;
+                            // 外框線
+                            outline: none;
+                            // 文字尺寸
+                            font-size: 1rem * 0.9;
+                            // 背景透明
+                            background-color: Var.$BlueColor2;
+                        }
+                        #SubmitBtn {
+                            height: 45px;
+                            text-indent: 0;
+                            color: white;
+                            border: 1px solid Var.$BlueColor3;
+                            background-color:transparent;
+                        }
+                    }
+                    > .UserName::before, .Text::after {
+                        content: " ";
+                        display: block;
+                        height: 20px;
+                    }
+                    > .Text{
+                        text-align: center;
+                        font-size: 1rem * 0.85;
+                        margin-bottom: 0;
+                    }
+                    .Price {
+                        li, input {
+                            text-align: right;
+                        }
+                        input {
+                            @include Wh.W(9.5%);
+                            font-size: 1rem * 1.5; 
+                            color: white;                           
+                            border: 0;
+                            outline: none;
+                            background-color: Var.$BlueColor2;
+                        }
+                    }
+                }
             }
         }
     }
