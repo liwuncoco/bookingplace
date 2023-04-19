@@ -51,23 +51,23 @@
                 }
                 .Images1 {
                     @include Img.Images(no-repeat, center, cover, 0, photo, "005.jpg");
-                    background-color: bisque;
+                    // background-color: bisque;
                 }
                 .Images2 {
                     @include Img.Images(no-repeat, center, cover, 0, photo, "004.jpg");
-                    background-color: rgb(249, 29, 29);
+                    // background-color: rgb(249, 29, 29);
                 }
                 .Images3 {
                     @include Img.Images(no-repeat, center, cover, 0, photo, "003.jpg");
-                    background-color: rgb(227, 40, 130);
+                    // background-color: rgb(227, 40, 130);
                 }
                 .Images4 {
                     @include Img.Images(no-repeat, center, cover, 0, photo, "002.jpg");
-                    background-color: rgb(20, 229, 51);
+                    // background-color: rgb(20, 229, 51);
                 }
                 .Images5 {
                     @include Img.Images(no-repeat, center, cover, 0, photo, "001.jpg");
-                    background-color: rgb(18, 92, 222);
+                    // background-color: rgb(18, 92, 222);
                 }
                 @include An.BannerDelay;
             }

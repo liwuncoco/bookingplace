@@ -102,44 +102,39 @@ a {
     background: rgba(122, 122, 122, 0.5);
   }
   #bookingplace > #Banner ul .Images1 {
-    background-image: url(../../images/photo/005.jpg?raw=true);
+    background-image: url(../../images/photo/005.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: 0;
-    background-color: bisque;
   }
   #bookingplace > #Banner ul .Images2 {
-    background-image: url(../../images/photo/004.jpg?raw=true);
+    background-image: url(../../images/photo/004.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: 0;
-    background-color: rgb(249, 29, 29);
   }
   #bookingplace > #Banner ul .Images3 {
-    background-image: url(../../images/photo/003.jpg?raw=true);
+    background-image: url(../../images/photo/003.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: 0;
-    background-color: rgb(227, 40, 130);
   }
   #bookingplace > #Banner ul .Images4 {
-    background-image: url(../../images/photo/002.jpg?raw=true);
+    background-image: url(../../images/photo/002.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: 0;
-    background-color: rgb(20, 229, 51);
   }
   #bookingplace > #Banner ul .Images5 {
-    background-image: url(../../images/photo/001.jpg?raw=true);
+    background-image: url(../../images/photo/001.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: 0;
-    background-color: rgb(18, 92, 222);
   }
   #bookingplace > #Banner ul li:nth-child(5) {
     -webkit-animation-delay: 0s;
@@ -180,7 +175,7 @@ a {
   #bookingplace > header #menu {
     width: 12%;
     height: 100%;
-    background-image: url(../../images/icon/list.svg?raw=true);
+    background-image: url(../../images/icon/list.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -298,7 +293,7 @@ a {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
-    background-image: url(../../images/btn/001.jpg?raw=true);
+    background-image: url(../../images/btn/001.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -308,7 +303,7 @@ a {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
-    background-image: url(../../images/btn/003.jpg?raw=true);
+    background-image: url(../../images/btn/003.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -318,7 +313,7 @@ a {
     -webkit-box-ordinal-group: 5;
         -ms-flex-order: 4;
             order: 4;
-    background-image: url(../../images/btn/004.jpg?raw=true);
+    background-image: url(../../images/btn/004.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -328,7 +323,7 @@ a {
     -webkit-box-ordinal-group: 6;
         -ms-flex-order: 5;
             order: 5;
-    background-image: url(../../images/btn/005.jpg?raw=true);
+    background-image: url(../../images/btn/005.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -338,7 +333,7 @@ a {
     -webkit-box-ordinal-group: 7;
         -ms-flex-order: 6;
             order: 6;
-    background-image: url(../../images/btn/006.jpg?raw=true);
+    background-image: url(../../images/btn/006.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -349,7 +344,7 @@ a {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
-    background-image: url(../../images/btn/002.jpg?raw=true);
+    background-image: url(../../images/btn/002.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -571,35 +566,35 @@ a {
     -webkit-animation: RoundAN 25s linear infinite;
   }
   #bookingplace > #webMain > .ImgBox > #webBanner > ul > .I01 {
-    background-image: url(../../images/btn/001.jpg?raw=true);
+    background-image: url(../../images/btn/001.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: -9999px;
   }
   #bookingplace > #webMain > .ImgBox > #webBanner > ul > .I02 {
-    background-image: url(../../images/btn/002.jpg?raw=true);
+    background-image: url(../../images/btn/002.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: -9999px;
   }
   #bookingplace > #webMain > .ImgBox > #webBanner > ul > .I03 {
-    background-image: url(../../images/btn/003.jpg?raw=true);
+    background-image: url(../../images/btn/003.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: -9999px;
   }
   #bookingplace > #webMain > .ImgBox > #webBanner > ul > .I04 {
-    background-image: url(../../images/btn/004.jpg?raw=true);
+    background-image: url(../../images/btn/004.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-indent: -9999px;
   }
   #bookingplace > #webMain > .ImgBox > #webBanner > ul > .I05 {
-    background-image: url(../../images/btn/005.jpg?raw=true);
+    background-image: url(../../images/btn/005.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
