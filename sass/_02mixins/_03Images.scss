@@ -6,7 +6,7 @@
     // 3. 背景圖片的對齊 (定位點 X Y - 水平垂直置中)
     // 4. 位移文字(首行縮排 - 單行文字 或者 段落文字的第一行)
     // 5. 圖片尺寸設定(預設值：自動) cover (滿版覆蓋框架尺寸) contain (留白) | 各別設定 x y 的值(例如： background-size: 50% 30%) | 單位：px %
-    background-image: url(../../images/#{$Fo}/#{$Name});
+    background-image: url(../images/#{$Fo}/#{$Name});
     background-repeat: $Re;
     background-position: $Po;
     background-size: $Si;
